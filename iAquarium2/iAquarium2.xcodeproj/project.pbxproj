@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10933ED7243F8F020099FA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933ED6243F8F020099FA82 /* AppDelegate.swift */; };
+		10933ED9243F8F020099FA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933ED8243F8F020099FA82 /* SceneDelegate.swift */; };
+		10933EDB243F8F020099FA82 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EDA243F8F020099FA82 /* FirstViewController.swift */; };
+		10933EDD243F8F020099FA82 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EDC243F8F020099FA82 /* SecondViewController.swift */; };
+		10933EE0243F8F020099FA82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10933EDE243F8F020099FA82 /* Main.storyboard */; };
+		10933EE3243F8F020099FA82 /* iAquarium2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10933EE1243F8F020099FA82 /* iAquarium2.xcdatamodeld */; };
+		10933EE5243F8F040099FA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10933EE4243F8F040099FA82 /* Assets.xcassets */; };
+		10933EE8243F8F040099FA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10933EE6243F8F040099FA82 /* LaunchScreen.storyboard */; };
+		10933EF3243F8F040099FA82 /* iAquarium2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EF2243F8F040099FA82 /* iAquarium2Tests.swift */; };
+		10933EFE243F8F040099FA82 /* iAquarium2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EFD243F8F040099FA82 /* iAquarium2UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10933EEF243F8F040099FA82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10933ECB243F8F020099FA82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10933ED2243F8F020099FA82;
+			remoteInfo = iAquarium2;
+		};
+		10933EFA243F8F040099FA82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10933ECB243F8F020099FA82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10933ED2243F8F020099FA82;
+			remoteInfo = iAquarium2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10933ED3243F8F020099FA82 /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10933ED6243F8F020099FA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10933ED8243F8F020099FA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		10933EDA243F8F020099FA82 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		10933EDC243F8F020099FA82 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		10933EDF243F8F020099FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		10933EE2243F8F020099FA82 /* iAquarium2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iAquarium2.xcdatamodel; sourceTree = "<group>"; };
+		10933EE4243F8F040099FA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10933EE7243F8F040099FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10933EE9243F8F040099FA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10933EEE243F8F040099FA82 /* iAquarium2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAquarium2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10933EF2243F8F040099FA82 /* iAquarium2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAquarium2Tests.swift; sourceTree = "<group>"; };
+		10933EF4243F8F040099FA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10933EF9243F8F040099FA82 /* iAquarium2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAquarium2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10933EFD243F8F040099FA82 /* iAquarium2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAquarium2UITests.swift; sourceTree = "<group>"; };
+		10933EFF243F8F040099FA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10933ED0243F8F020099FA82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10933EEB243F8F040099FA82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10933EF6243F8F040099FA82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10933ECA243F8F020099FA82 = {
+			isa = PBXGroup;
+			children = (
+				10933ED5243F8F020099FA82 /* iAquarium2 */,
+				10933EF1243F8F040099FA82 /* iAquarium2Tests */,
+				10933EFC243F8F040099FA82 /* iAquarium2UITests */,
+				10933ED4243F8F020099FA82 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10933ED4243F8F020099FA82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10933ED3243F8F020099FA82 /* iAquarium2.app */,
+				10933EEE243F8F040099FA82 /* iAquarium2Tests.xctest */,
+				10933EF9243F8F040099FA82 /* iAquarium2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10933ED5243F8F020099FA82 /* iAquarium2 */ = {
+			isa = PBXGroup;
+			children = (
+				10933ED6243F8F020099FA82 /* AppDelegate.swift */,
+				10933ED8243F8F020099FA82 /* SceneDelegate.swift */,
+				10933EDA243F8F020099FA82 /* FirstViewController.swift */,
+				10933EDC243F8F020099FA82 /* SecondViewController.swift */,
+				10933EDE243F8F020099FA82 /* Main.storyboard */,
+				10933EE4243F8F040099FA82 /* Assets.xcassets */,
+				10933EE6243F8F040099FA82 /* LaunchScreen.storyboard */,
+				10933EE9243F8F040099FA82 /* Info.plist */,
+				10933EE1243F8F020099FA82 /* iAquarium2.xcdatamodeld */,
+			);
+			path = iAquarium2;
+			sourceTree = "<group>";
+		};
+		10933EF1243F8F040099FA82 /* iAquarium2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				10933EF2243F8F040099FA82 /* iAquarium2Tests.swift */,
+				10933EF4243F8F040099FA82 /* Info.plist */,
+			);
+			path = iAquarium2Tests;
+			sourceTree = "<group>";
+		};
+		10933EFC243F8F040099FA82 /* iAquarium2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				10933EFD243F8F040099FA82 /* iAquarium2UITests.swift */,
+				10933EFF243F8F040099FA82 /* Info.plist */,
+			);
+			path = iAquarium2UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10933ED2243F8F020099FA82 /* iAquarium2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10933F02243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2" */;
+			buildPhases = (
+				10933ECF243F8F020099FA82 /* Sources */,
+				10933ED0243F8F020099FA82 /* Frameworks */,
+				10933ED1243F8F020099FA82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iAquarium2;
+			productName = iAquarium2;
+			productReference = 10933ED3243F8F020099FA82 /* iAquarium2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		10933EED243F8F040099FA82 /* iAquarium2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10933F05243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2Tests" */;
+			buildPhases = (
+				10933EEA243F8F040099FA82 /* Sources */,
+				10933EEB243F8F040099FA82 /* Frameworks */,
+				10933EEC243F8F040099FA82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10933EF0243F8F040099FA82 /* PBXTargetDependency */,
+			);
+			name = iAquarium2Tests;
+			productName = iAquarium2Tests;
+			productReference = 10933EEE243F8F040099FA82 /* iAquarium2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		10933EF8243F8F040099FA82 /* iAquarium2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10933F08243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2UITests" */;
+			buildPhases = (
+				10933EF5243F8F040099FA82 /* Sources */,
+				10933EF6243F8F040099FA82 /* Frameworks */,
+				10933EF7243F8F040099FA82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10933EFB243F8F040099FA82 /* PBXTargetDependency */,
+			);
+			name = iAquarium2UITests;
+			productName = iAquarium2UITests;
+			productReference = 10933EF9243F8F040099FA82 /* iAquarium2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10933ECB243F8F020099FA82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Maciej Zajecki";
+				TargetAttributes = {
+					10933ED2243F8F020099FA82 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					10933EED243F8F040099FA82 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 10933ED2243F8F020099FA82;
+					};
+					10933EF8243F8F040099FA82 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 10933ED2243F8F020099FA82;
+					};
+				};
+			};
+			buildConfigurationList = 10933ECE243F8F020099FA82 /* Build configuration list for PBXProject "iAquarium2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10933ECA243F8F020099FA82;
+			productRefGroup = 10933ED4243F8F020099FA82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10933ED2243F8F020099FA82 /* iAquarium2 */,
+				10933EED243F8F040099FA82 /* iAquarium2Tests */,
+				10933EF8243F8F040099FA82 /* iAquarium2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10933ED1243F8F020099FA82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10933EE8243F8F040099FA82 /* LaunchScreen.storyboard in Resources */,
+				10933EE5243F8F040099FA82 /* Assets.xcassets in Resources */,
+				10933EE0243F8F020099FA82 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10933EEC243F8F040099FA82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10933EF7243F8F040099FA82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10933ECF243F8F020099FA82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10933EE3243F8F020099FA82 /* iAquarium2.xcdatamodeld in Sources */,
+				10933EDD243F8F020099FA82 /* SecondViewController.swift in Sources */,
+				10933EDB243F8F020099FA82 /* FirstViewController.swift in Sources */,
+				10933ED7243F8F020099FA82 /* AppDelegate.swift in Sources */,
+				10933ED9243F8F020099FA82 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10933EEA243F8F040099FA82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10933EF3243F8F040099FA82 /* iAquarium2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10933EF5243F8F040099FA82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10933EFE243F8F040099FA82 /* iAquarium2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10933EF0243F8F040099FA82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10933ED2243F8F020099FA82 /* iAquarium2 */;
+			targetProxy = 10933EEF243F8F040099FA82 /* PBXContainerItemProxy */;
+		};
+		10933EFB243F8F040099FA82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10933ED2243F8F020099FA82 /* iAquarium2 */;
+			targetProxy = 10933EFA243F8F040099FA82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		10933EDE243F8F020099FA82 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10933EDF243F8F020099FA82 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		10933EE6243F8F040099FA82 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10933EE7243F8F040099FA82 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10933F00243F8F040099FA82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		10933F01243F8F040099FA82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10933F03243F8F040099FA82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iAquarium2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		10933F04243F8F040099FA82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iAquarium2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		10933F06243F8F040099FA82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iAquarium2Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAquarium2.app/iAquarium2";
+			};
+			name = Debug;
+		};
+		10933F07243F8F040099FA82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iAquarium2Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAquarium2.app/iAquarium2";
+			};
+			name = Release;
+		};
+		10933F09243F8F040099FA82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iAquarium2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iAquarium2;
+			};
+			name = Debug;
+		};
+		10933F0A243F8F040099FA82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iAquarium2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iAquarium2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10933ECE243F8F020099FA82 /* Build configuration list for PBXProject "iAquarium2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10933F00243F8F040099FA82 /* Debug */,
+				10933F01243F8F040099FA82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10933F02243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10933F03243F8F040099FA82 /* Debug */,
+				10933F04243F8F040099FA82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10933F05243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10933F06243F8F040099FA82 /* Debug */,
+				10933F07243F8F040099FA82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10933F08243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10933F09243F8F040099FA82 /* Debug */,
+				10933F0A243F8F040099FA82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		10933EE1243F8F020099FA82 /* iAquarium2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				10933EE2243F8F020099FA82 /* iAquarium2.xcdatamodel */,
+			);
+			currentVersion = 10933EE2243F8F020099FA82 /* iAquarium2.xcdatamodel */;
+			path = iAquarium2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 10933ECB243F8F020099FA82 /* Project object */;
+}
