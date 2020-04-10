@@ -16,7 +16,7 @@ class TankSelectVC: UIViewController {
     }
     
     @IBAction func unwindToTankSelect(sender: UIStoryboardSegue) {
-        if sender.source is AddTankVC {
+        if let sourceVC = sender.source as? AddTankVC, let tank = sourceVC.newTank {
             
         }
     }
