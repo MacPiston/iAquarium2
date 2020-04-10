@@ -3,147 +3,200 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10933ED7243F8F020099FA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933ED6243F8F020099FA82 /* AppDelegate.swift */; };
-		10933ED9243F8F020099FA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933ED8243F8F020099FA82 /* SceneDelegate.swift */; };
-		10933EDB243F8F020099FA82 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EDA243F8F020099FA82 /* FirstViewController.swift */; };
-		10933EDD243F8F020099FA82 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EDC243F8F020099FA82 /* SecondViewController.swift */; };
-		10933EE0243F8F020099FA82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10933EDE243F8F020099FA82 /* Main.storyboard */; };
-		10933EE3243F8F020099FA82 /* iAquarium2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10933EE1243F8F020099FA82 /* iAquarium2.xcdatamodeld */; };
-		10933EE5243F8F040099FA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10933EE4243F8F040099FA82 /* Assets.xcassets */; };
-		10933EE8243F8F040099FA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10933EE6243F8F040099FA82 /* LaunchScreen.storyboard */; };
-		10933EF3243F8F040099FA82 /* iAquarium2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EF2243F8F040099FA82 /* iAquarium2Tests.swift */; };
-		10933EFE243F8F040099FA82 /* iAquarium2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10933EFD243F8F040099FA82 /* iAquarium2UITests.swift */; };
+		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
+		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
+		10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8A24407BFC0069735D /* TankSelectVC.swift */; };
+		10F61C8D24407BFC0069735D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8C24407BFC0069735D /* SecondViewController.swift */; };
+		10F61C9024407BFC0069735D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C8E24407BFC0069735D /* Main.storyboard */; };
+		10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */; };
+		10F61C9524407C010069735D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9424407C010069735D /* Assets.xcassets */; };
+		10F61C9824407C010069735D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9624407C010069735D /* LaunchScreen.storyboard */; };
+		10F61CA324407C010069735D /* iAquarium2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CA224407C010069735D /* iAquarium2Tests.swift */; };
+		10F61CAE24407C010069735D /* iAquarium2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CAD24407C010069735D /* iAquarium2UITests.swift */; };
+		10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CBC24407FF70069735D /* AddTankVC.swift */; };
+		4B1FE708DD4A68D14763FD51 /* Pods_iAquarium2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77A1553904A0C3CFAF18810 /* Pods_iAquarium2Tests.framework */; };
+		785EEF6A6363FCBF6BD17AC0 /* Pods_iAquarium2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D1AD2CE3F86632FED0B9C /* Pods_iAquarium2.framework */; };
+		9D79B02AC7E21F187E90F528 /* Pods_iAquarium2_iAquarium2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF569215E2D8823BCB13E9F /* Pods_iAquarium2_iAquarium2UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		10933EEF243F8F040099FA82 /* PBXContainerItemProxy */ = {
+		10F61C9F24407C010069735D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 10933ECB243F8F020099FA82 /* Project object */;
+			containerPortal = 10F61C7B24407BFB0069735D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10933ED2243F8F020099FA82;
+			remoteGlobalIDString = 10F61C8224407BFB0069735D;
 			remoteInfo = iAquarium2;
 		};
-		10933EFA243F8F040099FA82 /* PBXContainerItemProxy */ = {
+		10F61CAA24407C010069735D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 10933ECB243F8F020099FA82 /* Project object */;
+			containerPortal = 10F61C7B24407BFB0069735D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10933ED2243F8F020099FA82;
+			remoteGlobalIDString = 10F61C8224407BFB0069735D;
 			remoteInfo = iAquarium2;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10933ED3243F8F020099FA82 /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		10933ED6243F8F020099FA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10933ED8243F8F020099FA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		10933EDA243F8F020099FA82 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		10933EDC243F8F020099FA82 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		10933EDF243F8F020099FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		10933EE2243F8F020099FA82 /* iAquarium2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iAquarium2.xcdatamodel; sourceTree = "<group>"; };
-		10933EE4243F8F040099FA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		10933EE7243F8F040099FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		10933EE9243F8F040099FA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10933EEE243F8F040099FA82 /* iAquarium2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAquarium2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10933EF2243F8F040099FA82 /* iAquarium2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAquarium2Tests.swift; sourceTree = "<group>"; };
-		10933EF4243F8F040099FA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10933EF9243F8F040099FA82 /* iAquarium2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAquarium2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10933EFD243F8F040099FA82 /* iAquarium2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAquarium2UITests.swift; sourceTree = "<group>"; };
-		10933EFF243F8F040099FA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10F61C8824407BFC0069735D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		10F61C8A24407BFC0069735D /* TankSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankSelectVC.swift; sourceTree = "<group>"; };
+		10F61C8C24407BFC0069735D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		10F61C8F24407BFC0069735D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		10F61C9224407BFC0069735D /* iAquarium2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iAquarium2.xcdatamodel; sourceTree = "<group>"; };
+		10F61C9424407C010069735D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10F61C9724407C010069735D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10F61C9924407C010069735D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10F61C9E24407C010069735D /* iAquarium2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAquarium2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F61CA224407C010069735D /* iAquarium2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAquarium2Tests.swift; sourceTree = "<group>"; };
+		10F61CA424407C010069735D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10F61CA924407C010069735D /* iAquarium2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAquarium2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F61CAD24407C010069735D /* iAquarium2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAquarium2UITests.swift; sourceTree = "<group>"; };
+		10F61CAF24407C010069735D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10F61CBC24407FF70069735D /* AddTankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTankVC.swift; sourceTree = "<group>"; };
+		283D1AD2CE3F86632FED0B9C /* Pods_iAquarium2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iAquarium2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42E085CF957C1D303119B0EA /* Pods-iAquarium2-iAquarium2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2-iAquarium2UITests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2-iAquarium2UITests/Pods-iAquarium2-iAquarium2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		84051ED79CF1804CDB59895F /* Pods-iAquarium2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.release.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A8C7E4544D6E058E967D80CE /* Pods-iAquarium2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2.release.xcconfig"; path = "Target Support Files/Pods-iAquarium2/Pods-iAquarium2.release.xcconfig"; sourceTree = "<group>"; };
+		ADF569215E2D8823BCB13E9F /* Pods_iAquarium2_iAquarium2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iAquarium2_iAquarium2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9C1097B00ADE1F820A3070F /* Pods-iAquarium2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2/Pods-iAquarium2.debug.xcconfig"; sourceTree = "<group>"; };
+		DD146B4ED70C4A5D85A81E16 /* Pods-iAquarium2-iAquarium2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2-iAquarium2UITests.release.xcconfig"; path = "Target Support Files/Pods-iAquarium2-iAquarium2UITests/Pods-iAquarium2-iAquarium2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		E77A1553904A0C3CFAF18810 /* Pods_iAquarium2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iAquarium2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		10933ED0243F8F020099FA82 /* Frameworks */ = {
+		10F61C8024407BFB0069735D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785EEF6A6363FCBF6BD17AC0 /* Pods_iAquarium2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10933EEB243F8F040099FA82 /* Frameworks */ = {
+		10F61C9B24407C010069735D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B1FE708DD4A68D14763FD51 /* Pods_iAquarium2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10933EF6243F8F040099FA82 /* Frameworks */ = {
+		10F61CA624407C010069735D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D79B02AC7E21F187E90F528 /* Pods_iAquarium2_iAquarium2UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10933ECA243F8F020099FA82 = {
+		10F61C7A24407BFB0069735D = {
 			isa = PBXGroup;
 			children = (
-				10933ED5243F8F020099FA82 /* iAquarium2 */,
-				10933EF1243F8F040099FA82 /* iAquarium2Tests */,
-				10933EFC243F8F040099FA82 /* iAquarium2UITests */,
-				10933ED4243F8F020099FA82 /* Products */,
+				10F61C8524407BFC0069735D /* iAquarium2 */,
+				10F61CA124407C010069735D /* iAquarium2Tests */,
+				10F61CAC24407C010069735D /* iAquarium2UITests */,
+				10F61C8424407BFC0069735D /* Products */,
+				797784C4A1E6E0DA1706B16C /* Pods */,
+				653D69C90A2A3501B9099041 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		10933ED4243F8F020099FA82 /* Products */ = {
+		10F61C8424407BFC0069735D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10933ED3243F8F020099FA82 /* iAquarium2.app */,
-				10933EEE243F8F040099FA82 /* iAquarium2Tests.xctest */,
-				10933EF9243F8F040099FA82 /* iAquarium2UITests.xctest */,
+				10F61C8324407BFC0069735D /* iAquarium2.app */,
+				10F61C9E24407C010069735D /* iAquarium2Tests.xctest */,
+				10F61CA924407C010069735D /* iAquarium2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		10933ED5243F8F020099FA82 /* iAquarium2 */ = {
+		10F61C8524407BFC0069735D /* iAquarium2 */ = {
 			isa = PBXGroup;
 			children = (
-				10933ED6243F8F020099FA82 /* AppDelegate.swift */,
-				10933ED8243F8F020099FA82 /* SceneDelegate.swift */,
-				10933EDA243F8F020099FA82 /* FirstViewController.swift */,
-				10933EDC243F8F020099FA82 /* SecondViewController.swift */,
-				10933EDE243F8F020099FA82 /* Main.storyboard */,
-				10933EE4243F8F040099FA82 /* Assets.xcassets */,
-				10933EE6243F8F040099FA82 /* LaunchScreen.storyboard */,
-				10933EE9243F8F040099FA82 /* Info.plist */,
-				10933EE1243F8F020099FA82 /* iAquarium2.xcdatamodeld */,
+				10F61C8624407BFC0069735D /* AppDelegate.swift */,
+				10F61C8824407BFC0069735D /* SceneDelegate.swift */,
+				10F61CBB24407FA70069735D /* TanksManagement */,
+				10F61C8C24407BFC0069735D /* SecondViewController.swift */,
+				10F61C8E24407BFC0069735D /* Main.storyboard */,
+				10F61C9424407C010069735D /* Assets.xcassets */,
+				10F61C9624407C010069735D /* LaunchScreen.storyboard */,
+				10F61C9924407C010069735D /* Info.plist */,
+				10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */,
 			);
 			path = iAquarium2;
 			sourceTree = "<group>";
 		};
-		10933EF1243F8F040099FA82 /* iAquarium2Tests */ = {
+		10F61CA124407C010069735D /* iAquarium2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				10933EF2243F8F040099FA82 /* iAquarium2Tests.swift */,
-				10933EF4243F8F040099FA82 /* Info.plist */,
+				10F61CA224407C010069735D /* iAquarium2Tests.swift */,
+				10F61CA424407C010069735D /* Info.plist */,
 			);
 			path = iAquarium2Tests;
 			sourceTree = "<group>";
 		};
-		10933EFC243F8F040099FA82 /* iAquarium2UITests */ = {
+		10F61CAC24407C010069735D /* iAquarium2UITests */ = {
 			isa = PBXGroup;
 			children = (
-				10933EFD243F8F040099FA82 /* iAquarium2UITests.swift */,
-				10933EFF243F8F040099FA82 /* Info.plist */,
+				10F61CAD24407C010069735D /* iAquarium2UITests.swift */,
+				10F61CAF24407C010069735D /* Info.plist */,
 			);
 			path = iAquarium2UITests;
+			sourceTree = "<group>";
+		};
+		10F61CBB24407FA70069735D /* TanksManagement */ = {
+			isa = PBXGroup;
+			children = (
+				10F61C8A24407BFC0069735D /* TankSelectVC.swift */,
+				10F61CBC24407FF70069735D /* AddTankVC.swift */,
+			);
+			path = TanksManagement;
+			sourceTree = "<group>";
+		};
+		653D69C90A2A3501B9099041 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				283D1AD2CE3F86632FED0B9C /* Pods_iAquarium2.framework */,
+				ADF569215E2D8823BCB13E9F /* Pods_iAquarium2_iAquarium2UITests.framework */,
+				E77A1553904A0C3CFAF18810 /* Pods_iAquarium2Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		797784C4A1E6E0DA1706B16C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9C1097B00ADE1F820A3070F /* Pods-iAquarium2.debug.xcconfig */,
+				A8C7E4544D6E058E967D80CE /* Pods-iAquarium2.release.xcconfig */,
+				42E085CF957C1D303119B0EA /* Pods-iAquarium2-iAquarium2UITests.debug.xcconfig */,
+				DD146B4ED70C4A5D85A81E16 /* Pods-iAquarium2-iAquarium2UITests.release.xcconfig */,
+				0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */,
+				84051ED79CF1804CDB59895F /* Pods-iAquarium2Tests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		10933ED2243F8F020099FA82 /* iAquarium2 */ = {
+		10F61C8224407BFB0069735D /* iAquarium2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10933F02243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2" */;
+			buildConfigurationList = 10F61CB224407C010069735D /* Build configuration list for PBXNativeTarget "iAquarium2" */;
 			buildPhases = (
-				10933ECF243F8F020099FA82 /* Sources */,
-				10933ED0243F8F020099FA82 /* Frameworks */,
-				10933ED1243F8F020099FA82 /* Resources */,
+				831CC225E169A5521DBB6569 /* [CP] Check Pods Manifest.lock */,
+				10F61C7F24407BFB0069735D /* Sources */,
+				10F61C8024407BFB0069735D /* Frameworks */,
+				10F61C8124407BFB0069735D /* Resources */,
+				DDFBD23E252AF48824E9D5B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,69 +204,72 @@
 			);
 			name = iAquarium2;
 			productName = iAquarium2;
-			productReference = 10933ED3243F8F020099FA82 /* iAquarium2.app */;
+			productReference = 10F61C8324407BFC0069735D /* iAquarium2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		10933EED243F8F040099FA82 /* iAquarium2Tests */ = {
+		10F61C9D24407C010069735D /* iAquarium2Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10933F05243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2Tests" */;
+			buildConfigurationList = 10F61CB524407C010069735D /* Build configuration list for PBXNativeTarget "iAquarium2Tests" */;
 			buildPhases = (
-				10933EEA243F8F040099FA82 /* Sources */,
-				10933EEB243F8F040099FA82 /* Frameworks */,
-				10933EEC243F8F040099FA82 /* Resources */,
+				8607A78DC2CA78325C72032C /* [CP] Check Pods Manifest.lock */,
+				10F61C9A24407C010069735D /* Sources */,
+				10F61C9B24407C010069735D /* Frameworks */,
+				10F61C9C24407C010069735D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				10933EF0243F8F040099FA82 /* PBXTargetDependency */,
+				10F61CA024407C010069735D /* PBXTargetDependency */,
 			);
 			name = iAquarium2Tests;
 			productName = iAquarium2Tests;
-			productReference = 10933EEE243F8F040099FA82 /* iAquarium2Tests.xctest */;
+			productReference = 10F61C9E24407C010069735D /* iAquarium2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		10933EF8243F8F040099FA82 /* iAquarium2UITests */ = {
+		10F61CA824407C010069735D /* iAquarium2UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10933F08243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2UITests" */;
+			buildConfigurationList = 10F61CB824407C010069735D /* Build configuration list for PBXNativeTarget "iAquarium2UITests" */;
 			buildPhases = (
-				10933EF5243F8F040099FA82 /* Sources */,
-				10933EF6243F8F040099FA82 /* Frameworks */,
-				10933EF7243F8F040099FA82 /* Resources */,
+				011D7F4BCF6E782B0C54D96C /* [CP] Check Pods Manifest.lock */,
+				10F61CA524407C010069735D /* Sources */,
+				10F61CA624407C010069735D /* Frameworks */,
+				10F61CA724407C010069735D /* Resources */,
+				C3AFC4C7AE0632EC0D19E05E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				10933EFB243F8F040099FA82 /* PBXTargetDependency */,
+				10F61CAB24407C010069735D /* PBXTargetDependency */,
 			);
 			name = iAquarium2UITests;
 			productName = iAquarium2UITests;
-			productReference = 10933EF9243F8F040099FA82 /* iAquarium2UITests.xctest */;
+			productReference = 10F61CA924407C010069735D /* iAquarium2UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		10933ECB243F8F020099FA82 /* Project object */ = {
+		10F61C7B24407BFB0069735D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Maciej Zajecki";
 				TargetAttributes = {
-					10933ED2243F8F020099FA82 = {
+					10F61C8224407BFB0069735D = {
 						CreatedOnToolsVersion = 11.4;
 					};
-					10933EED243F8F040099FA82 = {
+					10F61C9D24407C010069735D = {
 						CreatedOnToolsVersion = 11.4;
-						TestTargetID = 10933ED2243F8F020099FA82;
+						TestTargetID = 10F61C8224407BFB0069735D;
 					};
-					10933EF8243F8F040099FA82 = {
+					10F61CA824407C010069735D = {
 						CreatedOnToolsVersion = 11.4;
-						TestTargetID = 10933ED2243F8F020099FA82;
+						TestTargetID = 10F61C8224407BFB0069735D;
 					};
 				};
 			};
-			buildConfigurationList = 10933ECE243F8F020099FA82 /* Build configuration list for PBXProject "iAquarium2" */;
+			buildConfigurationList = 10F61C7E24407BFB0069735D /* Build configuration list for PBXProject "iAquarium2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -221,37 +277,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 10933ECA243F8F020099FA82;
-			productRefGroup = 10933ED4243F8F020099FA82 /* Products */;
+			mainGroup = 10F61C7A24407BFB0069735D;
+			productRefGroup = 10F61C8424407BFC0069735D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				10933ED2243F8F020099FA82 /* iAquarium2 */,
-				10933EED243F8F040099FA82 /* iAquarium2Tests */,
-				10933EF8243F8F040099FA82 /* iAquarium2UITests */,
+				10F61C8224407BFB0069735D /* iAquarium2 */,
+				10F61C9D24407C010069735D /* iAquarium2Tests */,
+				10F61CA824407C010069735D /* iAquarium2UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		10933ED1243F8F020099FA82 /* Resources */ = {
+		10F61C8124407BFB0069735D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10933EE8243F8F040099FA82 /* LaunchScreen.storyboard in Resources */,
-				10933EE5243F8F040099FA82 /* Assets.xcassets in Resources */,
-				10933EE0243F8F020099FA82 /* Main.storyboard in Resources */,
+				10F61C9824407C010069735D /* LaunchScreen.storyboard in Resources */,
+				10F61C9524407C010069735D /* Assets.xcassets in Resources */,
+				10F61C9024407BFC0069735D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10933EEC243F8F040099FA82 /* Resources */ = {
+		10F61C9C24407C010069735D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10933EF7243F8F040099FA82 /* Resources */ = {
+		10F61CA724407C010069735D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,63 +316,167 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		011D7F4BCF6E782B0C54D96C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iAquarium2-iAquarium2UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		831CC225E169A5521DBB6569 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iAquarium2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8607A78DC2CA78325C72032C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iAquarium2Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3AFC4C7AE0632EC0D19E05E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iAquarium2-iAquarium2UITests/Pods-iAquarium2-iAquarium2UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iAquarium2-iAquarium2UITests/Pods-iAquarium2-iAquarium2UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iAquarium2-iAquarium2UITests/Pods-iAquarium2-iAquarium2UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDFBD23E252AF48824E9D5B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iAquarium2/Pods-iAquarium2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iAquarium2/Pods-iAquarium2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iAquarium2/Pods-iAquarium2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		10933ECF243F8F020099FA82 /* Sources */ = {
+		10F61C7F24407BFB0069735D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10933EE3243F8F020099FA82 /* iAquarium2.xcdatamodeld in Sources */,
-				10933EDD243F8F020099FA82 /* SecondViewController.swift in Sources */,
-				10933EDB243F8F020099FA82 /* FirstViewController.swift in Sources */,
-				10933ED7243F8F020099FA82 /* AppDelegate.swift in Sources */,
-				10933ED9243F8F020099FA82 /* SceneDelegate.swift in Sources */,
+				10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */,
+				10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */,
+				10F61C8D24407BFC0069735D /* SecondViewController.swift in Sources */,
+				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
+				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
+				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10933EEA243F8F040099FA82 /* Sources */ = {
+		10F61C9A24407C010069735D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10933EF3243F8F040099FA82 /* iAquarium2Tests.swift in Sources */,
+				10F61CA324407C010069735D /* iAquarium2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10933EF5243F8F040099FA82 /* Sources */ = {
+		10F61CA524407C010069735D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10933EFE243F8F040099FA82 /* iAquarium2UITests.swift in Sources */,
+				10F61CAE24407C010069735D /* iAquarium2UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		10933EF0243F8F040099FA82 /* PBXTargetDependency */ = {
+		10F61CA024407C010069735D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 10933ED2243F8F020099FA82 /* iAquarium2 */;
-			targetProxy = 10933EEF243F8F040099FA82 /* PBXContainerItemProxy */;
+			target = 10F61C8224407BFB0069735D /* iAquarium2 */;
+			targetProxy = 10F61C9F24407C010069735D /* PBXContainerItemProxy */;
 		};
-		10933EFB243F8F040099FA82 /* PBXTargetDependency */ = {
+		10F61CAB24407C010069735D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 10933ED2243F8F020099FA82 /* iAquarium2 */;
-			targetProxy = 10933EFA243F8F040099FA82 /* PBXContainerItemProxy */;
+			target = 10F61C8224407BFB0069735D /* iAquarium2 */;
+			targetProxy = 10F61CAA24407C010069735D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		10933EDE243F8F020099FA82 /* Main.storyboard */ = {
+		10F61C8E24407BFC0069735D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				10933EDF243F8F020099FA82 /* Base */,
+				10F61C8F24407BFC0069735D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		10933EE6243F8F040099FA82 /* LaunchScreen.storyboard */ = {
+		10F61C9624407C010069735D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				10933EE7243F8F040099FA82 /* Base */,
+				10F61C9724407C010069735D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -324,7 +484,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		10933F00243F8F040099FA82 /* Debug */ = {
+		10F61CB024407C010069735D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -384,7 +544,7 @@
 			};
 			name = Debug;
 		};
-		10933F01243F8F040099FA82 /* Release */ = {
+		10F61CB124407C010069735D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -438,11 +598,13 @@
 			};
 			name = Release;
 		};
-		10933F03243F8F040099FA82 /* Debug */ = {
+		10F61CB324407C010069735D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9C1097B00ADE1F820A3070F /* Pods-iAquarium2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GZQN3J8H5;
 				INFOPLIST_FILE = iAquarium2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,15 +613,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		10933F04243F8F040099FA82 /* Release */ = {
+		10F61CB424407C010069735D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C7E4544D6E058E967D80CE /* Pods-iAquarium2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GZQN3J8H5;
 				INFOPLIST_FILE = iAquarium2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,16 +632,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = macpiston.iAquarium2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		10933F06243F8F040099FA82 /* Debug */ = {
+		10F61CB624407C010069735D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GZQN3J8H5;
 				INFOPLIST_FILE = iAquarium2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,12 +659,14 @@
 			};
 			name = Debug;
 		};
-		10933F07243F8F040099FA82 /* Release */ = {
+		10F61CB724407C010069735D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84051ED79CF1804CDB59895F /* Pods-iAquarium2Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GZQN3J8H5;
 				INFOPLIST_FILE = iAquarium2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -514,11 +682,13 @@
 			};
 			name = Release;
 		};
-		10933F09243F8F040099FA82 /* Debug */ = {
+		10F61CB924407C010069735D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42E085CF957C1D303119B0EA /* Pods-iAquarium2-iAquarium2UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GZQN3J8H5;
 				INFOPLIST_FILE = iAquarium2UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,11 +703,13 @@
 			};
 			name = Debug;
 		};
-		10933F0A243F8F040099FA82 /* Release */ = {
+		10F61CBA24407C010069735D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD146B4ED70C4A5D85A81E16 /* Pods-iAquarium2-iAquarium2UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GZQN3J8H5;
 				INFOPLIST_FILE = iAquarium2UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,38 +727,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		10933ECE243F8F020099FA82 /* Build configuration list for PBXProject "iAquarium2" */ = {
+		10F61C7E24407BFB0069735D /* Build configuration list for PBXProject "iAquarium2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				10933F00243F8F040099FA82 /* Debug */,
-				10933F01243F8F040099FA82 /* Release */,
+				10F61CB024407C010069735D /* Debug */,
+				10F61CB124407C010069735D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		10933F02243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2" */ = {
+		10F61CB224407C010069735D /* Build configuration list for PBXNativeTarget "iAquarium2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				10933F03243F8F040099FA82 /* Debug */,
-				10933F04243F8F040099FA82 /* Release */,
+				10F61CB324407C010069735D /* Debug */,
+				10F61CB424407C010069735D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		10933F05243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2Tests" */ = {
+		10F61CB524407C010069735D /* Build configuration list for PBXNativeTarget "iAquarium2Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				10933F06243F8F040099FA82 /* Debug */,
-				10933F07243F8F040099FA82 /* Release */,
+				10F61CB624407C010069735D /* Debug */,
+				10F61CB724407C010069735D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		10933F08243F8F040099FA82 /* Build configuration list for PBXNativeTarget "iAquarium2UITests" */ = {
+		10F61CB824407C010069735D /* Build configuration list for PBXNativeTarget "iAquarium2UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				10933F09243F8F040099FA82 /* Debug */,
-				10933F0A243F8F040099FA82 /* Release */,
+				10F61CB924407C010069735D /* Debug */,
+				10F61CBA24407C010069735D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -594,17 +766,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		10933EE1243F8F020099FA82 /* iAquarium2.xcdatamodeld */ = {
+		10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				10933EE2243F8F020099FA82 /* iAquarium2.xcdatamodel */,
+				10F61C9224407BFC0069735D /* iAquarium2.xcdatamodel */,
 			);
-			currentVersion = 10933EE2243F8F020099FA82 /* iAquarium2.xcdatamodel */;
+			currentVersion = 10F61C9224407BFC0069735D /* iAquarium2.xcdatamodel */;
 			path = iAquarium2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 10933ECB243F8F020099FA82 /* Project object */;
+	rootObject = 10F61C7B24407BFB0069735D /* Project object */;
 }

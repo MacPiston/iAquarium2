@@ -1,0 +1,6 @@
+framework module Pods_iAquarium2_iAquarium2UITests {
+  umbrella header "Pods-iAquarium2-iAquarium2UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
