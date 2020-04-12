@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
 		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
 		10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8A24407BFC0069735D /* TankSelectVC.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
 		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F61C8824407BFC0069735D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				10F61C8A24407BFC0069735D /* TankSelectVC.swift */,
 				10F61CBC24407FF70069735D /* AddTankVC.swift */,
+				10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */,
 			);
 			path = TanksManagement;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			files = (
 				10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */,
 				10F61CC52440DF480069735D /* DataManager.swift in Sources */,
+				10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */,
 				10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */,
 				10F61C8D24407BFC0069735D /* SecondViewController.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,

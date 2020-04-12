@@ -8,11 +8,12 @@
 
 import UIKit
 import Eureka
+import ImageRow
 import os.log
 
 class AddTankVC: FormViewController {
 
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
     var newTank : Tank?
 
     override func viewDidLoad() {
@@ -37,6 +38,14 @@ class AddTankVC: FormViewController {
                 $0.tag = "brand"
                 $0.add(ruleSet: rulesRequired)
                 $0.validationOptions = .validatesOnChange
+        }
+        
+            <<< ImageRow() {
+                $0.title = "Tank Image"
+                $0.tag = "image"
+                $0.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
+                $0.clearAction = .yes(style: .default)
+                $0.allowEditor = false
         }
 
         // Additional Information
@@ -69,9 +78,9 @@ class AddTankVC: FormViewController {
                 cell, row in
                 if !row.isValid {
                     cell.titleLabel?.textColor = .red
-                    self.doneBarButton.isEnabled = false
+                    self.saveBarButton.isEnabled = false
                 } else {
-                    self.doneBarButton.isEnabled = true
+                    self.saveBarButton.isEnabled = true
                 }
         }
         
@@ -83,13 +92,12 @@ class AddTankVC: FormViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let button = sender as? UIBarButtonItem, button === doneBarButton else {
+        guard let button = sender as? UIBarButtonItem, button === saveBarButton else {
             os_log("Not the Done button; cancelling...", log: OSLog.default, type: .debug)
             return
         }
-        
-        let valuesDictionary = form.values()
-        newTank = Tank(newName: valuesDictionary["name"] as! String, newBrand: valuesDictionary["brand"] as! String, newCapacity: valuesDictionary["capacity"] as! Int, newWaterType: valuesDictionary["watertype"] as! String, newSaltAmount: valuesDictionary["salt"] as? Int)
+        let values = form.values()
+        newTank = Tank(newName: values["name"] as! String, newBrand: values["brand"] as! String, newCapacity: values["capacity"] as! Int, newWaterType: values["watertype"] as! String, newSaltAmount: values["salt"] as? Int ?? 0)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

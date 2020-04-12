@@ -10,17 +10,17 @@ import Foundation
 
 class Tank {
 
-    init(newName : String, newBrand : String, newCapacity: Int, newWaterType : String, newSaltAmount : Int? = nil) {
+    var name : String
+    var brand : String
+    var capacity : Int
+    var waterType : String
+    var saltAmount: Int
+    
+    init(newName : String, newBrand : String, newCapacity: Int, newWaterType : String, newSaltAmount : Int) {
         self.name = newName
         self.brand = newBrand
         self.capacity = newCapacity
         self.waterType = newWaterType
         self.saltAmount = newSaltAmount
     }
-    var name : String
-    var brand : String
-    var capacity : Int
-    var waterType : String
-    var saltAmount: Int?
-    
 }
