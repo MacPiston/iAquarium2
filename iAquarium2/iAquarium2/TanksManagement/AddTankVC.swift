@@ -14,6 +14,7 @@ import os.log
 class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    
     var newTank : Tank?
 
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class AddTankVC: FormViewController {
          /*
          - passing parameters to new tank object
          - values verification
+         - cells validation
          */
         
     // MARK: - Form
@@ -60,6 +62,24 @@ class AddTankVC: FormViewController {
                 $0.clearAction = .yes(style: .default)
                 $0.allowEditor = false
         }
+            
+                <<< IntRow() {
+                    $0.title = "Tank Capacity"
+                    $0.placeholder = "Capacity..."
+                    $0.add(rule: RuleGreaterThan(min: 0))
+                    $0.add(rule: RuleRequired())
+                    $0.validationOptions = .validatesOnChange
+                    $0.tag = "capacity"
+            }
+                .cellUpdate {
+                    cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                        self.saveBarButton.isEnabled = false
+                    } else {
+                        self.saveBarButton.isEnabled = true
+                    }
+            }
 
             <<< SegmentedRow<String>() {
                 $0.title = "Water Type"
@@ -77,50 +97,78 @@ class AddTankVC: FormViewController {
                     return !((form.rowBy(tag: "watertype") as? SegmentedRow)?.value == "Salty")
                 })
         }
-            <<< IntRow() {
-                $0.title = "Tank Capacity"
-                $0.placeholder = "Capacity..."
-                $0.add(rule: RuleGreaterThan(min: 0))
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-                $0.tag = "capacity"
-        }
-            .cellUpdate {
-                cell, row in
-                if !row.isValid {
-                    cell.titleLabel?.textColor = .red
-                    self.saveBarButton.isEnabled = false
-                } else {
-                    self.saveBarButton.isEnabled = true
-                }
-        }
+
         //PARAMETERS
         +++ Section("Parameters")
             <<< SegmentedRow<String>() {
-                $0.title = "Parameters calculation"
-                $0.options = ["Auto", "Manual"]
-                $0.value = "Auto"
-                $0.tag = "calculation"
-                $0.add(ruleSet: rulesRequired)
-                $0.validationOptions = .validatesOnChange
-        }
+                    $0.title = "Parameters calculation"
+                    $0.options = ["Auto", "Manual"]
+                    $0.value = "Auto"
+                    $0.tag = "calculation"
+            }.onChange {
+                row in
+                if let paramSection = self.form.sectionBy(tag: "Parameters") {
+                    if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
+                        paramSection.hidden = false
+                        paramSection.evaluateHidden()
+                    } else {
+                        paramSection.hidden = true
+                        paramSection.evaluateHidden()
+                    }
+                }
+            }
+            
             <<< IntRow() {
                 $0.title = "Maximum temp. [°C]"
                 $0.tag = "maxtemp"
                 $0.hidden = manualCondition
+                $0.add(rule: RuleGreaterThan(min: 0))
+                $0.validationOptions = .validatesOnChange
+        }.cellUpdate {
+            cell, row in
+            if !row.isValid {
+                cell.titleLabel?.textColor = .red
+                self.saveBarButton.isEnabled = false
+            } else {
+                self.saveBarButton.isEnabled = true
+            }
         }
+            
             <<< IntRow() {
                 $0.title = "Minimum temp. [°C]"
                 $0.tag = "mintemp"
                 $0.hidden = manualCondition
+                $0.add(rule: RuleGreaterThan(min: 0))
+                $0.validationOptions = .validatesOnChange
+        }.cellUpdate {
+            cell, row in
+            if !row.isValid {
+                cell.titleLabel?.textColor = .red
+                self.saveBarButton.isEnabled = false
+            } else {
+                self.saveBarButton.isEnabled = true
+            }
         }
+            
             <<< IntRow() {
                 $0.title = "pH"
                 $0.tag = "ph"
                 $0.hidden = manualCondition
+                $0.add(rule: RuleGreaterOrEqualThan(min: 1))
+                $0.add(rule: RuleSmallerOrEqualThan(max: 14))
+                $0.validationOptions = .validatesOnChange
+        }.cellUpdate {
+            cell, row in
+            if !row.isValid {
+                cell.titleLabel?.textColor = .red
+                self.saveBarButton.isEnabled = false
+            } else {
+                self.saveBarButton.isEnabled = true
+            }
         }
+            
             <<< IntRow() {
-                $0.title = "GH [°d]"
+                $0.title = "GH (General Hardness) [°d]"
                 $0.tag = "gh"
                 $0.hidden = manualCondition
         }
