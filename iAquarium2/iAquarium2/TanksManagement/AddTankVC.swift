@@ -19,12 +19,25 @@ class AddTankVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationOptions = RowNavigationOptions.Disabled
+        let manualCondition = Condition.function(["calculation"], { form in
+            if (((form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value) == "Manual") {
+                return false
+            } else {
+                return true
+            }
+        })
         var rulesRequired = RuleSet<String>()
         rulesRequired.add(rule: RuleRequired())
         
+    // MARK: - TODO SECTION
+         /*
+         - passing parameters to new tank object
+         - values verification
+         */
+        
     // MARK: - Form
         // Basic Information
-        form +++ Section("Basic Information")
+        form +++ Section("Tank information")
             <<< TextRow() {
                 $0.title = "Tank Name"
                 $0.placeholder = "Name..."
@@ -48,8 +61,6 @@ class AddTankVC: FormViewController {
                 $0.allowEditor = false
         }
 
-        // Additional Information
-        form +++ Section("Parameters")
             <<< SegmentedRow<String>() {
                 $0.title = "Water Type"
                 $0.options = ["Normal", "Salty"]
@@ -65,7 +76,7 @@ class AddTankVC: FormViewController {
                     form in
                     return !((form.rowBy(tag: "watertype") as? SegmentedRow)?.value == "Salty")
                 })
-            }
+        }
             <<< IntRow() {
                 $0.title = "Tank Capacity"
                 $0.placeholder = "Capacity..."
@@ -83,12 +94,39 @@ class AddTankVC: FormViewController {
                     self.saveBarButton.isEnabled = true
                 }
         }
-        
-        form +++ Section("Additional information like water temperature, pH etc. will be calculated for you later.")
+        //PARAMETERS
+        +++ Section("Parameters")
+            <<< SegmentedRow<String>() {
+                $0.title = "Parameters calculation"
+                $0.options = ["Auto", "Manual"]
+                $0.value = "Auto"
+                $0.tag = "calculation"
+                $0.add(ruleSet: rulesRequired)
+                $0.validationOptions = .validatesOnChange
+        }
+            <<< IntRow() {
+                $0.title = "Maximum temp. [°C]"
+                $0.tag = "maxtemp"
+                $0.hidden = manualCondition
+        }
+            <<< IntRow() {
+                $0.title = "Minimum temp. [°C]"
+                $0.tag = "mintemp"
+                $0.hidden = manualCondition
+        }
+            <<< IntRow() {
+                $0.title = "pH"
+                $0.tag = "ph"
+                $0.hidden = manualCondition
+        }
+            <<< IntRow() {
+                $0.title = "GH [°d]"
+                $0.tag = "gh"
+                $0.hidden = manualCondition
+        }
     }
     
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         

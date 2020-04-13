@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
+		1050B4752443349C008AF39D /* WaterParametersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050B4742443349C008AF39D /* WaterParametersModel.swift */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
 		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
 		10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8A24407BFC0069735D /* TankSelectVC.swift */; };
-		10F61C8D24407BFC0069735D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8C24407BFC0069735D /* SecondViewController.swift */; };
+		10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8C24407BFC0069735D /* SummaryVC.swift */; };
 		10F61C9024407BFC0069735D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C8E24407BFC0069735D /* Main.storyboard */; };
 		10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */; };
 		10F61C9524407C010069735D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9424407C010069735D /* Assets.xcassets */; };
@@ -46,11 +47,12 @@
 /* Begin PBXFileReference section */
 		0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
+		1050B4742443349C008AF39D /* WaterParametersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterParametersModel.swift; sourceTree = "<group>"; };
 		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F61C8824407BFC0069735D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		10F61C8A24407BFC0069735D /* TankSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankSelectVC.swift; sourceTree = "<group>"; };
-		10F61C8C24407BFC0069735D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		10F61C8C24407BFC0069735D /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		10F61C8F24407BFC0069735D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10F61C9224407BFC0069735D /* iAquarium2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iAquarium2.xcdatamodel; sourceTree = "<group>"; };
 		10F61C9424407C010069735D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1050B47324431FE5008AF39D /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				10F61C8C24407BFC0069735D /* SummaryVC.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
 		10F61C7A24407BFB0069735D = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +141,7 @@
 				10F61C8624407BFC0069735D /* AppDelegate.swift */,
 				10F61C8824407BFC0069735D /* SceneDelegate.swift */,
 				10F61CBB24407FA70069735D /* TanksManagement */,
-				10F61C8C24407BFC0069735D /* SecondViewController.swift */,
+				1050B47324431FE5008AF39D /* Summary */,
 				10F61C8E24407BFC0069735D /* Main.storyboard */,
 				10F61C9424407C010069735D /* Assets.xcassets */,
 				10F61C9624407C010069735D /* LaunchScreen.storyboard */,
@@ -175,6 +185,7 @@
 			children = (
 				10F61CC42440DF480069735D /* DataManager.swift */,
 				10F61CC22440CDB50069735D /* TankModel.swift */,
+				1050B4742443349C008AF39D /* WaterParametersModel.swift */,
 			);
 			path = DataManagement;
 			sourceTree = "<group>";
@@ -445,11 +456,12 @@
 				10F61CC52440DF480069735D /* DataManager.swift in Sources */,
 				10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */,
 				10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */,
-				10F61C8D24407BFC0069735D /* SecondViewController.swift in Sources */,
+				10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,
 				10F61CC32440CDB50069735D /* TankModel.swift in Sources */,
+				1050B4752443349C008AF39D /* WaterParametersModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

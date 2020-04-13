@@ -9,5 +9,6 @@
 import Foundation
 
 class DataManager {
-    
+    static var selectedTank : Tank?
+    static var tanksArray = [Tank]()
 }
