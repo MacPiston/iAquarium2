@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SummaryVC.swift
 //  iAquarium2
 //
 //  Created by Maciej Zajecki on 10/04/2020.
@@ -24,43 +24,44 @@ class SummaryVC: FormViewController {
     
     func setupForm() {
         selectedTank = DataManager.selectedTank
-        let waterParams = selectedTank?.waterParams
+        let expectedParams = selectedTank?.waterParams
+        let lastParams = selectedTank?.lastParams()
         form
             +++ Section("Parameters expected/last: ")
             <<< LabelRow() {
                 $0.title = "Temperature"
                 $0.tag = "par_temp"
-                $0.value = (waterParams?.returnTempComp())! + separator + String((selectedTank?.lastParams().temp)!) + " °C"
+                $0.value = (expectedParams?.tempComp())! + separator + String((lastParams?.temp)!) + " °C"
         }
             <<< LabelRow() {
                 $0.title = "Cl2"
                 $0.tag = "par_cl2"
-                $0.value = String((waterParams?.cl2Value)!) + separator + String((selectedTank?.lastParams().cl2Value)!) + "mg/l"
+                $0.value = String((lastParams?.cl2Value)!) + "mg/l"
         }
             <<< LabelRow() {
                 $0.title = "pH"
                 $0.tag = "par_ph"
-                $0.value = String((waterParams?.phValue)!) + separator + String((selectedTank?.lastParams().phValue)!)
+                $0.value = String((expectedParams?.phValue)!) + separator + String((lastParams?.phValue)!)
         }
             <<< LabelRow() {
                 $0.title = "KH"
                 $0.tag = "par_kh"
-                $0.value = String((waterParams?.khValue)!) + separator + String((selectedTank?.lastParams().khValue)!) + " °d"
+                $0.value = String((lastParams?.khValue)!) + " °d"
         }
             <<< LabelRow() {
                 $0.title = "GH"
                 $0.tag = "par_gh"
-                $0.value = String((waterParams?.ghValue)!) + separator + String((selectedTank?.lastParams().ghValue)!) + " °d"
+                $0.value = String((expectedParams?.ghValue)!) + separator + String((lastParams?.ghValue)!) + " °d"
         }
             <<< LabelRow() {
                 $0.title = "NO2"
                 $0.tag = "par_no2"
-                $0.value = String((waterParams?.no2Value)!) + separator + String((selectedTank?.lastParams().no2Value)!) + " mg/l"
+                $0.value = String((lastParams?.no2Value)!) + " mg/l"
         }
             <<< LabelRow() {
                 $0.title = "NO3"
                 $0.tag = "par_no3"
-                $0.value = String((waterParams?.no3Value)!) + separator + String((selectedTank?.lastParams().no3Value)!) + " mg/l"
+                $0.value = String((lastParams?.no3Value)!) + " mg/l"
         }
         
         +++ Section("Creatures info:")

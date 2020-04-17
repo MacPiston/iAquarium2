@@ -15,7 +15,7 @@ class Tank {
     var capacity : Int
     var waterType : String
     var saltAmount : Int
-    var waterParams : WaterParameter = WaterParameter()
+    var waterParams : WaterParameterInitial
     var paramsHistory = [WaterParameter]()
     
     init(newName : String, newBrand : String, newCapacity: Int, newWaterType : String, newSaltAmount : Int) {
@@ -24,6 +24,16 @@ class Tank {
         self.capacity = newCapacity
         self.waterType = newWaterType
         self.saltAmount = newSaltAmount
+        self.waterParams = WaterParameterInitial()
+    }
+    
+    init(newName : String, newBrand : String, newCapacity: Int, newWaterType : String, newSaltAmount : Int, newWaterParams : WaterParameterInitial) {
+        self.name = newName
+        self.brand = newBrand
+        self.capacity = newCapacity
+        self.waterType = newWaterType
+        self.saltAmount = newSaltAmount
+        self.waterParams = newWaterParams
     }
     
     func lastParams() -> WaterParameter {

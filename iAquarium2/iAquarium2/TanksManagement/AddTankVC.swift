@@ -27,14 +27,12 @@ class AddTankVC: FormViewController {
                 return true
             }
         })
-        var rulesRequired = RuleSet<String>()
-        rulesRequired.add(rule: RuleRequired())
         
     // MARK: - TODO SECTION
          /*
-         - passing parameters to new tank object
-         - values verification
-         - cells validation
+         - passing parameters to new tank object -> still TODO
+         - values verification -> debug verification
+         - cells validation -> debug verification
          */
         
     // MARK: - Form
@@ -44,15 +42,21 @@ class AddTankVC: FormViewController {
                 $0.title = "Tank Name"
                 $0.placeholder = "Name..."
                 $0.tag = "name"
-                $0.add(ruleSet: rulesRequired)
+                $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
-        }
+            }.cellUpdate {
+                cell, row in
+                self.checkValidity()
+            }
             <<< TextRow() {
                 $0.title = "Tank Brand"
                 $0.placeholder = "Brand..."
                 $0.tag = "brand"
-                $0.add(ruleSet: rulesRequired)
+                $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
+        }.cellUpdate {
+                cell, row in
+                self.checkValidity()
         }
         
             <<< ImageRow() {
@@ -63,30 +67,25 @@ class AddTankVC: FormViewController {
                 $0.allowEditor = false
         }
             
-                <<< IntRow() {
+            <<< IntRow() {
                     $0.title = "Tank Capacity"
                     $0.placeholder = "Capacity..."
                     $0.add(rule: RuleGreaterThan(min: 0))
                     $0.add(rule: RuleRequired())
                     $0.validationOptions = .validatesOnChange
                     $0.tag = "capacity"
-            }
+        }
                 .cellUpdate {
                     cell, row in
-                    if !row.isValid {
-                        cell.titleLabel?.textColor = .red
-                        self.saveBarButton.isEnabled = false
-                    } else {
-                        self.saveBarButton.isEnabled = true
-                    }
-            }
+                    self.checkValidity()
+        }
 
             <<< SegmentedRow<String>() {
                 $0.title = "Water Type"
                 $0.options = ["Normal", "Salty"]
                 $0.value = "Normal"
                 $0.tag = "watertype"
-                $0.add(ruleSet: rulesRequired)
+                $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
         }
             <<< IntRow() {
@@ -123,15 +122,11 @@ class AddTankVC: FormViewController {
                 $0.tag = "maxtemp"
                 $0.hidden = manualCondition
                 $0.add(rule: RuleGreaterThan(min: 0))
+                $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
         }.cellUpdate {
             cell, row in
-            if !row.isValid {
-                cell.titleLabel?.textColor = .red
-                self.saveBarButton.isEnabled = false
-            } else {
-                self.saveBarButton.isEnabled = true
-            }
+            self.checkValidity()
         }
             
             <<< IntRow() {
@@ -139,42 +134,55 @@ class AddTankVC: FormViewController {
                 $0.tag = "mintemp"
                 $0.hidden = manualCondition
                 $0.add(rule: RuleGreaterThan(min: 0))
+                $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
         }.cellUpdate {
             cell, row in
-            if !row.isValid {
-                cell.titleLabel?.textColor = .red
-                self.saveBarButton.isEnabled = false
-            } else {
-                self.saveBarButton.isEnabled = true
-            }
+            self.checkValidity()
         }
             
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = "pH"
                 $0.tag = "ph"
                 $0.hidden = manualCondition
+                $0.useFormatterOnDidBeginEditing = true
                 $0.add(rule: RuleGreaterOrEqualThan(min: 1))
                 $0.add(rule: RuleSmallerOrEqualThan(max: 14))
+                $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
         }.cellUpdate {
             cell, row in
-            if !row.isValid {
-                cell.titleLabel?.textColor = .red
-                self.saveBarButton.isEnabled = false
-            } else {
-                self.saveBarButton.isEnabled = true
-            }
+            self.checkValidity()
         }
             
             <<< IntRow() {
                 $0.title = "GH (General Hardness) [°d]"
                 $0.tag = "gh"
                 $0.hidden = manualCondition
+                $0.add(rule: RuleGreaterOrEqualThan(min: 1))
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
         }
     }
     
     // MARK: - Navigation
+    func checkValidity() {
+        let name = (self.form.rowBy(tag: "name") as? TextRow)?.isValid
+        let brand = (self.form.rowBy(tag: "brand") as? TextRow)?.isValid
+        let capacity = (self.form.rowBy(tag: "capacity") as? IntRow)?.isValid
+        let watertype = (self.form.rowBy(tag: "watertype") as? SegmentedRow<String>)?.isValid
+        let maxtemp = (self.form.rowBy(tag: "maxtemp") as? IntRow)?.isValid
+        let mintemp = (self.form.rowBy(tag: "mintemp") as? IntRow)?.isValid
+        let ph = (self.form.rowBy(tag: "ph") as? DecimalRow)?.isValid
+        let gh = (self.form.rowBy(tag: "gh") as? IntRow)?.isValid
+        
+        if (name == true && brand == true && capacity == true && watertype == true && maxtemp == true && mintemp == true && ph == true && gh == true) {
+            self.saveBarButton.isEnabled = true
+        } else {
+            self.saveBarButton.isEnabled = false
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -183,7 +191,12 @@ class AddTankVC: FormViewController {
             return
         }
         let values = form.values()
-        newTank = Tank(newName: values["name"] as! String, newBrand: values["brand"] as! String, newCapacity: values["capacity"] as! Int, newWaterType: values["watertype"] as! String, newSaltAmount: values["salt"] as? Int ?? 0)
+        if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
+            let waterParams = WaterParameterInitial(minTemp: (values["mintemp"] as? Int)!, maxTemp: (values["maxtemp"] as? Int)!, phValue: (values["ph"] as? Double)!, ghValue: (values["gh"] as? Int)!)
+            newTank = Tank(newName: values["name"] as! String, newBrand: values["brand"] as! String, newCapacity: values["capacity"] as! Int, newWaterType: values["watertype"] as! String, newSaltAmount: values["salt"] as? Int ?? 0, newWaterParams: waterParams)
+        } else {
+            newTank = Tank(newName: values["name"] as! String, newBrand: values["brand"] as! String, newCapacity: values["capacity"] as! Int, newWaterType: values["watertype"] as! String, newSaltAmount: values["salt"] as? Int ?? 0)
+        }
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
