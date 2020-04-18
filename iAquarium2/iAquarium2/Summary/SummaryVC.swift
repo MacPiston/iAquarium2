@@ -10,13 +10,9 @@ import UIKit
 import Eureka
 
 class SummaryVC: FormViewController {
-    var selectedTank : Tank?
-    let separator : String = " : "
-    let dateFormatter = DateFormatter()
     override func viewWillAppear(_ animated: Bool) {
         //MARK: - Form - Summary Information
         //ADD RELOADING FORM DATA HERE!!!!!
-        dateFormatter.dateFormat = "dd-MM, HH:mm"
         setupForm()
     }
     override func viewDidLoad() {
@@ -25,7 +21,10 @@ class SummaryVC: FormViewController {
     }
     
     func setupForm() {
-        selectedTank = DataManager.selectedTank
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM, HH:mm"
+        
+        let selectedTank : Tank? = DataManager.selectedTank
         let expectedParams = selectedTank?.waterParams
         let lastParams = selectedTank?.lastParams()
         form
@@ -72,7 +71,7 @@ class SummaryVC: FormViewController {
                 section in
                 section.footer?.height = {12}
                 section.header?.height = {12}
-            }
+        }
             <<< LabelRow() {
                 $0.title = "Expected"
                 $0.tag = "ph_expected"

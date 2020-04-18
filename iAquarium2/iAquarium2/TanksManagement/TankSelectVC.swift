@@ -19,8 +19,13 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         DataManager.tanksArray += [Tank(newName: "Test", newBrand: "Test2", newCapacity: 50, newWaterType: "normal", newSaltAmount: 0)]
         tankTableView.delegate = self
         tankTableView.dataSource = self
-        if let arrayOfTabBarItems = tabBarController?.tabBar.items as AnyObject as? NSArray, let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
-            tabBarItem.isEnabled = false
+        switchTabsEnabled(state: false)
+    }
+    
+    func switchTabsEnabled(state : Bool) {
+        if let arrayOfTabBarItems = tabBarController?.tabBar.items as AnyObject as? NSArray, let summaryItem = arrayOfTabBarItems[1] as? UITabBarItem, let measurementsItem = arrayOfTabBarItems[2] as? UITabBarItem {
+            summaryItem.isEnabled = state
+            measurementsItem.isEnabled = state
         }
     }
     
@@ -52,10 +57,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         DataManager.selectedTank = DataManager.tanksArray[indexPath.row]
-        if let arrayOfTabBarItems = tabBarController?.tabBar.items as AnyObject as? NSArray, let tabBarItem = arrayOfTabBarItems[1] as? UITabBarItem {
-            tabBarItem.isEnabled = true
-        }
-        
+        switchTabsEnabled(state: true)
     }
     
     //MARK: - Navigation

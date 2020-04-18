@@ -121,6 +121,23 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
+        <!--Measurements-->
+        <scene sceneID="5f4-6t-NaG">
+            <objects>
+                <viewController id="kjf-jA-BfN" customClass="MeasurementsVC" customModule="iAquarium2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PQH-hc-zYa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hkt-1U-KMh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Measurements" image="thermometer" catalog="system" id="zOZ-Fl-9ZM"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8hD-tL-U0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660" y="359"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -133,6 +150,7 @@
                     <connections>
                         <segue destination="OeQ-yW-C53" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="kjf-jA-BfN" kind="relationship" relationship="viewControllers" id="0dE-qa-iW0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -181,5 +199,6 @@
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
+        <image name="thermometer" catalog="system" width="87" height="128"/>
     </resources>
 </document>
