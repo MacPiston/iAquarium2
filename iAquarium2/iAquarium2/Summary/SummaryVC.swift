@@ -12,14 +12,16 @@ import Eureka
 class SummaryVC: FormViewController {
     var selectedTank : Tank?
     let separator : String = " : "
+    let dateFormatter = DateFormatter()
     override func viewWillAppear(_ animated: Bool) {
         //MARK: - Form - Summary Information
         //ADD RELOADING FORM DATA HERE!!!!!
+        dateFormatter.dateFormat = "dd-MM, HH:mm"
+        setupForm()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupForm()
     }
     
     func setupForm() {
@@ -27,58 +29,91 @@ class SummaryVC: FormViewController {
         let expectedParams = selectedTank?.waterParams
         let lastParams = selectedTank?.lastParams()
         form
-            +++ Section("Parameters expected/last: ")
+            +++ Section("Summary")
             <<< LabelRow() {
-                $0.title = "Temperature"
-                $0.tag = "par_temp"
-                $0.value = (expectedParams?.tempComp())! + separator + String((lastParams?.temp)!) + " °C"
-        }
+                $0.title = "Selected tank"
+                $0.value = selectedTank?.name
+            }
             <<< LabelRow() {
-                $0.title = "Cl2"
-                $0.tag = "par_cl2"
-                $0.value = String((lastParams?.cl2Value)!) + "mg/l"
-        }
-            <<< LabelRow() {
-                $0.title = "pH"
-                $0.tag = "par_ph"
-                $0.value = String((expectedParams?.phValue)!) + separator + String((lastParams?.phValue)!)
-        }
-            <<< LabelRow() {
-                $0.title = "KH"
-                $0.tag = "par_kh"
-                $0.value = String((lastParams?.khValue)!) + " °d"
-        }
-            <<< LabelRow() {
-                $0.title = "GH"
-                $0.tag = "par_gh"
-                $0.value = String((expectedParams?.ghValue)!) + separator + String((lastParams?.ghValue)!) + " °d"
-        }
-            <<< LabelRow() {
-                $0.title = "NO2"
-                $0.tag = "par_no2"
-                $0.value = String((lastParams?.no2Value)!) + " mg/l"
-        }
-            <<< LabelRow() {
-                $0.title = "NO3"
-                $0.tag = "par_no3"
-                $0.value = String((lastParams?.no3Value)!) + " mg/l"
-        }
-        
-        +++ Section("Creatures info:")
-            <<< LabelRow() {
-                $0.title = "Conflicts: "
-                $0.tag = "cr_conflicts"
-                $0.value = "conflicts_val"
+                $0.title = "Status"
+                $0.value = "currentstatus"
+                $0.tag = "status"
             }.cellUpdate {
                 cell, row in
-                if row.value != "0" {
-                    cell.textLabel?.textColor = .red
+                if row.value != "OK" {
+                    cell.textLabel?.textColor = .systemRed
+                } else {
+                    cell.textLabel?.textColor = .systemGreen
                 }
             }
             <<< LabelRow() {
-                $0.title = "Current amount: "
-                $0.tag = "cr_amount"
-                $0.value = "0"
+                $0.title = "Last measurement"
+                $0.tag = "date_last"
+                $0.value = dateFormatter.string(from: lastParams!.date!)
+            }
+            
+            +++ Section("Temperature") {
+                section in
+                section.footer?.height = {12}
+                section.header?.height = {12}
+            }
+            <<< LabelRow() {
+                $0.title = "Expected"
+                $0.tag = "temp_expected"
+                $0.value = expectedParams!.tempComp() + " °C"
+        }
+            <<< LabelRow() {
+                $0.title = "Last"
+                $0.tag = "temp_last"
+                $0.value = String(lastParams!.temp)
+        }
+        
+            +++ Section("PH") {
+                section in
+                section.footer?.height = {12}
+                section.header?.height = {12}
+            }
+            <<< LabelRow() {
+                $0.title = "Expected"
+                $0.tag = "ph_expected"
+                $0.value = String(expectedParams!.phValue)
+        }
+            <<< LabelRow() {
+                $0.title = "Last"
+                $0.tag = "ph_last"
+                $0.value = String(lastParams!.phValue)
+        }
+        
+            +++ Section("GH") {
+                section in
+                section.footer?.height = {12}
+                section.header?.height = {12}
+        }
+            <<< LabelRow() {
+                $0.title = "Expected"
+                $0.tag = "gh_expected"
+                $0.value = String(expectedParams!.ghValue)
+        }
+            <<< LabelRow() {
+                $0.title = "Last"
+                $0.tag = "gh_last"
+                $0.value = String(lastParams!.ghValue)
+        }
+        
+            +++ Section("NO#") {
+                section in
+                section.footer?.height = {12}
+                section.header?.height = {12}
+        }
+            <<< LabelRow() {
+                $0.title = "NO2 Last"
+                $0.tag = "no2_last"
+                $0.value = String(lastParams!.no2Value)
+        }
+            <<< LabelRow() {
+                $0.title = "NO3 Last"
+                $0.tag = "no3_last"
+                $0.value = String(lastParams!.no3Value)
         }
     }
     

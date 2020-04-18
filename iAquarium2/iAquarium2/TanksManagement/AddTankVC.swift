@@ -30,7 +30,6 @@ class AddTankVC: FormViewController {
         
     // MARK: - TODO SECTION
          /*
-         - passing parameters to new tank object -> still TODO
          - values verification -> debug verification
          - cells validation -> debug verification
          */

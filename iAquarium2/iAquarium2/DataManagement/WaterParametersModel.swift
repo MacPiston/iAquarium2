@@ -38,10 +38,10 @@ class WaterParameter {
     let cl2Value : Int
     let no2Value : Int
     let no3Value : Int
-    let date : NSDate?
+    let date : Date?
     
     //init for logging parameters
-    init(temp : Int?, cl2Value: Int?, phValue: Double?, khValue: Int?, ghValue: Int?, no2Value: Int?, no3Value: Int?, date: NSDate) {
+    init(temp : Int?, cl2Value: Int?, phValue: Double?, khValue: Int?, ghValue: Int?, no2Value: Int?, no3Value: Int?, date: Date) {
         self.temp = temp ?? -1
         self.cl2Value = cl2Value ?? -1
         self.phValue = phValue ?? -1
@@ -60,7 +60,7 @@ class WaterParameter {
         self.ghValue = -1
         self.no2Value = -1
         self.no3Value = -1
-        date = nil
+        date = Date()
     }
 }
 
