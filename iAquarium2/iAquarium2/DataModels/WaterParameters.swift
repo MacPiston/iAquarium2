@@ -1,5 +1,5 @@
 //
-//  WaterParametersModel.swift
+//  WaterParameters.swift
 //  iAquarium2
 //
 //  Created by Maciej Zajecki on 12/04/2020.

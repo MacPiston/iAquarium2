@@ -1,5 +1,5 @@
 //
-//  TankModel.swift
+//  Tank.swift
 //  iAquarium2
 //
 //  Created by Maciej Zajecki on 10/04/2020.

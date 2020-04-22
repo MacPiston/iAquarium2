@@ -2,20 +2,25 @@ PODS:
   - Eureka (5.2.1)
   - ImageRow (4.0.0):
     - Eureka (~> 5.0)
+  - TableRow (0.4.0):
+    - Eureka (~> 5.1)
 
 DEPENDENCIES:
   - Eureka
   - ImageRow (~> 4.0)
+  - TableRow
 
 SPEC REPOS:
   trunk:
     - Eureka
     - ImageRow
+    - TableRow
 
 SPEC CHECKSUMS:
   Eureka: c883105488e05bc65539f583246ecf9657cabbfe
   ImageRow: e65b2e1a33f89062bf2a553a2aad61d975eb7428
+  TableRow: d9b1cc9a78066118f59505f54252e65e7c354458
 
-PODFILE CHECKSUM: 13e0c70e91eaa40edc416dae35875af0ce83d281
+PODFILE CHECKSUM: a1bcff8ee2fb6890ed176f5ff326be9ea6fff39b
 
 COCOAPODS: 1.9.1

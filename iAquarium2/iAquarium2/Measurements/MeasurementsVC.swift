@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import TableRow
 
 class MeasurementsVC: FormViewController {
 
@@ -22,5 +23,15 @@ class MeasurementsVC: FormViewController {
     func setupForm() {
         form
             +++ Section("nope")
+            <<< TableInlineRow<String> { row in
+            row.options = ["first", "second", "third"]
+            row.value = "none"
+        }
+    }
+    
+    @IBAction func unwindToMeasurements(sender: UIStoryboardSegue) {
+        if let sourceVC = sender.source as? AddMeasurementVC, let newMeasurement = sourceVC.measurement {
+            
+        }
     }
 }

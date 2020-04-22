@@ -8,6 +8,7 @@ target 'iAquarium2' do
   # Pods for iAquarium2
   pod 'Eureka'
   pod 'ImageRow', '~> 4.0'
+  pod 'TableRow'
   target 'iAquarium2Tests' do
     inherit! :search_paths
     # Pods for testing
