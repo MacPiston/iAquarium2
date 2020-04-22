@@ -15,8 +15,8 @@ class Tank {
     var capacity : Int
     var waterType : String
     var saltAmount : Int
-    var waterParams : WaterParameterInitial
-    var paramsHistory = [WaterParameter]()
+    var waterExpectedParams : WaterParameterInitial
+    var measurements : [Measurement] = [Measurement]()
     
     init(newName : String, newBrand : String, newCapacity: Int, newWaterType : String, newSaltAmount : Int) {
         self.name = newName
@@ -24,7 +24,7 @@ class Tank {
         self.capacity = newCapacity
         self.waterType = newWaterType
         self.saltAmount = newSaltAmount
-        self.waterParams = WaterParameterInitial()
+        self.waterExpectedParams = WaterParameterInitial()
     }
     
     init(newName : String, newBrand : String, newCapacity: Int, newWaterType : String, newSaltAmount : Int, newWaterParams : WaterParameterInitial) {
@@ -33,14 +33,14 @@ class Tank {
         self.capacity = newCapacity
         self.waterType = newWaterType
         self.saltAmount = newSaltAmount
-        self.waterParams = newWaterParams
+        self.waterExpectedParams = newWaterParams
     }
     
-    func lastParams() -> WaterParameter {
-        if !paramsHistory.isEmpty {
-            return paramsHistory.last!
+    func lastMeasurement() -> Measurement {
+        if !measurements.isEmpty {
+            return measurements.last!
         } else {
-            return WaterParameter()
+            return Measurement()
         }
     }
 }

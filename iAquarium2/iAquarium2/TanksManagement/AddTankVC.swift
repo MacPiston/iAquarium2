@@ -14,7 +14,6 @@ import os.log
 class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    
     var newTank : Tank?
 
     override func viewDidLoad() {

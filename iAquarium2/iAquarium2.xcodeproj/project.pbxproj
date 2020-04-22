@@ -10,6 +10,7 @@
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
 		1050B4752443349C008AF39D /* WaterParametersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050B4742443349C008AF39D /* WaterParametersModel.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
+		1086852D24509703005530B9 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086852C24509703005530B9 /* Measurement.swift */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
 		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
 		10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8A24407BFC0069735D /* TankSelectVC.swift */; };
@@ -50,6 +51,7 @@
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
 		1050B4742443349C008AF39D /* WaterParametersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterParametersModel.swift; sourceTree = "<group>"; };
 		1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
+		1086852C24509703005530B9 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F61C8824407BFC0069735D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				10F61CC42440DF480069735D /* DataManager.swift */,
 				10F61CC22440CDB50069735D /* TankModel.swift */,
 				1050B4742443349C008AF39D /* WaterParametersModel.swift */,
+				1086852C24509703005530B9 /* Measurement.swift */,
 			);
 			path = DataManagement;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			files = (
 				10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */,
 				10F61CC52440DF480069735D /* DataManager.swift in Sources */,
+				1086852D24509703005530B9 /* Measurement.swift in Sources */,
 				10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */,
 				10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */,
 				10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */,

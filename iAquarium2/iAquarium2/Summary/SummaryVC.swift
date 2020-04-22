@@ -11,13 +11,11 @@ import Eureka
 
 class SummaryVC: FormViewController {
     override func viewWillAppear(_ animated: Bool) {
-        //MARK: - Form - Summary Information
-        //ADD RELOADING FORM DATA HERE!!!!!
-        setupForm()
+        //ADD RELOADING FORM DATA !!!!!
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupForm()
     }
     
     func setupForm() {
@@ -25,8 +23,8 @@ class SummaryVC: FormViewController {
         dateFormatter.dateFormat = "dd-MM, HH:mm"
         
         let selectedTank : Tank? = DataManager.selectedTank
-        let expectedParams = selectedTank?.waterParams
-        let lastParams = selectedTank?.lastParams()
+        let expectedParams = selectedTank?.waterExpectedParams
+        let lastMeasurement = selectedTank?.lastMeasurement()
         form
             +++ Section("Summary")
             <<< LabelRow() {
@@ -48,7 +46,7 @@ class SummaryVC: FormViewController {
             <<< LabelRow() {
                 $0.title = "Last measurement"
                 $0.tag = "date_last"
-                $0.value = dateFormatter.string(from: lastParams!.date!)
+                $0.value = dateFormatter.string(from: lastMeasurement!.date)
             }
             
             +++ Section("Temperature") {
@@ -64,7 +62,7 @@ class SummaryVC: FormViewController {
             <<< LabelRow() {
                 $0.title = "Last"
                 $0.tag = "temp_last"
-                $0.value = String(lastParams!.temp)
+                $0.value = String(lastMeasurement!.waterParams.temp)
         }
         
             +++ Section("PH") {
@@ -80,7 +78,7 @@ class SummaryVC: FormViewController {
             <<< LabelRow() {
                 $0.title = "Last"
                 $0.tag = "ph_last"
-                $0.value = String(lastParams!.phValue)
+                $0.value = String(lastMeasurement!.waterParams.phValue)
         }
         
             +++ Section("GH") {
@@ -96,7 +94,7 @@ class SummaryVC: FormViewController {
             <<< LabelRow() {
                 $0.title = "Last"
                 $0.tag = "gh_last"
-                $0.value = String(lastParams!.ghValue)
+                $0.value = String(lastMeasurement!.waterParams.ghValue)
         }
         
             +++ Section("NO#") {
@@ -107,12 +105,12 @@ class SummaryVC: FormViewController {
             <<< LabelRow() {
                 $0.title = "NO2 Last"
                 $0.tag = "no2_last"
-                $0.value = String(lastParams!.no2Value)
+                $0.value = String(lastMeasurement!.waterParams.no2Value)
         }
             <<< LabelRow() {
                 $0.title = "NO3 Last"
                 $0.tag = "no3_last"
-                $0.value = String(lastParams!.no3Value)
+                $0.value = String(lastMeasurement!.waterParams.no3Value)
         }
     }
     
