@@ -5,7 +5,11 @@
 //  Created by Maciej Zajecki on 10/04/2020.
 //  Copyright © 2020 Maciej Zajecki. All rights reserved.
 //
-
+/*
+ TODO:
+ - cleaning status
+ - better layout
+ */
 import UIKit
 import Eureka
 

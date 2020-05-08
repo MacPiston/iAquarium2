@@ -25,6 +25,7 @@
 		10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CBC24407FF70069735D /* AddTankVC.swift */; };
 		10F61CC32440CDB50069735D /* Tank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CC22440CDB50069735D /* Tank.swift */; };
 		10F61CC52440DF480069735D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CC42440DF480069735D /* DataManager.swift */; };
+		10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F923222465E9DD00D57191 /* VariableFormats.swift */; };
 		4B1FE708DD4A68D14763FD51 /* Pods_iAquarium2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77A1553904A0C3CFAF18810 /* Pods_iAquarium2Tests.framework */; };
 		785EEF6A6363FCBF6BD17AC0 /* Pods_iAquarium2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283D1AD2CE3F86632FED0B9C /* Pods_iAquarium2.framework */; };
 		9D79B02AC7E21F187E90F528 /* Pods_iAquarium2_iAquarium2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF569215E2D8823BCB13E9F /* Pods_iAquarium2_iAquarium2UITests.framework */; };
@@ -73,6 +74,7 @@
 		10F61CBC24407FF70069735D /* AddTankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTankVC.swift; sourceTree = "<group>"; };
 		10F61CC22440CDB50069735D /* Tank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tank.swift; sourceTree = "<group>"; };
 		10F61CC42440DF480069735D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		10F923222465E9DD00D57191 /* VariableFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableFormats.swift; sourceTree = "<group>"; };
 		283D1AD2CE3F86632FED0B9C /* Pods_iAquarium2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iAquarium2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E085CF957C1D303119B0EA /* Pods-iAquarium2-iAquarium2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2-iAquarium2UITests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2-iAquarium2UITests/Pods-iAquarium2-iAquarium2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84051ED79CF1804CDB59895F /* Pods-iAquarium2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.release.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				10F61CC22440CDB50069735D /* Tank.swift */,
 				1050B4742443349C008AF39D /* WaterParameters.swift */,
 				1086852C24509703005530B9 /* Measurement.swift */,
+				10F923222465E9DD00D57191 /* VariableFormats.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
+				10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */,
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,
 				1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */,
 				100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */,

@@ -18,10 +18,10 @@
  
  Loggable parameters:
     - temperature
-    - Cl2 value mg/l
     - pH value
     - GH value °d
     - KH value °d
+    - Cl2 value mg/l
     - NO2 value mg/l
     - NO3 value mg/l
     - Date of measurements

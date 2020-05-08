@@ -10,8 +10,19 @@ import UIKit
 import Eureka
 import TableRow
 
-class MeasurementsVC: FormViewController {
+/*
+Loggable parameters:
+   - temperature
+   - pH value
+   - GH value °d
+   - KH value °d
+   - Cl2 value mg/l
+   - NO2 value mg/l
+   - NO3 value mg/l
+   - Date of measurements
+*/
 
+class MeasurementsVC: FormViewController {
     override func viewWillAppear(_ animated: Bool) {
     }
     override func viewDidLoad() {
@@ -21,11 +32,55 @@ class MeasurementsVC: FormViewController {
     }
     
     func setupForm() {
+        let lastMeasurement = DataManager.selectedTank?.lastMeasurement()
         form
-            +++ Section("nope")
+        +++ Section("Select measurement")
             <<< TableInlineRow<String> { row in
-            row.options = ["first", "second", "third"]
-            row.value = "none"
+                row.options = ["1", "2", "3"]
+                row.value = "none"
+        }
+        +++ Section("Measured values:") {
+                    section in
+                    section.footer?.height = {12}
+                    section.header?.height = {12}
+               }
+            <<< LabelRow() {
+                $0.title = VariableFormats.temp
+                $0.value = String(lastMeasurement!.waterParams.temp)
+        }
+            <<< LabelRow() {
+                $0.title = VariableFormats.ph
+                $0.value = String(lastMeasurement!.waterParams.phValue)
+        }
+            <<< LabelRow() {
+                $0.title = VariableFormats.gh
+                $0.value = String(lastMeasurement!.waterParams.ghValue)
+        }
+            <<< LabelRow() {
+                $0.title = VariableFormats.kh
+                $0.value = String(lastMeasurement!.waterParams.khValue)
+        }
+            <<< LabelRow() {
+                $0.title = VariableFormats.cl2
+                $0.value = String(lastMeasurement!.waterParams.cl2Value)
+        }
+            <<< LabelRow() {
+                $0.title = VariableFormats.no2
+                $0.value = String(lastMeasurement!.waterParams.no2Value)
+        }
+            <<< LabelRow() {
+                $0.title = VariableFormats.no3
+                $0.value = String(lastMeasurement!.waterParams.no3Value)
+        }
+        +++ Section("Notes") {
+                    section in
+                    section.footer?.height = {12}
+                    section.header?.height = {12}
+            }
+            <<< TextAreaRow() {
+                $0.title = VariableFormats.notes
+                $0.textAreaMode = .readOnly
+                $0.value = lastMeasurement?.note
         }
     }
     

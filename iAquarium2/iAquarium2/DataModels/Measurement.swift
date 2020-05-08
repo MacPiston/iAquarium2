@@ -11,6 +11,7 @@ import Foundation
 class Measurement {
     var waterParams : WaterParameter = WaterParameter()
     var date : Date = Date()
+    var note : String?
     
     init(waterParams : WaterParameter, date : Date) {
         self.waterParams = waterParams
