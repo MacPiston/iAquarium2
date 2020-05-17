@@ -11,12 +11,10 @@ import UIKit
 class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tankTableView: UITableView!
-    var selectedTank : Tank?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        DataManager.tanksArray += [Tank(newName: "Test", newBrand: "Test2", newCapacity: 50, newWaterType: "normal", newSaltAmount: 0)]
         tankTableView.delegate = self
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
@@ -35,7 +33,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.tanksArray.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -49,24 +47,19 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             fatalError("Couldn't downcast cell")
         }
         
-        let tank = DataManager.tanksArray[indexPath.row]
-        cell.infoLabel.text = tank.brand + ": " + tank.name
-        cell.info2Label.text = String(tank.capacity) + "L, Water: " + tank.waterType
+        cell.infoLabel.text = "test"
+        cell.info2Label.text = "test2"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        DataManager.selectedTank = DataManager.tanksArray[indexPath.row]
         switchTabsEnabled(state: true)
+        
     }
     
     //MARK: - Navigation
     @IBAction func unwindToTankSelect(sender: UIStoryboardSegue) {
-        if let sourceVC = sender.source as? AddTankVC, let tank = sourceVC.newTank {
-            let newIndexPath = IndexPath(row: DataManager.tanksArray.count, section: 0)
-            DataManager.tanksArray += [tank]
-            tankTableView.insertRows(at: [newIndexPath], with: .automatic)
-        }
+        
     }
 }
 

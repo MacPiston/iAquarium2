@@ -22,7 +22,6 @@ Loggable parameters:
 class AddMeasurementVC: FormViewController {
     //MARK: - Setup
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    var measurement : Measurement?
     var cellsValidity : [Bool] = [Bool]()
     
     override func viewDidLoad() {
@@ -45,7 +44,7 @@ class AddMeasurementVC: FormViewController {
                 $0.tag = "date"
                 $0.add(rule: RuleRequired())
         }.onChange { row in
-                self.measurement?.date = (row.value)!
+                //self.measurement?.date = (row.value)!
         }
             
             +++ Section("Water parameters") {
@@ -59,7 +58,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }.onChange { row in
                 if ((row.value)! > 0 && row.isValid) {
-                    self.measurement?.waterParams.temp = (row.value)!
+                    //self.measurement?.waterParams.temp = (row.value)!
                     self.cellsValidity[0] = true
                     self.checkCellsValidity()
                 } else {
@@ -74,7 +73,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }.onChange { row in
                 if ((row.value)! > 0 && row.isValid){
-                    self.measurement?.waterParams.phValue = (row.value)!
+                    //self.measurement?.waterParams.phValue = (row.value)!
                     self.cellsValidity[1] = true
                     self.checkCellsValidity()
                 } else {
@@ -88,7 +87,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }.onChange { row in
                 if ((row.value)! > 0 && row.isValid) {
-                    self.measurement?.waterParams.ghValue = (row.value)!
+                    //self.measurement?.waterParams.ghValue = (row.value)!
                     self.cellsValidity[2] = true
                     self.checkCellsValidity()
                 } else {
@@ -102,7 +101,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }.onChange { row in
                 if ((row.value)! > 0 && row.isValid) {
-                    self.measurement?.waterParams.khValue = (row.value)!
+                    //self.measurement?.waterParams.khValue = (row.value)!
                     self.cellsValidity[3] = true
                     self.checkCellsValidity()
                 } else {
@@ -116,7 +115,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }.onChange { row in
                 if ((row.value)! > 0 && row.isValid) {
-                    self.measurement?.waterParams.khValue = (row.value)!
+                    //self.measurement?.waterParams.khValue = (row.value)!
                     self.cellsValidity[4] = true
                     self.checkCellsValidity()
                 } else {
@@ -130,7 +129,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }.onChange { row in
                 if ((row.value)! > 0 && row.isValid) {
-                    self.measurement?.waterParams.no2Value = (row.value)!
+                    //self.measurement?.waterParams.no2Value = (row.value)!
                     self.cellsValidity[5] = true
                     self.checkCellsValidity()
                 } else {
@@ -144,7 +143,7 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
         }.onChange { row in
             if ((row.value)! > 0 && row.isValid) {
-                self.measurement?.waterParams.no3Value = (row.value)!
+                //self.measurement?.waterParams.no3Value = (row.value)!
                 self.cellsValidity[6] = true
                 self.checkCellsValidity()
             } else {

@@ -2,25 +2,30 @@ PODS:
   - Eureka (5.2.1)
   - ImageRow (4.0.0):
     - Eureka (~> 5.0)
+  - SplitRow (2.1.1):
+    - Eureka (~> 5.1)
   - TableRow (0.4.0):
     - Eureka (~> 5.1)
 
 DEPENDENCIES:
   - Eureka
   - ImageRow (~> 4.0)
+  - SplitRow
   - TableRow
 
 SPEC REPOS:
   trunk:
     - Eureka
     - ImageRow
+    - SplitRow
     - TableRow
 
 SPEC CHECKSUMS:
   Eureka: c883105488e05bc65539f583246ecf9657cabbfe
   ImageRow: e65b2e1a33f89062bf2a553a2aad61d975eb7428
+  SplitRow: 921e76fbbd7ef50d005131d6665a6e10f26df04b
   TableRow: d9b1cc9a78066118f59505f54252e65e7c354458
 
-PODFILE CHECKSUM: a1bcff8ee2fb6890ed176f5ff326be9ea6fff39b
+PODFILE CHECKSUM: 22fe907969ff44076dc1e01aead6777e3652818a
 
 COCOAPODS: 1.9.1

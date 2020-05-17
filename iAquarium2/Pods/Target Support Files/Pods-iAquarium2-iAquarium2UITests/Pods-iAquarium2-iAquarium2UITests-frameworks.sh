@@ -199,11 +199,13 @@ fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TableRow/TableRow.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TableRow/TableRow.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

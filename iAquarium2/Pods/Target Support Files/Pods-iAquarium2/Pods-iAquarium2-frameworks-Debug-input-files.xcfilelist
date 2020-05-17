@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-iAquarium2/Pods-iAquarium2-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework
 ${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework
+${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework
 ${BUILT_PRODUCTS_DIR}/TableRow/TableRow.framework

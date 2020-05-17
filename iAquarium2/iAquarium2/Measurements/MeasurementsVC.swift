@@ -32,12 +32,13 @@ class MeasurementsVC: FormViewController {
     }
     
     func setupForm() {
-        let lastMeasurement = DataManager.selectedTank?.lastMeasurement()
         form
         +++ Section("Select measurement")
-            <<< TableInlineRow<String> { row in
-                row.options = ["1", "2", "3"]
-                row.value = "none"
+            <<< PushRow<String> {
+                $0.title = "Mesaurement"
+                $0.selectorTitle = "Pick a measurement"
+                $0.options = ["1", "2", "3"]
+                $0.value = "none"
         }
         +++ Section("Measured values:") {
                     section in
@@ -46,31 +47,31 @@ class MeasurementsVC: FormViewController {
                }
             <<< LabelRow() {
                 $0.title = VariableFormats.temp
-                $0.value = String(lastMeasurement!.waterParams.temp)
+                //$0.value = String(lastMeasurement!.waterParams.temp)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.ph
-                $0.value = String(lastMeasurement!.waterParams.phValue)
+                //$0.value = String(lastMeasurement!.waterParams.phValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.gh
-                $0.value = String(lastMeasurement!.waterParams.ghValue)
+                //$0.value = String(lastMeasurement!.waterParams.ghValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.kh
-                $0.value = String(lastMeasurement!.waterParams.khValue)
+                //$0.value = String(lastMeasurement!.waterParams.khValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.cl2
-                $0.value = String(lastMeasurement!.waterParams.cl2Value)
+                //$0.value = String(lastMeasurement!.waterParams.cl2Value)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.no2
-                $0.value = String(lastMeasurement!.waterParams.no2Value)
+                //$0.value = String(lastMeasurement!.waterParams.no2Value)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.no3
-                $0.value = String(lastMeasurement!.waterParams.no3Value)
+                //$0.value = String(lastMeasurement!.waterParams.no3Value)
         }
         +++ Section("Notes") {
                     section in
@@ -80,13 +81,11 @@ class MeasurementsVC: FormViewController {
             <<< TextAreaRow() {
                 $0.title = VariableFormats.notes
                 $0.textAreaMode = .readOnly
-                $0.value = lastMeasurement?.note
+                //$0.value = lastMeasurement?.note
         }
     }
     
     @IBAction func unwindToMeasurements(sender: UIStoryboardSegue) {
-        if let sourceVC = sender.source as? AddMeasurementVC, let newMeasurement = sourceVC.measurement {
-            
-        }
+
     }
 }

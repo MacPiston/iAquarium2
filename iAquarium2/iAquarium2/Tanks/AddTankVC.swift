@@ -10,12 +10,11 @@ import UIKit
 import Eureka
 import ImageRow
 import os.log
+import CoreData
 
 class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    var newTank : Tank?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationOptions = RowNavigationOptions.Disabled
@@ -183,17 +182,37 @@ class AddTankVC: FormViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
         guard let button = sender as? UIBarButtonItem, button === saveBarButton else {
             os_log("Not the Done button; cancelling...", log: OSLog.default, type: .debug)
             return
         }
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let managedObjectContext = appDelegate.persistentContainer.viewContext
         let values = form.values()
+        
+        let tankObject = Tank(context: managedObjectContext)
+        let tankWaterParameter = WaterParameter(context: managedObjectContext)
+        tankObject.name = values["name"] as? String
+        tankObject.brand = values["brand"] as? String
+        tankObject.capacity = values["capacity"] as! Int16
+        tankObject.waterType = values["watertype"] as? String
+        tankObject.image = values["image"] as? Data
+        
         if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
-            let waterParams = WaterParameterInitial(minTemp: (values["mintemp"] as? Int)!, maxTemp: (values["maxtemp"] as? Int)!, phValue: (values["ph"] as? Double)!, ghValue: (values["gh"] as? Int)!)
-            newTank = Tank(newName: values["name"] as! String, newBrand: values["brand"] as! String, newCapacity: values["capacity"] as! Int, newWaterType: values["watertype"] as! String, newSaltAmount: values["salt"] as? Int ?? 0, newWaterParams: waterParams)
+            tankWaterParameter.tempMax = values["maxtemp"] as! Int16
+            tankWaterParameter.tempMin = values["mintemp"] as! Int16
+            tankWaterParameter.phValue = values["ph"] as! Double
+            tankWaterParameter.ghValue = values["gh"] as! Int16
         } else {
-            newTank = Tank(newName: values["name"] as! String, newBrand: values["brand"] as! String, newCapacity: values["capacity"] as! Int, newWaterType: values["watertype"] as! String, newSaltAmount: values["salt"] as? Int ?? 0)
+            
+        }
+        tankObject.parameters = tankWaterParameter
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            //os_log("Could not save \(error), \(error.userInfo)", log: OSLog.default, type: .debug)
+            print("Couldn't save new tank: \(error), \(error.userInfo)")
         }
     }
     
