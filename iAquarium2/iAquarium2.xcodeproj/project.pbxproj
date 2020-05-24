@@ -10,12 +10,12 @@
 		100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */; };
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
-		10E6CC7524718DA300F20CD5 /* Measurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC6F24718DA300F20CD5 /* Measurement+CoreDataClass.swift */; };
-		10E6CC7624718DA300F20CD5 /* Measurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC7024718DA300F20CD5 /* Measurement+CoreDataProperties.swift */; };
-		10E6CC7724718DA300F20CD5 /* Tank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC7124718DA300F20CD5 /* Tank+CoreDataClass.swift */; };
-		10E6CC7824718DA300F20CD5 /* Tank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC7224718DA300F20CD5 /* Tank+CoreDataProperties.swift */; };
+		107AA6E3247AAAAD00FFA919 /* Measurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AA6E1247AAAAD00FFA919 /* Measurement+CoreDataClass.swift */; };
+		107AA6E4247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AA6E2247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift */; };
 		10E6CC7D24718E7F00F20CD5 /* WaterParameter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC7B24718E7F00F20CD5 /* WaterParameter+CoreDataClass.swift */; };
 		10E6CC7E24718E7F00F20CD5 /* WaterParameter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC7C24718E7F00F20CD5 /* WaterParameter+CoreDataProperties.swift */; };
+		10E6CC8524719F9B00F20CD5 /* Tank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC8324719F9B00F20CD5 /* Tank+CoreDataClass.swift */; };
+		10E6CC8624719F9B00F20CD5 /* Tank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6CC8424719F9B00F20CD5 /* Tank+CoreDataProperties.swift */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
 		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
 		10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8A24407BFC0069735D /* TankSelectVC.swift */; };
@@ -55,12 +55,12 @@
 		100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementVC.swift; sourceTree = "<group>"; };
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
 		1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
-		10E6CC6F24718DA300F20CD5 /* Measurement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Measurement+CoreDataClass.swift"; sourceTree = "<group>"; };
-		10E6CC7024718DA300F20CD5 /* Measurement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Measurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		10E6CC7124718DA300F20CD5 /* Tank+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tank+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Tank+CoreDataClass.swift"; sourceTree = "<group>"; };
-		10E6CC7224718DA300F20CD5 /* Tank+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tank+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Tank+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		107AA6E1247AAAAD00FFA919 /* Measurement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Measurement+CoreDataClass.swift"; sourceTree = "<group>"; };
+		107AA6E2247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Measurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10E6CC7B24718E7F00F20CD5 /* WaterParameter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WaterParameter+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/WaterParameter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		10E6CC7C24718E7F00F20CD5 /* WaterParameter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WaterParameter+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/WaterParameter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		10E6CC8324719F9B00F20CD5 /* Tank+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tank+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Tank+CoreDataClass.swift"; sourceTree = "<group>"; };
+		10E6CC8424719F9B00F20CD5 /* Tank+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tank+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Tank+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F61C8824407BFC0069735D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,12 +137,12 @@
 		10F61C7A24407BFB0069735D = {
 			isa = PBXGroup;
 			children = (
+				107AA6E1247AAAAD00FFA919 /* Measurement+CoreDataClass.swift */,
+				107AA6E2247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift */,
+				10E6CC8324719F9B00F20CD5 /* Tank+CoreDataClass.swift */,
+				10E6CC8424719F9B00F20CD5 /* Tank+CoreDataProperties.swift */,
 				10E6CC7B24718E7F00F20CD5 /* WaterParameter+CoreDataClass.swift */,
 				10E6CC7C24718E7F00F20CD5 /* WaterParameter+CoreDataProperties.swift */,
-				10E6CC6F24718DA300F20CD5 /* Measurement+CoreDataClass.swift */,
-				10E6CC7024718DA300F20CD5 /* Measurement+CoreDataProperties.swift */,
-				10E6CC7124718DA300F20CD5 /* Tank+CoreDataClass.swift */,
-				10E6CC7224718DA300F20CD5 /* Tank+CoreDataProperties.swift */,
 				10F61C8524407BFC0069735D /* iAquarium2 */,
 				10F61CA124407C010069735D /* iAquarium2Tests */,
 				10F61CAC24407C010069735D /* iAquarium2UITests */,
@@ -478,22 +478,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				107AA6E4247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift in Sources */,
 				10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */,
+				107AA6E3247AAAAD00FFA919 /* Measurement+CoreDataClass.swift in Sources */,
+				10E6CC8624719F9B00F20CD5 /* Tank+CoreDataProperties.swift in Sources */,
 				10E6CC7E24718E7F00F20CD5 /* WaterParameter+CoreDataProperties.swift in Sources */,
 				10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */,
 				10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */,
 				10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */,
-				10E6CC7624718DA300F20CD5 /* Measurement+CoreDataProperties.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
+				10E6CC8524719F9B00F20CD5 /* Tank+CoreDataClass.swift in Sources */,
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
-				10E6CC7524718DA300F20CD5 /* Measurement+CoreDataClass.swift in Sources */,
 				10E6CC7D24718E7F00F20CD5 /* WaterParameter+CoreDataClass.swift in Sources */,
 				10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */,
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,
 				1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */,
-				10E6CC7724718DA300F20CD5 /* Tank+CoreDataClass.swift in Sources */,
 				100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */,
-				10E6CC7824718DA300F20CD5 /* Tank+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

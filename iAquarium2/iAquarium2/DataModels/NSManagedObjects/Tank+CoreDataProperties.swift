@@ -18,11 +18,12 @@ extension Tank {
     }
 
     @NSManaged public var brand: String?
-    @NSManaged public var capacity: Int16
+    @NSManaged public var capacity: Int32
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
     @NSManaged public var waterType: String?
-    @NSManaged public var measurements: NSSet?
+    @NSManaged public var salt: Int32
+    @NSManaged public var measurements: Set<Measurement>?
     @NSManaged public var parameters: WaterParameter?
 
 }

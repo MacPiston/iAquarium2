@@ -4,13 +4,14 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <relationship name="ofTank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tank" inverseName="measurements" inverseEntity="Tank"/>
-        <relationship name="parameters" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WaterParameter" inverseName="ofMeasurement" inverseEntity="WaterParameter"/>
+        <relationship name="parameter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WaterParameter" inverseName="ofMeasurement" inverseEntity="WaterParameter"/>
     </entity>
     <entity name="Tank" representedClassName="Tank" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String"/>
-        <attribute name="capacity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="capacity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="salt" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="waterType" optional="YES" attributeType="String"/>
         <relationship name="measurements" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Measurement" inverseName="ofTank" inverseEntity="Measurement"/>
         <relationship name="parameters" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WaterParameter" inverseName="ofTank" inverseEntity="WaterParameter"/>
@@ -25,12 +26,12 @@
         <attribute name="temp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tempMax" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tempMin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="ofMeasurement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Measurement" inverseName="parameters" inverseEntity="Measurement"/>
+        <relationship name="ofMeasurement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Measurement" inverseName="parameter" inverseEntity="Measurement"/>
         <relationship name="ofTank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tank" inverseName="parameters" inverseEntity="Tank"/>
     </entity>
     <elements>
         <element name="Measurement" positionX="75.2734375" positionY="141.2109375" width="128" height="103"/>
-        <element name="Tank" positionX="-74.91015625" positionY="-220.66015625" width="128" height="148"/>
+        <element name="Tank" positionX="-74.91015625" positionY="-220.66015625" width="128" height="163"/>
         <element name="WaterParameter" positionX="-137.43359375" positionY="-4.859375" width="128" height="208"/>
     </elements>
 </model>

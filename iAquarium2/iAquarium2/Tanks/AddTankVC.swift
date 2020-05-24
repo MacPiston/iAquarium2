@@ -15,6 +15,8 @@ import CoreData
 class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationOptions = RowNavigationOptions.Disabled
@@ -187,31 +189,30 @@ class AddTankVC: FormViewController {
             return
         }
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedObjectContext = appDelegate.persistentContainer.viewContext
         let values = form.values()
         
-        let tankObject = Tank(context: managedObjectContext)
-        let tankWaterParameter = WaterParameter(context: managedObjectContext)
+        let tankObject = Tank(context: context)
+        let tankWaterParameter = WaterParameter(context: context)
+        
         tankObject.name = values["name"] as? String
         tankObject.brand = values["brand"] as? String
-        tankObject.capacity = values["capacity"] as! Int16
+        tankObject.capacity = Int32(values["capacity"] as! Int)
         tankObject.waterType = values["watertype"] as? String
+        tankObject.salt = Int32(values["salt"] as? Int ?? 0)
         tankObject.image = values["image"] as? Data
         
         if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
-            tankWaterParameter.tempMax = values["maxtemp"] as! Int16
-            tankWaterParameter.tempMin = values["mintemp"] as! Int16
+            tankWaterParameter.tempMax = Int16(values["maxtemp"] as! Int)
+            tankWaterParameter.tempMin = Int16(values["mintemp"] as! Int)
             tankWaterParameter.phValue = values["ph"] as! Double
-            tankWaterParameter.ghValue = values["gh"] as! Int16
+            tankWaterParameter.ghValue = Int16(values["gh"] as! Int)
         } else {
-            
+            //TODO?
         }
         tankObject.parameters = tankWaterParameter
         do {
-            try managedObjectContext.save()
+            try context.save()
         } catch let error as NSError {
-            //os_log("Could not save \(error), \(error.userInfo)", log: OSLog.default, type: .debug)
             print("Couldn't save new tank: \(error), \(error.userInfo)")
         }
     }
@@ -219,5 +220,4 @@ class AddTankVC: FormViewController {
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
