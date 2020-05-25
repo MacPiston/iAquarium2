@@ -23,8 +23,13 @@ Loggable parameters:
 */
 
 class MeasurementsVC: FormViewController {
+    var tank: Tank?
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        updateFormValues()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
@@ -34,11 +39,11 @@ class MeasurementsVC: FormViewController {
     func setupForm() {
         form
         +++ Section("Select measurement")
-            <<< PushRow<String> {
+            <<< PushRow<Measurement> {
                 $0.title = "Mesaurement"
+                $0.tag = "measurement_picker"
                 $0.selectorTitle = "Pick a measurement"
-                $0.options = ["1", "2", "3"]
-                $0.value = "none"
+                
         }
         +++ Section("Measured values:") {
                     section in
@@ -47,30 +52,37 @@ class MeasurementsVC: FormViewController {
                }
             <<< LabelRow() {
                 $0.title = VariableFormats.temp
+                $0.tag = "temp"
                 //$0.value = String(lastMeasurement!.waterParams.temp)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.ph
+                $0.tag = "ph"
                 //$0.value = String(lastMeasurement!.waterParams.phValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.gh
+                $0.tag = "gh"
                 //$0.value = String(lastMeasurement!.waterParams.ghValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.kh
+                $0.tag = "kh"
                 //$0.value = String(lastMeasurement!.waterParams.khValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.cl2
+                $0.tag = "cl2"
                 //$0.value = String(lastMeasurement!.waterParams.cl2Value)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.no2
+                $0.tag = "no2"
                 //$0.value = String(lastMeasurement!.waterParams.no2Value)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.no3
+                $0.tag = "no3"
                 //$0.value = String(lastMeasurement!.waterParams.no3Value)
         }
         +++ Section("Notes") {
@@ -80,9 +92,14 @@ class MeasurementsVC: FormViewController {
             }
             <<< TextAreaRow() {
                 $0.title = VariableFormats.notes
+                $0.tag = "notes"
                 $0.textAreaMode = .readOnly
                 //$0.value = lastMeasurement?.note
         }
+    }
+    
+    func updateFormValues() {
+        
     }
     
     @IBAction func unwindToMeasurements(sender: UIStoryboardSegue) {

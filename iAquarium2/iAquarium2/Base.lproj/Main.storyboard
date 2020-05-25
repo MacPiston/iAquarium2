@@ -51,6 +51,7 @@
                                             <outlet property="info2Label" destination="gfN-XR-hZN" id="VF5-O8-Suo"/>
                                             <outlet property="infoLabel" destination="Qy1-WC-d0R" id="myC-aa-GzS"/>
                                             <outlet property="tankImageView" destination="py6-Ah-YqC" id="FZy-YK-qVd"/>
+                                            <segue destination="6ML-o8-oAx" kind="unwind" unwindAction="comingFromTankSelectorWithSegue:" id="0pg-CK-uWR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,6 +72,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <exit id="6ML-o8-oAx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1660" y="-322"/>
         </scene>
@@ -116,6 +118,7 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Summary" image="text.bubble" catalog="system" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="W3l-XP-uBh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,6 +240,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pqn-IV-xmG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Measurements" image="thermometer" catalog="system" id="zOZ-Fl-9ZM"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ITT-XX-b88"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fWN-C4-JtP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

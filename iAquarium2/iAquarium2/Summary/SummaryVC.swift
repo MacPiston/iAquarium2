@@ -10,40 +10,42 @@ import Eureka
 import SplitRow
 
 class SummaryVC: FormViewController {
+    var tank: Tank?
+    var measurements: [Measurement]?
+    var parameters: WaterParameter?
+    var latestMeasurement: Measurement?
+    let dateFormatter = DateFormatter()
+    
     override func viewWillAppear(_ animated: Bool) {
-        
+        measurements = tank?.measurements?.sorted(by: { $0.date! > $1.date! })
+        if !(measurements?.isEmpty)! {
+            latestMeasurement = measurements?.first
+        }
+        parameters = tank?.parameters
+        updateFormValues()
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
     }
     
+    //MARK: -Form
     func setupForm() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM, HH:mm"
 
         form
             +++ Section("Summary")
             <<< LabelRow() {
                 $0.title = "Selected tank"
-                //$0.value = selectedTank?.name
+                $0.tag = "selected_tank"
             }
             <<< LabelRow() {
                 $0.title = "Status"
-                $0.value = "currentstatus"
                 $0.tag = "status"
-            }.cellUpdate {
-                cell, row in
-                if row.value != "OK" {
-                    cell.textLabel?.textColor = .systemRed
-                } else {
-                    cell.textLabel?.textColor = .systemGreen
-                }
             }
             <<< LabelRow() {
                 $0.title = "Last measurement"
                 $0.tag = "date_last"
-                //$0.value = dateFormatter.string(from: lastMeasurement!.date)
             }
             
             +++ Section("Temperature") {
@@ -53,17 +55,17 @@ class SummaryVC: FormViewController {
             }
             <<< SplitRow<LabelRow, LabelRow>() {
                 $0.rowLeftPercentage = 0.5
+                $0.tag = "split_temps"
                 $0.rowLeft = LabelRow() {
                     $0.title = "Expected"
                     $0.tag = "temp_expected"
-                    //$0.value = expectedParams!.tempComp() + " °C"
                 }
                 $0.rowRight = LabelRow() {
                     $0.title = "Last"
                     $0.tag = "temp_last"
-                    //$0.value = String(lastMeasurement!.waterParams.temp)
                 }
             }
+            
             +++ Section("PH") {
                 section in
                 section.footer?.height = {15}
@@ -71,15 +73,13 @@ class SummaryVC: FormViewController {
         }
             <<< SplitRow<LabelRow, LabelRow>() {
                 $0.rowLeftPercentage = 0.5
+                $0.tag = "split_ph"
                 $0.rowLeft = LabelRow() {
                     $0.title = "Expected"
-                    $0.tag = "ph_expected"
-                    //$0.value = String(expectedParams!.phValue)
                 }
+                
                 $0.rowRight = LabelRow() {
                     $0.title = "Last"
-                    $0.tag = "ph_last"
-                    //$0.value = String(lastMeasurement!.waterParams.phValue)
                 }
             }
             +++ Section("GH") {
@@ -89,15 +89,13 @@ class SummaryVC: FormViewController {
         }
             <<< SplitRow<LabelRow, LabelRow>() {
                 $0.rowLeftPercentage = 0.5
+                $0.tag = "split_gh"
                 $0.rowLeft = LabelRow() {
                     $0.title = "Expected"
-                    $0.tag = "gh_expected"
-                    //$0.value = String(expectedParams!.ghValue)
                 }
+                
                 $0.rowRight = LabelRow() {
                     $0.title = "Last"
-                    $0.tag = "gh_last"
-                    //$0.value = String(lastMeasurement!.waterParams.ghValue)
                 }
             }        
             +++ Section("NO#") {
@@ -107,17 +105,40 @@ class SummaryVC: FormViewController {
         }
             <<< SplitRow<LabelRow, LabelRow>() {
                 $0.rowLeftPercentage = 0.5
+                $0.tag = "split_nox"
                 $0.rowLeft = LabelRow() {
                     $0.title = "NO2 Last"
-                    $0.tag = "no2_last"
-                    //$0.value = String(lastMeasurement!.waterParams.no2Value)
                 }
+                
                 $0.rowRight = LabelRow() {
                     $0.title = "NO3 Last"
-                    $0.tag = "no3_last"
-                    //$0.value = String(lastMeasurement!.waterParams.no3Value)
                 }
             }
     }
     
+    func updateFormValues() {
+        dateFormatter.dateFormat = "dd-MM, HH:mm"
+        // tank values
+        (form.rowBy(tag: "selected_tank") as! LabelRow).value = tank?.name
+        (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = (parameters?.tempMin.description)! + " - " + (parameters?.tempMax.description)!
+        (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = parameters?.phValue.description
+        (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = parameters?.ghValue.description
+        
+        // last measurement values
+        if latestMeasurement != nil {
+            (form.rowBy(tag: "date_last") as! LabelRow).value = dateFormatter.string(from: (latestMeasurement?.date)!)
+            (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.temp.description
+            (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.phValue.description
+            (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.ghValue.description
+            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = latestMeasurement?.parameter?.no2Value.description
+            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = latestMeasurement?.parameter?.no3Value.description
+        }
+        tableView.reloadData()
+    }
+    
+    //MARK: -Navigation
+    
+    @IBAction func comingFromTankSelector(segue: UIStoryboardSegue) {
+        
+    }
 }

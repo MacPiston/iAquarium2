@@ -12,9 +12,9 @@ import CoreData
 class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tankTableView: UITableView!
-    @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     var tanks: [Tank] = []
+    var selectedTank: Tank?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -24,6 +24,12 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
         fetchTanks()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let indexPath = tankTableView.indexPathForSelectedRow {
+            tankTableView.deselectRow(at: indexPath, animated: false)
+        }
     }
     
     func fetchTanks() {
@@ -76,28 +82,21 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             let tank = tanks[indexPath.row]
             context.delete(tank)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            do {
-                tanks = try context.fetch(NSFetchRequest(entityName: "Tank"))
-            } catch {
-                print("Fetching failed")
-            }
+            fetchTanks()
             tankTableView.reloadData()
         }
     }
-    
-    @IBAction func didPressEditBarButton(_ sender: UIBarButtonItem) {
-        if tankTableView.isEditing {
-            tankTableView.isEditing = false
-        } else {
-            tankTableView.isEditing = true
-        }
-    }
-    
-        
+            
     //MARK: - Navigation
     @IBAction func unwindToTankSelect(sender: UIStoryboardSegue) {
-        
+        fetchTanks()
+        tankTableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let summaryVC = segue.destination as? SummaryVC, let tankIndex = tankTableView.indexPathForSelectedRow?.row {
+            summaryVC.tank = tanks[tankIndex]
+        }
     }
 }
 

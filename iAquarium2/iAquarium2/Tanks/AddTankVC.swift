@@ -28,12 +28,6 @@ class AddTankVC: FormViewController {
             }
         })
         
-    // MARK: - TODO SECTION
-         /*
-         - values verification -> debug verification
-         - cells validation -> debug verification
-         */
-        
     // MARK: - Form
         // Basic Information
         form +++ Section("Tank information")
@@ -164,7 +158,6 @@ class AddTankVC: FormViewController {
         }
     }
     
-    // MARK: - Navigation
     func checkValidity() {
         let name = (self.form.rowBy(tag: "name") as? TextRow)?.isValid
         let brand = (self.form.rowBy(tag: "brand") as? TextRow)?.isValid
@@ -182,6 +175,7 @@ class AddTankVC: FormViewController {
         }
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let button = sender as? UIBarButtonItem, button === saveBarButton else {
@@ -198,7 +192,7 @@ class AddTankVC: FormViewController {
         tankObject.brand = values["brand"] as? String
         tankObject.capacity = Int32(values["capacity"] as! Int)
         tankObject.waterType = values["watertype"] as? String
-        tankObject.salt = Int32(values["salt"] as? Int ?? 0)
+        tankObject.salt = Int32(values["salt"] as? Int ?? -1)
         tankObject.image = values["image"] as? Data
         
         if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
@@ -206,9 +200,15 @@ class AddTankVC: FormViewController {
             tankWaterParameter.tempMin = Int16(values["mintemp"] as! Int)
             tankWaterParameter.phValue = values["ph"] as! Double
             tankWaterParameter.ghValue = Int16(values["gh"] as! Int)
+
         } else {
-            //TODO?
+            tankWaterParameter.tempMax = -1
+            tankWaterParameter.tempMin = -1
+            tankWaterParameter.phValue = -1
+            tankWaterParameter.ghValue = -1
         }
+        tankWaterParameter.no2Value = -1
+        tankWaterParameter.no3Value = -1
         tankObject.parameters = tankWaterParameter
         do {
             try context.save()
