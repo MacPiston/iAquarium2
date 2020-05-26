@@ -17,6 +17,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var selectedTank: Tank?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -75,6 +76,11 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switchTabsEnabled(state: true)
+        if let tankIndex = tankTableView.indexPathForSelectedRow?.row {
+            selectedTank = tanks[tankIndex]
+            let tankToPass: [String: Tank] = ["selectedTank": (selectedTank)!]
+            NotificationCenter.default.post(name: .didSelectTank, object: self, userInfo: tankToPass)
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -94,9 +100,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let summaryVC = segue.destination as? SummaryVC, let tankIndex = tankTableView.indexPathForSelectedRow?.row {
-            summaryVC.tank = tanks[tankIndex]
-        }
+
     }
 }
 

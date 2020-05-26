@@ -17,17 +17,27 @@ class SummaryVC: FormViewController {
     let dateFormatter = DateFormatter()
     
     override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupForm()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
+    }
+    
+    @objc func onDidSelectTank(_ notification: Notification) {
+        let receivedUserInfo = notification.userInfo as! [String: Tank]
+        tank = receivedUserInfo["selectedTank"]
         measurements = tank?.measurements?.sorted(by: { $0.date! > $1.date! })
         if !(measurements?.isEmpty)! {
             latestMeasurement = measurements?.first
         }
         parameters = tank?.parameters
         updateFormValues()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupForm()
     }
     
     //MARK: -Form

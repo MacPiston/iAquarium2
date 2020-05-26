@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */; };
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
+		1039D8A1247D193D00A1F88A /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1039D8A0247D193D00A1F88A /* Notifications.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
 		107AA6E3247AAAAD00FFA919 /* Measurement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AA6E1247AAAAD00FFA919 /* Measurement+CoreDataClass.swift */; };
 		107AA6E4247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AA6E2247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift */; };
@@ -54,6 +55,7 @@
 		0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementVC.swift; sourceTree = "<group>"; };
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
+		1039D8A0247D193D00A1F88A /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
 		107AA6E1247AAAAD00FFA919 /* Measurement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Measurement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		107AA6E2247AAAAD00FFA919 /* Measurement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Measurement+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/Measurement+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				10F61C9624407C010069735D /* LaunchScreen.storyboard */,
 				10F61C9924407C010069735D /* Info.plist */,
 				10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */,
+				1039D8A0247D193D00A1F88A /* Notifications.swift */,
 			);
 			path = iAquarium2;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
 				10E6CC7D24718E7F00F20CD5 /* WaterParameter+CoreDataClass.swift in Sources */,
 				10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */,
+				1039D8A1247D193D00A1F88A /* Notifications.swift in Sources */,
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,
 				1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */,
 				100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */,
