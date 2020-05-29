@@ -24,16 +24,30 @@ Loggable parameters:
 
 class MeasurementsVC: FormViewController {
     var tank: Tank?
+    var measurements: [Measurement]?
+    var selectedMeasurement: Measurement?
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        updateFormValues()
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
-        // Do any additional setup after loading the view.
+    }
+    
+    @objc func onDidSelectTank(_ notification: Notification) {
+        let receivedUserInfo = notification.userInfo as! [String: Tank]
+        tank = receivedUserInfo["selectedTank"]
+        measurements = tank?.measurements?.sorted(by: { $0.date! > $1.date! })
+        if !(measurements?.isEmpty)! {
+            selectedMeasurement = measurements?.first
+        }
+        updateFormValues()
     }
     
     func setupForm() {
@@ -43,7 +57,6 @@ class MeasurementsVC: FormViewController {
                 $0.title = "Mesaurement"
                 $0.tag = "measurement_picker"
                 $0.selectorTitle = "Pick a measurement"
-                
         }
         +++ Section("Measured values:") {
                     section in
@@ -99,7 +112,18 @@ class MeasurementsVC: FormViewController {
     }
     
     func updateFormValues() {
-        
+        (form.rowBy(tag: "measurement_picker") as! PushRow<Measurement>).options = measurements
+        if selectedMeasurement != nil {
+            (form.rowBy(tag: "temp") as! LabelRow).value = selectedMeasurement?.parameter?.temp.description
+            (form.rowBy(tag: "ph") as! LabelRow).value = selectedMeasurement?.parameter?.phValue.description
+            (form.rowBy(tag: "gh") as! LabelRow).value = selectedMeasurement?.parameter?.ghValue.description
+            (form.rowBy(tag: "kh") as! LabelRow).value = selectedMeasurement?.parameter?.khValue.description
+            (form.rowBy(tag: "cl2") as! LabelRow).value = selectedMeasurement?.parameter?.cl2Value.description
+            (form.rowBy(tag: "no2") as! LabelRow).value = selectedMeasurement?.parameter?.no2Value.description
+            (form.rowBy(tag: "no3") as! LabelRow).value = selectedMeasurement?.parameter?.no3Value.description
+            (form.rowBy(tag: "notes") as! TextAreaRow).value = selectedMeasurement?.note
+        }
+        tableView.reloadData()
     }
     
     @IBAction func unwindToMeasurements(sender: UIStoryboardSegue) {

@@ -119,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1039D8A2247D20F100A1F88A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				1039D8A0247D193D00A1F88A /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		1050B47324431FE5008AF39D /* Summary */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +186,7 @@
 				10F61C9624407C010069735D /* LaunchScreen.storyboard */,
 				10F61C9924407C010069735D /* Info.plist */,
 				10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */,
-				1039D8A0247D193D00A1F88A /* Notifications.swift */,
+				1039D8A2247D20F100A1F88A /* Notifications */,
 			);
 			path = iAquarium2;
 			sourceTree = "<group>";
