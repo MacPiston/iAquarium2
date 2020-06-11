@@ -20,13 +20,13 @@ class SummaryVC: FormViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
     }
     
     @objc func onDidSelectTank(_ notification: Notification) {
