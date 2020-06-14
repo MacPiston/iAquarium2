@@ -8,12 +8,14 @@
 import UIKit
 import Eureka
 import SplitRow
+import CoreData
 
 class SummaryVC: FormViewController {
     var tank: Tank?
-    var measurements: [Measurement]?
     var parameters: WaterParameter?
+    var measurements: [Measurement]?
     var latestMeasurement: Measurement?
+    
     let dateFormatter = DateFormatter()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +34,11 @@ class SummaryVC: FormViewController {
     @objc func onDidSelectTank(_ notification: Notification) {
         let receivedUserInfo = notification.userInfo as! [String: Tank]
         tank = receivedUserInfo["selectedTank"]
-        measurements = tank?.measurements?.sorted(by: { $0.date! > $1.date! })
-        if !(measurements?.isEmpty)! {
-            latestMeasurement = measurements?.first
-        }
+        print(tank?.name)
+        print(tank?.managedObjectContext)
         parameters = tank?.parameters
+        fetchTankMeasurements()
+        print("Measurements: \(measurements!.count)")
         updateFormValues()
     }
     
@@ -54,7 +56,7 @@ class SummaryVC: FormViewController {
                 $0.tag = "status"
             }
             <<< LabelRow() {
-                $0.title = "Last measurement"
+                $0.title = "Latest measurement"
                 $0.tag = "date_last"
             }
             
@@ -144,6 +146,21 @@ class SummaryVC: FormViewController {
             (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = latestMeasurement?.parameter?.no3Value.description
         }
         tableView.reloadData()
+    }
+    
+    func fetchTankMeasurements() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Measurement>(entityName: "Measurement")
+        fetchRequest.predicate = NSPredicate(format: "ofTank.name == %@", (tank?.name)!)
+        do {
+            let data = try context.fetch(fetchRequest)
+            measurements = data
+            if measurements != nil {
+                latestMeasurement = measurements?.first
+            }
+        } catch let error as NSError {
+            print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
+        }
     }
     
     //MARK: -Navigation

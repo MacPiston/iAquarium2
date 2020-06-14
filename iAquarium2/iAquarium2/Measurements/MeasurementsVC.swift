@@ -24,16 +24,30 @@ Loggable parameters:
 
 class MeasurementsVC: FormViewController {
     var tank: Tank?
+    var measurements: [Measurement]?
+    var selectedMeasurement: Measurement?
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        updateFormValues()
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
-        // Do any additional setup after loading the view.
+    }
+    
+    @objc func onDidSelectTank(_ notification: Notification) {
+        let receivedUserInfo = notification.userInfo as! [String: Tank]
+        tank = receivedUserInfo["selectedTank"]
+        measurements = tank?.measurements?.sorted(by: { $0.date! > $1.date! })
+        if !(measurements?.isEmpty)! {
+            selectedMeasurement = measurements?.first
+            updateFormValues()
+        }
     }
     
     func setupForm() {
@@ -53,37 +67,30 @@ class MeasurementsVC: FormViewController {
             <<< LabelRow() {
                 $0.title = VariableFormats.temp
                 $0.tag = "temp"
-                //$0.value = String(lastMeasurement!.waterParams.temp)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.ph
                 $0.tag = "ph"
-                //$0.value = String(lastMeasurement!.waterParams.phValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.gh
                 $0.tag = "gh"
-                //$0.value = String(lastMeasurement!.waterParams.ghValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.kh
                 $0.tag = "kh"
-                //$0.value = String(lastMeasurement!.waterParams.khValue)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.cl2
                 $0.tag = "cl2"
-                //$0.value = String(lastMeasurement!.waterParams.cl2Value)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.no2
                 $0.tag = "no2"
-                //$0.value = String(lastMeasurement!.waterParams.no2Value)
         }
             <<< LabelRow() {
                 $0.title = VariableFormats.no3
                 $0.tag = "no3"
-                //$0.value = String(lastMeasurement!.waterParams.no3Value)
         }
         +++ Section("Notes") {
                     section in
@@ -92,14 +99,19 @@ class MeasurementsVC: FormViewController {
             }
             <<< TextAreaRow() {
                 $0.title = VariableFormats.notes
-                $0.tag = "notes"
+                $0.tag = "note"
                 $0.textAreaMode = .readOnly
-                //$0.value = lastMeasurement?.note
         }
     }
     
     func updateFormValues() {
-        
+        (form.rowBy(tag: "temp") as! LabelRow).value = selectedMeasurement?.parameter?.temp.description
+        (form.rowBy(tag: "ph") as! LabelRow).value = selectedMeasurement?.parameter?.phValue.description
+        (form.rowBy(tag: "note") as! TextAreaRow).value = selectedMeasurement?.note
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
     }
     
     @IBAction func unwindToMeasurements(sender: UIStoryboardSegue) {

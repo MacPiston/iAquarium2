@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import CoreData
 /*
 Loggable parameters:
    - temperature
@@ -22,13 +23,27 @@ Loggable parameters:
 class AddMeasurementVC: FormViewController {
     //MARK: - Setup
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    var cellsValidity : [Bool] = [Bool]()
+    var tank : Tank?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
-        self.saveBarButton.isEnabled = false
+        self.saveBarButton.isEnabled = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
+    }
+    
+    @objc func onDidSelectTank(_ notification: Notification) {
+        let receivedUserInfo = notification.userInfo as! [String: Tank]
+        tank = receivedUserInfo["selectedTank"]
+    }
+    
     //MARK: - Form
     func setupForm() {
         form.inlineRowHideOptions = InlineRowHideOptions.AnotherInlineRowIsShown.union(.FirstResponderChanges)
@@ -54,103 +69,47 @@ class AddMeasurementVC: FormViewController {
         }
             <<< IntRow() {
                 $0.title = VariableFormats.temp
-                $0.tag = "temperature"
+                $0.tag = "temp"
                 $0.add(rule: RuleRequired())
-            }.onChange { row in
-                if ((row.value)! > 0 && row.isValid) {
-                    //self.measurement?.waterParams.temp = (row.value)!
-                    self.cellsValidity[0] = true
-                    self.checkCellsValidity()
-                } else {
-                    self.cellsValidity[0] = false
-                    self.checkCellsValidity()
-                }
             }
+            
             <<< DecimalRow() {
                 $0.title = VariableFormats.ph
                 $0.tag = "ph"
                 $0.useFormatterOnDidBeginEditing = true
                 $0.add(rule: RuleRequired())
-            }.onChange { row in
-                if ((row.value)! > 0 && row.isValid){
-                    //self.measurement?.waterParams.phValue = (row.value)!
-                    self.cellsValidity[1] = true
-                    self.checkCellsValidity()
-                } else {
-                    self.cellsValidity[1] = false
-                    self.checkCellsValidity()
-                }
             }
+            
             <<< IntRow() {
                 $0.title = VariableFormats.gh
                 $0.tag = "gh"
                 $0.add(rule: RuleRequired())
-            }.onChange { row in
-                if ((row.value)! > 0 && row.isValid) {
-                    //self.measurement?.waterParams.ghValue = (row.value)!
-                    self.cellsValidity[2] = true
-                    self.checkCellsValidity()
-                } else {
-                    self.cellsValidity[2] = false
-                    self.checkCellsValidity()
-                }
             }
+            
             <<< IntRow() {
                 $0.title = VariableFormats.kh
                 $0.tag = "kh"
                 $0.add(rule: RuleRequired())
-            }.onChange { row in
-                if ((row.value)! > 0 && row.isValid) {
-                    //self.measurement?.waterParams.khValue = (row.value)!
-                    self.cellsValidity[3] = true
-                    self.checkCellsValidity()
-                } else {
-                    self.cellsValidity[3] = false
-                    self.checkCellsValidity()
-                }
             }
+            
             <<< IntRow() {
                 $0.title = VariableFormats.cl2
                 $0.tag = "cl2"
                 $0.add(rule: RuleRequired())
-            }.onChange { row in
-                if ((row.value)! > 0 && row.isValid) {
-                    //self.measurement?.waterParams.khValue = (row.value)!
-                    self.cellsValidity[4] = true
-                    self.checkCellsValidity()
-                } else {
-                    self.cellsValidity[4] = false
-                    self.checkCellsValidity()
-                }
             }
+            
             <<< IntRow() {
                 $0.title = VariableFormats.no2
                 $0.tag = "no2"
                 $0.add(rule: RuleRequired())
-            }.onChange { row in
-                if ((row.value)! > 0 && row.isValid) {
-                    //self.measurement?.waterParams.no2Value = (row.value)!
-                    self.cellsValidity[5] = true
-                    self.checkCellsValidity()
-                } else {
-                    self.cellsValidity[5] = false
-                    self.checkCellsValidity()
-                }
             }
+            
             <<< IntRow() {
                 $0.title = VariableFormats.no3
                 $0.tag = "no3"
                 $0.add(rule: RuleRequired())
-        }.onChange { row in
-            if ((row.value)! > 0 && row.isValid) {
-                //self.measurement?.waterParams.no3Value = (row.value)!
-                self.cellsValidity[6] = true
-                self.checkCellsValidity()
-            } else {
-                self.cellsValidity[6] = false
-                self.checkCellsValidity()
-            }
         }
+            
         +++ Section("Notes") {
             section in
             section.footer?.height = {12}
@@ -158,25 +117,42 @@ class AddMeasurementVC: FormViewController {
         }
             <<< TextAreaRow() {
                 $0.title = "Notes"
-                $0.tag = "notes"
+                $0.tag = "note"
                 $0.placeholder = "Type additional notes..."
         }
         
     }
     
-    func checkCellsValidity() {
-        if cellsValidity[0...6] == [true] {
-            self.saveBarButton.isEnabled = true
-        } else {
-            self.saveBarButton.isEnabled = false
-        }
-    }
-    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let values = form.values()
+        let parameter = WaterParameter(context: context)
         
+        parameter.temp = Int16(values["temp"] as! Int)
+        parameter.phValue = values["ph"] as! Double
+        parameter.ghValue = Int16(values["gh"] as! Int)
+        parameter.khValue = Int16(values["kh"] as! Int)
+        parameter.cl2Value = Int16(values["cl2"] as! Int)
+        parameter.no2Value = Int16(values["no2"] as! Int)
+        parameter.no3Value = Int16(values["no3"] as! Int)
+        
+        let measurement = Measurement(context: context)
+        measurement.parameter = parameter
+        measurement.note = values["note"] as? String
+        measurement.date = Date();
+        measurement.ofTank = tank
+        
+        tank?.addToMeasurements(measurement)
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Couldn't save measurement: \(error), \(error.userInfo)")
+        }
     }
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

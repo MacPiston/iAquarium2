@@ -210,6 +210,7 @@ class AddTankVC: FormViewController {
         tankWaterParameter.no2Value = -1
         tankWaterParameter.no3Value = -1
         tankObject.parameters = tankWaterParameter
+        tankObject.measurements = Set<Measurement>.init()
         do {
             try context.save()
         } catch let error as NSError {

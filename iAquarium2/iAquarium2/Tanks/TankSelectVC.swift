@@ -24,6 +24,9 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.delegate = self
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchTanks()
     }
     
@@ -87,7 +90,11 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         if editingStyle == .delete {
             let tank = tanks[indexPath.row]
             context.delete(tank)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("Couldn't delete tank: \(error), \(error.userInfo)")
+            }
             fetchTanks()
             tankTableView.reloadData()
         }
