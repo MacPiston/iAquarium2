@@ -27,14 +27,6 @@ class MeasurementsVC: FormViewController {
     var measurements: [Measurement]?
     var selectedMeasurement: Measurement?
     
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()

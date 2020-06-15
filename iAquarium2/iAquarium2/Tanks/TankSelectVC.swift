@@ -16,11 +16,11 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var tanks: [Tank] = []
     var selectedTank: Tank?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var tankDelegate: passTank?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         tankTableView.delegate = self
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
@@ -40,7 +40,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         do {
             tanks = try context.fetch(NSFetchRequest(entityName: "Tank"))
         } catch {
-            print("Failed to fetch")
+            print("Failed to fetch tanks")
         }
     }
     
@@ -81,8 +81,9 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         switchTabsEnabled(state: true)
         if let tankIndex = tankTableView.indexPathForSelectedRow?.row {
             selectedTank = tanks[tankIndex]
-            let tankToPass: [String: Tank] = ["selectedTank": (selectedTank)!]
-            NotificationCenter.default.post(name: .didSelectTank, object: self, userInfo: tankToPass)
+            self.tankDelegate = tabBarController?.children[1] as? SummaryVC
+            self.tankDelegate?.finishPassing(selectedTank: selectedTank!)
+            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(switchToSummaryTab), userInfo: nil, repeats: false)
         }
     }
     
@@ -107,7 +108,11 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
+    }
+    
+    @objc func switchToSummaryTab() {
+        tabBarController!.selectedIndex = 1
     }
 }
 

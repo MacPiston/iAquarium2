@@ -10,7 +10,8 @@ import Eureka
 import SplitRow
 import CoreData
 
-class SummaryVC: FormViewController {
+class SummaryVC: FormViewController, passTank {
+    
     var tank: Tank?
     var parameters: WaterParameter?
     var measurements: [Measurement]?
@@ -18,28 +19,21 @@ class SummaryVC: FormViewController {
     
     let dateFormatter = DateFormatter()
     
+    func finishPassing(selectedTank: Tank) {
+        self.tank = selectedTank
+        self.parameters = selectedTank.parameters
+        print("Summary - passed: \(self.tank?.name)")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
+        print("Summary tank: \(tank?.name), \(tank?.managedObjectContext)")
+        fetchTankMeasurements()
+        updateFormValues()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
-    }
-    
-    @objc func onDidSelectTank(_ notification: Notification) {
-        let receivedUserInfo = notification.userInfo as! [String: Tank]
-        tank = receivedUserInfo["selectedTank"]
-        print(tank?.name)
-        print(tank?.managedObjectContext)
-        parameters = tank?.parameters
-        fetchTankMeasurements()
-        print("Measurements: \(measurements!.count)")
-        updateFormValues()
     }
     
     //MARK: -Form

@@ -31,14 +31,6 @@ class AddMeasurementVC: FormViewController {
         self.saveBarButton.isEnabled = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectTank(_:)), name: .didSelectTank, object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .didSelectTank, object: nil)
-    }
-    
     @objc func onDidSelectTank(_ notification: Notification) {
         let receivedUserInfo = notification.userInfo as! [String: Tank]
         tank = receivedUserInfo["selectedTank"]
@@ -142,14 +134,13 @@ class AddMeasurementVC: FormViewController {
         measurement.parameter = parameter
         measurement.note = values["note"] as? String
         measurement.date = Date();
-        measurement.ofTank = tank
         
         tank?.addToMeasurements(measurement)
         
         do {
             try context.save()
         } catch let error as NSError {
-            print("Couldn't save measurement: \(error), \(error.userInfo)")
+            print("Couldn't save added measurement: \(error), \(error.userInfo)")
         }
     }
     
