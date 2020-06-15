@@ -22,9 +22,9 @@ Loggable parameters:
    - Date of measurements
 */
 
-class MeasurementsVC: FormViewController {
+class MeasurementsVC: FormViewController, passTank {
     var tank: Tank?
-    var measurements: [Measurement]?
+    var measurements: Set<Measurement>?
     var selectedMeasurement: Measurement?
     
     override func viewDidLoad() {
@@ -32,14 +32,10 @@ class MeasurementsVC: FormViewController {
         setupForm()
     }
     
-    @objc func onDidSelectTank(_ notification: Notification) {
-        let receivedUserInfo = notification.userInfo as! [String: Tank]
-        tank = receivedUserInfo["selectedTank"]
-        measurements = tank?.measurements?.sorted(by: { $0.date! > $1.date! })
-        if !(measurements?.isEmpty)! {
-            selectedMeasurement = measurements?.first
-            updateFormValues()
-        }
+    func finishPassing(selectedTank: Tank) {
+        self.tank = selectedTank
+        self.measurements = self.tank?.measurements
+        self.selectedMeasurement = self.measurements?.first
     }
     
     func setupForm() {
@@ -104,6 +100,14 @@ class MeasurementsVC: FormViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        if segue.identifier == "showAddMeasurement"  {
+            if let destinationNC = segue.destination as? UINavigationController {
+                if let destinationVC = destinationNC.viewControllers[0] as? AddMeasurementVC {
+                    print("Measurements - passing: \(self.tank?.name)")
+                    destinationVC.tank = self.tank
+                }
+            }
+        }
     }
     
     @IBAction func unwindToMeasurements(sender: UIStoryboardSegue) {

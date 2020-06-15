@@ -22,13 +22,17 @@ class SummaryVC: FormViewController, passTank {
     func finishPassing(selectedTank: Tank) {
         self.tank = selectedTank
         self.parameters = selectedTank.parameters
-        print("Summary - passed: \(self.tank?.name)")
+        //print("Summary - passed: \(self.tank?.name)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Summary tank: \(tank?.name), \(tank?.managedObjectContext)")
-        fetchTankMeasurements()
-        updateFormValues()
+        //print("Summary tank: \(tank?.name), \(tank?.managedObjectContext)")
+        if tank != nil {
+            fetchTankMeasurements()
+            updateFormValues()
+        } else {
+            print("SummaryVC: Tank is nil!!")
+        }
     }
     
     override func viewDidLoad() {
@@ -123,7 +127,7 @@ class SummaryVC: FormViewController, passTank {
     }
     
     func updateFormValues() {
-        dateFormatter.dateFormat = "dd-MM, HH:mm"
+        dateFormatter.dateFormat = "dd.MM, HH:mm"
         // tank values
         (form.rowBy(tag: "selected_tank") as! LabelRow).value = tank?.name
         (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = (parameters?.tempMin.description)! + " - " + (parameters?.tempMax.description)!
@@ -138,19 +142,30 @@ class SummaryVC: FormViewController, passTank {
             (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.ghValue.description
             (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = latestMeasurement?.parameter?.no2Value.description
             (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = latestMeasurement?.parameter?.no3Value.description
+        } else {
+            (form.rowBy(tag: "date_last") as! LabelRow).value = "-"
+            (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = "-"
+            (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = "-"
+            (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = "-"
+            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = "-"
+            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = "-"
         }
         tableView.reloadData()
     }
     
     func fetchTankMeasurements() {
+        print("Tank: \(tank?.name)")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Measurement>(entityName: "Measurement")
         fetchRequest.predicate = NSPredicate(format: "ofTank.name == %@", (tank?.name)!)
         do {
             let data = try context.fetch(fetchRequest)
             measurements = data
+            print("n: \(measurements?.count)")
             if measurements != nil {
                 latestMeasurement = measurements?.first
+            } else {
+                latestMeasurement = nil
             }
         } catch let error as NSError {
             print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")

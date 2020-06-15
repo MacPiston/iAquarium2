@@ -16,7 +16,8 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var tanks: [Tank] = []
     var selectedTank: Tank?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var tankDelegate: passTank?
+    var tankSummaryDelegate: passTank?
+    var tankMeasurementDelegate: passTank?
     
     
     override func viewDidLoad() {
@@ -81,8 +82,13 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         switchTabsEnabled(state: true)
         if let tankIndex = tankTableView.indexPathForSelectedRow?.row {
             selectedTank = tanks[tankIndex]
-            self.tankDelegate = tabBarController?.children[1] as? SummaryVC
-            self.tankDelegate?.finishPassing(selectedTank: selectedTank!)
+            
+            self.tankSummaryDelegate = tabBarController?.children[1] as? SummaryVC
+            self.tankSummaryDelegate?.finishPassing(selectedTank: selectedTank!)
+            
+            self.tankMeasurementDelegate = (tabBarController?.children[2] as? UINavigationController)?.viewControllers[0] as? MeasurementsVC
+            self.tankMeasurementDelegate?.finishPassing(selectedTank: selectedTank!)
+            
             Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(switchToSummaryTab), userInfo: nil, repeats: false)
         }
     }

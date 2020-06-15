@@ -23,17 +23,12 @@ Loggable parameters:
 class AddMeasurementVC: FormViewController {
     //MARK: - Setup
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    var tank : Tank?
+    var tank: Tank?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
         self.saveBarButton.isEnabled = true
-    }
-    
-    @objc func onDidSelectTank(_ notification: Notification) {
-        let receivedUserInfo = notification.userInfo as! [String: Tank]
-        tank = receivedUserInfo["selectedTank"]
     }
     
     //MARK: - Form

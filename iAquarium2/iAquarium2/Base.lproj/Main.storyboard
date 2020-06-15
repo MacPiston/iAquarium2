@@ -135,7 +135,7 @@
                     <navigationItem key="navigationItem" title="Saved Measurements" id="s8k-RG-F5B">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EGZ-bF-41E">
                             <connections>
-                                <segue destination="BoK-w0-q2t" kind="presentation" id="VSR-wI-UqP"/>
+                                <segue destination="BoK-w0-q2t" kind="presentation" identifier="showAddMeasurement" id="VSR-wI-UqP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -258,6 +258,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BoK-w0-q2t" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2Db-1P-nvJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xoH-TF-oOa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
