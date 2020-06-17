@@ -55,10 +55,12 @@ class AddTankVC: FormViewController {
             <<< ImageRow() {
                 $0.title = "Tank Image"
                 $0.tag = "image"
-                $0.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
-                $0.clearAction = .yes(style: .default)
-                $0.allowEditor = false
-        }
+                
+                $0.sourceTypes = [.Camera, .PhotoLibrary, .All]
+                $0.allowEditor = true
+                $0.placeholderImage = UIImage(systemName: "camera.on.rectangle")
+                $0.clearAction = .yes(style: .destructive)
+            }
             
             <<< IntRow() {
                     $0.title = "Tank Capacity"
@@ -184,23 +186,27 @@ class AddTankVC: FormViewController {
         }
         
         let values = form.values()
-        
         let tankObject = Tank(context: context)
         let tankWaterParameter = WaterParameter(context: context)
         
+        // BASIC VALUES
         tankObject.name = values["name"] as? String
         tankObject.brand = values["brand"] as? String
         tankObject.capacity = Int32(values["capacity"] as! Int)
         tankObject.waterType = values["watertype"] as? String
         tankObject.salt = Int32(values["salt"] as? Int ?? -1)
-        tankObject.image = values["image"] as? Data
         
+        // IMAGE
+        if let pickedImage = values["image"] as? UIImage  {
+            tankObject.image = pickedImage.pngData()
+        }
+        
+        // WATER PARAMETERS
         if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
             tankWaterParameter.tempMax = Int16(values["maxtemp"] as! Int)
             tankWaterParameter.tempMin = Int16(values["mintemp"] as! Int)
             tankWaterParameter.phValue = values["ph"] as! Double
             tankWaterParameter.ghValue = Int16(values["gh"] as! Int)
-
         } else {
             tankWaterParameter.tempMax = -1
             tankWaterParameter.tempMin = -1
@@ -211,6 +217,8 @@ class AddTankVC: FormViewController {
         tankWaterParameter.no3Value = -1
         tankObject.parameters = tankWaterParameter
         tankObject.measurements = Set<Measurement>.init()
+        
+        // SAVING
         do {
             try context.save()
         } catch let error as NSError {

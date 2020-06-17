@@ -25,6 +25,8 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.delegate = self
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
+        
+        tankTableView.rowHeight = 100
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,20 +63,21 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         return tanks.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseIdentifier = "tankCell"
         let tank = tanks[indexPath.row]
-        guard let cell:TankTableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? TankTableViewCell else
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? TankTableViewCell else
         {
             fatalError("Couldn't downcast cell")
         }
         
-        cell.infoLabel.text = tank.brand
+        cell.infoLabel.text = tank.name
         cell.info2Label.text = String(tank.capacity)
+        if tank.image != nil {
+            cell.imageView?.image = UIImage(data: tank.image!)
+        } else {
+            cell.imageView?.image = UIImage(systemName: "questionmark")
+        }
         return cell
     }
     
