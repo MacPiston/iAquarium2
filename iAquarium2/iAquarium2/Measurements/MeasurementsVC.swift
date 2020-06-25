@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import TableRow
+import CoreData
 
 /*
 Loggable parameters:
@@ -24,18 +25,23 @@ Loggable parameters:
 
 class MeasurementsVC: FormViewController, passTank {
     var tank: Tank?
-    var measurements: Set<Measurement>?
+    var measurements: [Measurement]?
     var selectedMeasurement: Measurement?
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        dateFormatter.dateFormat = "dd.MM, HH:mm"
+        fetchTankMeasurements()
+        updateFormValues()
+    }
+    
     func finishPassing(selectedTank: Tank) {
         self.tank = selectedTank
-        self.measurements = self.tank?.measurements
-        self.selectedMeasurement = self.measurements?.first
     }
     
     func setupForm() {
@@ -45,8 +51,17 @@ class MeasurementsVC: FormViewController, passTank {
                 $0.title = "Mesaurement"
                 $0.tag = "measurement_picker"
                 $0.selectorTitle = "Pick a measurement"
-                
-        }
+                $0.displayValueFor = {
+                    guard let measurement = $0 else { return nil }
+                    return self.dateFormatter.string(from: measurement.date!)
+                }
+            }.onCellSelection { cell, row in
+                self.selectedMeasurement = row.value
+                self.updateFormValues()
+            }.onPresent { from, to in
+                to.dismissOnChange = true
+                to.dismissOnSelection = true
+            }
         +++ Section("Measured values:") {
                     section in
                     section.footer?.height = {12}
@@ -92,10 +107,31 @@ class MeasurementsVC: FormViewController, passTank {
         }
     }
     
-    func updateFormValues() {
+    private func updateFormValues() {
         (form.rowBy(tag: "temp") as! LabelRow).value = selectedMeasurement?.parameter?.temp.description
         (form.rowBy(tag: "ph") as! LabelRow).value = selectedMeasurement?.parameter?.phValue.description
+        (form.rowBy(tag: "gh") as! LabelRow).value = selectedMeasurement?.parameter?.ghValue.description
+        (form.rowBy(tag: "kh") as! LabelRow).value = selectedMeasurement?.parameter?.khValue.description
+        (form.rowBy(tag: "cl2") as! LabelRow).value = selectedMeasurement?.parameter?.cl2Value.description
+        (form.rowBy(tag: "no2") as! LabelRow).value = selectedMeasurement?.parameter?.no2Value.description
+        (form.rowBy(tag: "no3") as! LabelRow).value = selectedMeasurement?.parameter?.no3Value.description
         (form.rowBy(tag: "note") as! TextAreaRow).value = selectedMeasurement?.note
+        tableView.reloadData()
+    }
+    
+    private func fetchTankMeasurements() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Measurement>(entityName: "Measurement")
+        
+        fetchRequest.predicate = NSPredicate(format: "ofTank.name == %@", (tank?.name)!)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        do {
+            let data = try context.fetch(fetchRequest)
+            measurements = data
+            (form.rowBy(tag: "measurement_picker") as! PushRow<Measurement>).options = measurements
+        } catch let error as NSError {
+            print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,7 +139,6 @@ class MeasurementsVC: FormViewController, passTank {
         if segue.identifier == "showAddMeasurement"  {
             if let destinationNC = segue.destination as? UINavigationController {
                 if let destinationVC = destinationNC.viewControllers[0] as? AddMeasurementVC {
-                    print("Measurements - passing: \(self.tank?.name)")
                     destinationVC.tank = self.tank
                 }
             }

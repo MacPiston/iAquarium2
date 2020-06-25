@@ -32,6 +32,6 @@
     <elements>
         <element name="Measurement" positionX="75.2734375" positionY="141.2109375" width="128" height="103"/>
         <element name="Tank" positionX="-74.91015625" positionY="-220.66015625" width="128" height="163"/>
-        <element name="WaterParameter" positionX="-137.43359375" positionY="-4.859375" width="128" height="208"/>
+        <element name="WaterParameter" positionX="-142.85546875" positionY="-4.859375" width="133.421875" height="208"/>
     </elements>
 </model>

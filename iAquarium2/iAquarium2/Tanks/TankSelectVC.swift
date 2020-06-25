@@ -25,8 +25,17 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.delegate = self
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
-        
         tankTableView.rowHeight = 100
+        
+        /*
+        if tanks.isEmpty {
+            tankTableView.backgroundView = EmptyTableUIView(frame: tankTableView.frame)
+            tankTableView.isScrollEnabled = false
+        } else {
+            tankTableView.backgroundView = nil
+            tankTableView.isScrollEnabled = true
+        }
+        */
     }
     
     override func viewWillAppear(_ animated: Bool) {

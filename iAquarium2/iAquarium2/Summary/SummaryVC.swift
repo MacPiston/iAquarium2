@@ -22,11 +22,9 @@ class SummaryVC: FormViewController, passTank {
     func finishPassing(selectedTank: Tank) {
         self.tank = selectedTank
         self.parameters = selectedTank.parameters
-        //print("Summary - passed: \(self.tank?.name)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //print("Summary tank: \(tank?.name), \(tank?.managedObjectContext)")
         if tank != nil {
             fetchTankMeasurements()
             updateFormValues()
@@ -154,19 +152,15 @@ class SummaryVC: FormViewController, passTank {
     }
     
     func fetchTankMeasurements() {
-        print("Tank: \(tank?.name)")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Measurement>(entityName: "Measurement")
+        
         fetchRequest.predicate = NSPredicate(format: "ofTank.name == %@", (tank?.name)!)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         do {
             let data = try context.fetch(fetchRequest)
             measurements = data
-            print("n: \(measurements?.count)")
-            if measurements != nil {
-                latestMeasurement = measurements?.first
-            } else {
-                latestMeasurement = nil
-            }
+            latestMeasurement = data.first
         } catch let error as NSError {
             print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
         }
