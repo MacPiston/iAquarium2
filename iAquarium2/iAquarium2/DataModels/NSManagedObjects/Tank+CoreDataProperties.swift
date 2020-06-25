@@ -2,7 +2,7 @@
 //  Tank+CoreDataProperties.swift
 //  iAquarium2
 //
-//  Created by Maciej Zajecki on 17/05/2020.
+//  Created by Maciej Zajecki on 25/06/2020.
 //  Copyright © 2020 Maciej Zajecki. All rights reserved.
 //
 //
@@ -21,10 +21,10 @@ extension Tank {
     @NSManaged public var capacity: Int32
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
-    @NSManaged public var waterType: String?
     @NSManaged public var salt: Int32
+    @NSManaged public var waterType: String?
+    @NSManaged public var expectedParameters: ExpectedWaterParameters?
     @NSManaged public var measurements: Set<Measurement>?
-    @NSManaged public var parameters: WaterParameter?
 
 }
 

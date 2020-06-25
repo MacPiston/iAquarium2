@@ -9,6 +9,10 @@
 import UIKit
 import Eureka
 import CoreData
+// MARK: - TODO
+/*
+ -
+ */
 /*
 Loggable parameters:
    - temperature
@@ -45,8 +49,6 @@ class AddMeasurementVC: FormViewController {
                 $0.value = Date()
                 $0.tag = "date"
                 $0.add(rule: RuleRequired())
-        }.onChange { row in
-                //self.measurement?.date = (row.value)!
         }
             
             +++ Section("Water parameters") {
@@ -54,7 +56,7 @@ class AddMeasurementVC: FormViewController {
                 section.footer?.height = {12}
                 section.header?.height = {12}
         }
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = VariableFormats.temp
                 $0.tag = "temp"
                 $0.add(rule: RuleRequired())
@@ -67,31 +69,31 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
             }
             
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = VariableFormats.gh
                 $0.tag = "gh"
                 $0.add(rule: RuleRequired())
             }
             
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = VariableFormats.kh
                 $0.tag = "kh"
                 $0.add(rule: RuleRequired())
             }
             
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = VariableFormats.cl2
                 $0.tag = "cl2"
                 $0.add(rule: RuleRequired())
             }
             
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = VariableFormats.no2
                 $0.tag = "no2"
                 $0.add(rule: RuleRequired())
             }
             
-            <<< IntRow() {
+            <<< DecimalRow() {
                 $0.title = VariableFormats.no3
                 $0.tag = "no3"
                 $0.add(rule: RuleRequired())
@@ -117,13 +119,13 @@ class AddMeasurementVC: FormViewController {
         let values = form.values()
         let parameter = WaterParameter(context: context)
         
-        parameter.temp = Int16(values["temp"] as! Int)
+        parameter.temp = values["temp"] as! Double
         parameter.phValue = values["ph"] as! Double
-        parameter.ghValue = Int16(values["gh"] as! Int)
-        parameter.khValue = Int16(values["kh"] as! Int)
-        parameter.cl2Value = Int16(values["cl2"] as! Int)
-        parameter.no2Value = Int16(values["no2"] as! Int)
-        parameter.no3Value = Int16(values["no3"] as! Int)
+        parameter.ghValue = values["gh"] as! Double
+        parameter.khValue = values["kh"] as! Double
+        parameter.cl2Value = values["cl2"] as! Double
+        parameter.no2Value = values["no2"] as! Double
+        parameter.no3Value = values["no3"] as! Double
         
         let measurement = Measurement(context: context)
         measurement.parameter = parameter

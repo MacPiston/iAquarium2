@@ -1,5 +1,5 @@
 //
-//  WaterParameter+CoreDataClass.swift
+//  ExpectedWaterParameters+CoreDataClass.swift
 //  iAquarium2
 //
 //  Created by Maciej Zajecki on 25/06/2020.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(WaterParameter)
-public class WaterParameter: NSManagedObject {
+@objc(ExpectedWaterParameters)
+public class ExpectedWaterParameters: NSManagedObject {
 
 }

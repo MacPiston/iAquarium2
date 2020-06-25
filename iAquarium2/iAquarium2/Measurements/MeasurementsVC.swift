@@ -10,7 +10,10 @@ import UIKit
 import Eureka
 import TableRow
 import CoreData
-
+// MARK: - TODO
+/*
+ -
+ */
 /*
 Loggable parameters:
    - temperature

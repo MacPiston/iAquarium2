@@ -2,7 +2,7 @@
 //  WaterParameter+CoreDataProperties.swift
 //  iAquarium2
 //
-//  Created by Maciej Zajecki on 17/05/2020.
+//  Created by Maciej Zajecki on 25/06/2020.
 //  Copyright © 2020 Maciej Zajecki. All rights reserved.
 //
 //
@@ -17,16 +17,13 @@ extension WaterParameter {
         return NSFetchRequest<WaterParameter>(entityName: "WaterParameter")
     }
 
-    @NSManaged public var cl2Value: Int16
-    @NSManaged public var ghValue: Int16
-    @NSManaged public var khValue: Int16
-    @NSManaged public var no2Value: Int16
-    @NSManaged public var no3Value: Int16
+    @NSManaged public var cl2Value: Double
+    @NSManaged public var ghValue: Double
+    @NSManaged public var khValue: Double
+    @NSManaged public var no2Value: Double
+    @NSManaged public var no3Value: Double
     @NSManaged public var phValue: Double
-    @NSManaged public var temp: Int16
-    @NSManaged public var tempMax: Int16
-    @NSManaged public var tempMin: Int16
+    @NSManaged public var temp: Double
     @NSManaged public var ofMeasurement: Measurement?
-    @NSManaged public var ofTank: Tank?
 
 }

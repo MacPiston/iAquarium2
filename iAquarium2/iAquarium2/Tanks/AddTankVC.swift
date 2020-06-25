@@ -11,7 +11,11 @@ import Eureka
 import ImageRow
 import os.log
 import CoreData
-
+import SplitRow
+// MARK: - TODO
+/*
+ - values validation
+ */
 class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
@@ -20,12 +24,9 @@ class AddTankVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationOptions = RowNavigationOptions.Disabled
-        let manualCondition = Condition.function(["calculation"], { form in
-            if (((form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value) == "Manual") {
-                return false
-            } else {
-                return true
-            }
+    
+        let hideCondition = Condition.function(["calculation"], { form in
+            return !((form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual")
         })
         
     // MARK: - Form
@@ -37,19 +38,14 @@ class AddTankVC: FormViewController {
                 $0.tag = "name"
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
-            }.cellUpdate {
-                cell, row in
-                self.checkValidity()
-            }
+        }
+            
             <<< TextRow() {
                 $0.title = "Tank Brand"
                 $0.placeholder = "Brand..."
                 $0.tag = "brand"
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChange
-        }.cellUpdate {
-                cell, row in
-                self.checkValidity()
         }
         
             <<< ImageRow() {
@@ -60,7 +56,7 @@ class AddTankVC: FormViewController {
                 $0.allowEditor = true
                 $0.placeholderImage = UIImage(systemName: "camera.on.rectangle")
                 $0.clearAction = .yes(style: .destructive)
-            }
+        }
             
             <<< IntRow() {
                     $0.title = "Tank Capacity"
@@ -69,10 +65,6 @@ class AddTankVC: FormViewController {
                     $0.add(rule: RuleRequired())
                     $0.validationOptions = .validatesOnChange
                     $0.tag = "capacity"
-        }
-                .cellUpdate {
-                    cell, row in
-                    self.checkValidity()
         }
 
             <<< SegmentedRow<String>() {
@@ -84,7 +76,8 @@ class AddTankVC: FormViewController {
                 $0.validationOptions = .validatesOnChange
         }
             <<< IntRow() {
-                $0.title = "Salt g/L"
+                $0.title = "Salt"
+                $0.placeholder = "g/L"
                 $0.tag = "salt"
                 $0.hidden = Condition.function(["watertype"], {
                     form in
@@ -99,82 +92,156 @@ class AddTankVC: FormViewController {
                     $0.options = ["Auto", "Manual"]
                     $0.value = "Auto"
                     $0.tag = "calculation"
-            }.onChange {
-                row in
-                if let paramSection = self.form.sectionBy(tag: "Parameters") {
-                    if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
-                        paramSection.hidden = false
-                        paramSection.evaluateHidden()
-                    } else {
-                        paramSection.hidden = true
-                        paramSection.evaluateHidden()
-                    }
-                }
             }
             
-            <<< IntRow() {
-                $0.title = "Maximum temp. [°C]"
-                $0.tag = "maxtemp"
-                $0.hidden = manualCondition
-                $0.add(rule: RuleGreaterThan(min: 0))
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-        }.cellUpdate {
-            cell, row in
-            self.checkValidity()
-        }
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. Temp"
+                    $0.tag = "min_temp"
+                    $0.placeholder = "[°C]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. Temp"
+                    $0.tag = "max_temp"
+                    $0.placeholder = "[°C]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
             
-            <<< IntRow() {
-                $0.title = "Minimum temp. [°C]"
-                $0.tag = "mintemp"
-                $0.hidden = manualCondition
-                $0.add(rule: RuleGreaterThan(min: 0))
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-        }.cellUpdate {
-            cell, row in
-            self.checkValidity()
-        }
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. pH"
+                    $0.tag = "min_ph"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. pH"
+                    $0.tag = "max_ph"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
             
-            <<< DecimalRow() {
-                $0.title = "pH"
-                $0.tag = "ph"
-                $0.hidden = manualCondition
-                $0.useFormatterOnDidBeginEditing = true
-                $0.add(rule: RuleGreaterOrEqualThan(min: 1))
-                $0.add(rule: RuleSmallerOrEqualThan(max: 14))
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-        }.cellUpdate {
-            cell, row in
-            self.checkValidity()
-        }
-            
-            <<< IntRow() {
-                $0.title = "GH (General Hardness) [°d]"
-                $0.tag = "gh"
-                $0.hidden = manualCondition
-                $0.add(rule: RuleGreaterOrEqualThan(min: 1))
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-        }
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. GH"
+                    $0.tag = "min_gh"
+                    $0.placeholder = "[°d]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. GH"
+                    $0.tag = "max_gh"
+                    $0.placeholder = "[°d]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
+        
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. KH"
+                    $0.tag = "min_kh"
+                    $0.placeholder = "[°d]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. KH"
+                    $0.tag = "max_kh"
+                    $0.placeholder = "[°d]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
+        
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. Cl2"
+                    $0.tag = "min_cl2"
+                    $0.placeholder = "[mg/l]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. Cl2"
+                    $0.tag = "max_cl2"
+                    $0.placeholder = "[mg/l]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
+        
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. NO2"
+                    $0.tag = "min_no2"
+                    $0.placeholder = "[mg/l]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. NO2"
+                    $0.tag = "max_no2"
+                    $0.placeholder = "[mg/l]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
+        
+            <<< SplitRow<DecimalRow, DecimalRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.rowLeft = DecimalRow() {
+                    $0.title = "Min. NO3"
+                    $0.tag = "min_no3"
+                    $0.placeholder = "[mg/l]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.rowRight = DecimalRow() {
+                    $0.title = "Max. NO3"
+                    $0.tag = "max_no3"
+                    $0.placeholder = "[mg/l]"
+                    $0.add(rule: RuleGreaterOrEqualThan(min: 0))
+                    $0.useFormatterOnDidBeginEditing = true
+                    $0.validationOptions = .validatesOnChange
+                }
+                $0.hidden = hideCondition
+            }
     }
     
     func checkValidity() {
-        let name = (self.form.rowBy(tag: "name") as? TextRow)?.isValid
-        let brand = (self.form.rowBy(tag: "brand") as? TextRow)?.isValid
-        let capacity = (self.form.rowBy(tag: "capacity") as? IntRow)?.isValid
-        let watertype = (self.form.rowBy(tag: "watertype") as? SegmentedRow<String>)?.isValid
-        let maxtemp = (self.form.rowBy(tag: "maxtemp") as? IntRow)?.isValid
-        let mintemp = (self.form.rowBy(tag: "mintemp") as? IntRow)?.isValid
-        let ph = (self.form.rowBy(tag: "ph") as? DecimalRow)?.isValid
-        let gh = (self.form.rowBy(tag: "gh") as? IntRow)?.isValid
         
-        if (name == true && brand == true && capacity == true && watertype == true && maxtemp == true && mintemp == true && ph == true && gh == true) {
-            self.saveBarButton.isEnabled = true
-        } else {
-            self.saveBarButton.isEnabled = false
-        }
     }
     
     // MARK: - Navigation
@@ -187,7 +254,7 @@ class AddTankVC: FormViewController {
         
         let values = form.values()
         let tankObject = Tank(context: context)
-        let tankWaterParameter = WaterParameter(context: context)
+        let tankExpectedParameters = ExpectedWaterParameters(context: context)
         
         // BASIC VALUES
         tankObject.name = values["name"] as? String
@@ -201,21 +268,53 @@ class AddTankVC: FormViewController {
             tankObject.image = pickedImage.pngData()
         }
         
-        // WATER PARAMETERS
+        // EXPECTED WATER PARAMETERS
         if (self.form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual" {
-            tankWaterParameter.tempMax = Int16(values["maxtemp"] as! Int)
-            tankWaterParameter.tempMin = Int16(values["mintemp"] as! Int)
-            tankWaterParameter.phValue = values["ph"] as! Double
-            tankWaterParameter.ghValue = Int16(values["gh"] as! Int)
+            tankExpectedParameters.tempValueMax = values["max_temp"] as! Double
+            tankExpectedParameters.tempValueMin = values["min_temp"] as! Double
+            
+            tankExpectedParameters.phValueMax = values["max_ph"] as! Double
+            tankExpectedParameters.phValueMin = values["min_ph"] as! Double
+            
+            tankExpectedParameters.ghValueMax = values["max_gh"] as! Double
+            tankExpectedParameters.ghValueMin = values["min_gh"] as! Double
+            
+            tankExpectedParameters.khValueMax = values["max_kh"] as! Double
+            tankExpectedParameters.khValueMin = values["min_kh"] as! Double
+            
+            tankExpectedParameters.cl2ValueMax = values["max_cl2"] as! Double
+            tankExpectedParameters.cl2ValueMin = values["min_cl2"] as! Double
+            
+            tankExpectedParameters.no2ValueMax = values["max_no2"] as! Double
+            tankExpectedParameters.no2ValueMin = values["min_no2"] as! Double
+            
+            tankExpectedParameters.no3ValueMax = values["max_no3"] as! Double
+            tankExpectedParameters.no3ValueMin = values["min_no3"] as! Double
         } else {
-            tankWaterParameter.tempMax = -1
-            tankWaterParameter.tempMin = -1
-            tankWaterParameter.phValue = -1
-            tankWaterParameter.ghValue = -1
+            tankExpectedParameters.tempValueMax = -1
+            tankExpectedParameters.tempValueMin = -1
+            
+            tankExpectedParameters.phValueMax = -1
+            tankExpectedParameters.phValueMin = -1
+            
+            tankExpectedParameters.ghValueMax = -1
+            tankExpectedParameters.ghValueMin = -1
+            
+            tankExpectedParameters.khValueMax = -1
+            tankExpectedParameters.khValueMin = -1
+            
+            tankExpectedParameters.cl2ValueMax = -1
+            tankExpectedParameters.cl2ValueMin = -1
+            
+            tankExpectedParameters.no2ValueMax = -1
+            tankExpectedParameters.no2ValueMin = -1
+            
+            tankExpectedParameters.no3ValueMax = -1
+            tankExpectedParameters.no3ValueMin = -1
+            
         }
-        tankWaterParameter.no2Value = -1
-        tankWaterParameter.no3Value = -1
-        tankObject.parameters = tankWaterParameter
+        
+        tankObject.expectedParameters = tankExpectedParameters
         tankObject.measurements = Set<Measurement>.init()
         
         // SAVING

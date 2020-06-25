@@ -9,11 +9,15 @@ import UIKit
 import Eureka
 import SplitRow
 import CoreData
-
+// MARK: - TODO
+/*
+ - displaying all values
+ - charts (loooooong way...)
+ */
 class SummaryVC: FormViewController, passTank {
     
     var tank: Tank?
-    var parameters: WaterParameter?
+    var expectedParameters: ExpectedWaterParameters?
     var measurements: [Measurement]?
     var latestMeasurement: Measurement?
     
@@ -21,7 +25,7 @@ class SummaryVC: FormViewController, passTank {
     
     func finishPassing(selectedTank: Tank) {
         self.tank = selectedTank
-        self.parameters = selectedTank.parameters
+        self.expectedParameters = self.tank?.expectedParameters
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,13 +117,24 @@ class SummaryVC: FormViewController, passTank {
         }
             <<< SplitRow<LabelRow, LabelRow>() {
                 $0.rowLeftPercentage = 0.5
-                $0.tag = "split_nox"
+                $0.tag = "split_no2"
                 $0.rowLeft = LabelRow() {
-                    $0.title = "NO2 Last"
+                    $0.title = "Expected"
                 }
                 
                 $0.rowRight = LabelRow() {
-                    $0.title = "NO3 Last"
+                    $0.title = "Last"
+                }
+            }
+            <<< SplitRow<LabelRow, LabelRow>() {
+                $0.rowLeftPercentage = 0.5
+                $0.tag = "split_no3"
+                $0.rowLeft = LabelRow() {
+                    $0.title = "Expected"
+                }
+                
+                $0.rowRight = LabelRow() {
+                    $0.title = "Last"
                 }
             }
     }
@@ -128,9 +143,11 @@ class SummaryVC: FormViewController, passTank {
         dateFormatter.dateFormat = "dd.MM, HH:mm"
         // tank values
         (form.rowBy(tag: "selected_tank") as! LabelRow).value = tank?.name
-        (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = (parameters?.tempMin.description)! + " - " + (parameters?.tempMax.description)!
-        (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = parameters?.phValue.description
-        (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = parameters?.ghValue.description
+        (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = expectedParameters?.getTempComp()
+        (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = expectedParameters?.getPhComp()
+        (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = expectedParameters?.getGHComp()
+        (form.rowBy(tag: "split_no2") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = expectedParameters?.getNO2Comp()
+        (form.rowBy(tag: "split_no3") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value  = expectedParameters?.getNO3Comp()
         
         // last measurement values
         if latestMeasurement != nil {
@@ -138,15 +155,15 @@ class SummaryVC: FormViewController, passTank {
             (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.temp.description
             (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.phValue.description
             (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.ghValue.description
-            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = latestMeasurement?.parameter?.no2Value.description
-            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = latestMeasurement?.parameter?.no3Value.description
+            (form.rowBy(tag: "split_no2") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.no2Value.description
+            (form.rowBy(tag: "split_no3") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = latestMeasurement?.parameter?.no3Value.description
         } else {
-            (form.rowBy(tag: "date_last") as! LabelRow).value = "-"
-            (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = "-"
-            (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = "-"
-            (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = "-"
-            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowLeft?.value = "-"
-            (form.rowBy(tag: "split_nox") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = "-"
+            (form.rowBy(tag: "date_last") as! LabelRow).value = " ? "
+            (form.rowBy(tag: "split_temps") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = " ? "
+            (form.rowBy(tag: "split_ph") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = " ? "
+            (form.rowBy(tag: "split_gh") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = " ? "
+            (form.rowBy(tag: "split_no2") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = " ? "
+            (form.rowBy(tag: "split_no3") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = " ? "
         }
         tableView.reloadData()
     }
