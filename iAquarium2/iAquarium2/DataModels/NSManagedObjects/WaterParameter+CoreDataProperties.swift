@@ -17,13 +17,13 @@ extension WaterParameter {
         return NSFetchRequest<WaterParameter>(entityName: "WaterParameter")
     }
 
-    @NSManaged public var cl2Value: Double
-    @NSManaged public var ghValue: Double
-    @NSManaged public var khValue: Double
-    @NSManaged public var no2Value: Double
-    @NSManaged public var no3Value: Double
-    @NSManaged public var phValue: Double
-    @NSManaged public var temp: Double
+    @NSManaged public var cl2Value: Float
+    @NSManaged public var ghValue: Float
+    @NSManaged public var khValue: Float
+    @NSManaged public var no2Value: Float
+    @NSManaged public var no3Value: Float
+    @NSManaged public var phValue: Float
+    @NSManaged public var temp: Float
     @NSManaged public var ofMeasurement: Measurement?
 
 }

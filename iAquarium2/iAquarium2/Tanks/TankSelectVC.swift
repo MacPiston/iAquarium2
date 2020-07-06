@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 // MARK: - TODO
 /*
- - 
+ - values validation
  */
 class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     

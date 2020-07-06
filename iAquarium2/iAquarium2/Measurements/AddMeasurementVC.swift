@@ -108,6 +108,7 @@ class AddMeasurementVC: FormViewController {
                 $0.title = "Notes"
                 $0.tag = "note"
                 $0.placeholder = "Type additional notes..."
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 50)
         }
         
     }
@@ -119,13 +120,13 @@ class AddMeasurementVC: FormViewController {
         let values = form.values()
         let parameter = WaterParameter(context: context)
         
-        parameter.temp = values["temp"] as! Double
-        parameter.phValue = values["ph"] as! Double
-        parameter.ghValue = values["gh"] as! Double
-        parameter.khValue = values["kh"] as! Double
-        parameter.cl2Value = values["cl2"] as! Double
-        parameter.no2Value = values["no2"] as! Double
-        parameter.no3Value = values["no3"] as! Double
+        parameter.temp = values["temp"] as! Float
+        parameter.phValue = values["ph"] as! Float
+        parameter.ghValue = values["gh"] as! Float
+        parameter.khValue = values["kh"] as! Float
+        parameter.cl2Value = values["cl2"] as! Float
+        parameter.no2Value = values["no2"] as! Float
+        parameter.no3Value = values["no3"] as! Float
         
         let measurement = Measurement(context: context)
         measurement.parameter = parameter
