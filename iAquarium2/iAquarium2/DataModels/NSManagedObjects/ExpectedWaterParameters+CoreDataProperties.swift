@@ -17,20 +17,20 @@ extension ExpectedWaterParameters {
         return NSFetchRequest<ExpectedWaterParameters>(entityName: "ExpectedWaterParameters")
     }
 
-    @NSManaged public var cl2ValueMax: Float
-    @NSManaged public var cl2ValueMin: Float
-    @NSManaged public var ghValueMax: Float
-    @NSManaged public var ghValueMin: Float
-    @NSManaged public var khValueMax: Float
-    @NSManaged public var khValueMin: Float
-    @NSManaged public var no2ValueMax: Float
-    @NSManaged public var no2ValueMin: Float
-    @NSManaged public var no3ValueMax: Float
-    @NSManaged public var no3ValueMin: Float
-    @NSManaged public var phValueMax: Float
-    @NSManaged public var phValueMin: Float
-    @NSManaged public var tempValueMax: Float
-    @NSManaged public var tempValueMin: Float
+    @NSManaged public var cl2ValueMax: Double
+    @NSManaged public var cl2ValueMin: Double
+    @NSManaged public var ghValueMax: Double
+    @NSManaged public var ghValueMin: Double
+    @NSManaged public var khValueMax: Double
+    @NSManaged public var khValueMin: Double
+    @NSManaged public var no2ValueMax: Double
+    @NSManaged public var no2ValueMin: Double
+    @NSManaged public var no3ValueMax: Double
+    @NSManaged public var no3ValueMin: Double
+    @NSManaged public var phValueMax: Double
+    @NSManaged public var phValueMin: Double
+    @NSManaged public var tempValueMax: Double
+    @NSManaged public var tempValueMin: Double
     @NSManaged public var ofTank: Tank?
     
     func getTempComp() -> String {

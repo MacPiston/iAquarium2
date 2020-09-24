@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4j-pF-7Ue">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tankCell" editingAccessoryType="checkmark" rowHeight="130" id="zBb-hN-g6f" customClass="TankTableViewCell" customModule="iAquarium2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
@@ -27,11 +29,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="pvs-8z-xgm" userLabel="Horizontal Stack View">
-                                                    <rect key="frame" x="15" y="-2.5" width="317.5" height="135"/>
+                                                    <rect key="frame" x="16" y="-2.5" width="319" height="135"/>
                                                     <subviews>
                                                         <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="py6-Ah-YqC">
                                                             <rect key="frame" x="0.0" y="25.5" width="84" height="84"/>
-                                                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                            <color key="backgroundColor" systemColor="lightTextColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="84" id="J4l-Up-tVH"/>
                                                                 <constraint firstAttribute="height" constant="84" id="MmR-dl-f7L"/>
@@ -56,16 +58,16 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7mV-Bd-69C" userLabel="Variables Stack View">
-                                                            <rect key="frame" x="238.5" y="35.5" width="79" height="64"/>
+                                                            <rect key="frame" x="237.5" y="35.5" width="81.5" height="64"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tank_info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy1-WC-d0R">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="24"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tank_info2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfN-XR-hZN">
-                                                                    <rect key="frame" x="0.0" y="40" width="79" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="40" width="81.5" height="24"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -73,7 +75,7 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                     <constraints>
                                                         <constraint firstItem="py6-Ah-YqC" firstAttribute="top" secondItem="pvs-8z-xgm" secondAttribute="top" constant="25.5" id="5dY-3X-Tc3"/>
                                                         <constraint firstAttribute="bottom" secondItem="py6-Ah-YqC" secondAttribute="bottom" constant="25.5" id="Tzm-oj-Hce"/>
@@ -96,14 +98,14 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="k4j-pF-7Ue" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="DZA-10-mV4"/>
                             <constraint firstItem="k4j-pF-7Ue" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="Gbp-Tf-cY8"/>
                             <constraint firstItem="k4j-pF-7Ue" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="MP9-0O-COk"/>
                             <constraint firstItem="k4j-pF-7Ue" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="lJ1-NJ-vsf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Tank" id="FwG-x5-Q5l">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yoi-kh-p2H">
@@ -127,8 +129,8 @@
                     <view key="view" contentMode="scaleToFill" id="9hg-nF-7ZV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qy8-Yd-PNF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Tank" id="e7p-bh-oeI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OMv-ZT-QsL">
@@ -158,15 +160,36 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Summary" image="text.bubble" catalog="system" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" id="W3l-XP-uBh"/>
+                    <navigationItem key="navigationItem" title="Tank Summary" id="W3l-XP-uBh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="Qaf-9y-Tjy">
+                            <connections>
+                                <segue destination="1lA-sH-wJQ" kind="show" id="VVY-Hl-Ffg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
+        </scene>
+        <!--Summary SettingsVC-->
+        <scene sceneID="syu-fV-gPP">
+            <objects>
+                <viewController id="1lA-sH-wJQ" customClass="SummarySettingsVC" customModule="iAquarium2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G7c-Er-Z3R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cup-At-Uyf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TwX-gl-95F"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v6x-QR-eXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="359"/>
         </scene>
         <!--Saved Measurements-->
         <scene sceneID="5f4-6t-NaG">
@@ -175,8 +198,8 @@
                     <view key="view" contentMode="scaleToFill" id="PQH-hc-zYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="hkt-1U-KMh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Saved Measurements" id="s8k-RG-F5B">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EGZ-bF-41E">
@@ -198,8 +221,8 @@
                     <view key="view" contentMode="scaleToFill" id="PE4-px-yUq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kEp-Q1-iAS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Measurement" id="QxO-5b-Mm1">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9xL-MY-K0l">
@@ -234,7 +257,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="OeQ-yW-C53" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="LCp-5g-9w1" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="pqn-IV-xmG" kind="relationship" relationship="viewControllers" id="0dE-qa-iW0"/>
                     </connections>
                 </tabBarController>
@@ -318,10 +341,39 @@
             </objects>
             <point key="canvasLocation" x="2604" y="1061"/>
         </scene>
+        <!--Summary-->
+        <scene sceneID="M6j-Ao-YuZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LCp-5g-9w1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Summary" image="text.bubble" catalog="system" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bl8-SD-qlf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="VrG-Kf-vq4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLx-Gi-SIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
-        <image name="thermometer" catalog="system" width="87" height="128"/>
+        <image name="thermometer" catalog="system" width="93" height="128"/>
+        <systemColor name="lightTextColor">
+            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

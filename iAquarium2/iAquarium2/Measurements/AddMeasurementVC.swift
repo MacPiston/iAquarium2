@@ -42,7 +42,7 @@ class AddMeasurementVC: FormViewController {
             +++ Section() {
                 section in
                 section.footer?.height = {12}
-                section.header?.height = {12}
+                section.header?.height = {0}
         }
             <<< DateTimeInlineRow() {
                 $0.title = "Date of Measurement"
@@ -99,9 +99,8 @@ class AddMeasurementVC: FormViewController {
                 $0.add(rule: RuleRequired())
         }
             
-        +++ Section("Notes") {
+        +++ Section(header: "Notes", footer: "You can fill only needed fields") {
             section in
-            section.footer?.height = {12}
             section.header?.height = {12}
         }
             <<< TextAreaRow() {
@@ -120,13 +119,13 @@ class AddMeasurementVC: FormViewController {
         let values = form.values()
         let parameter = WaterParameter(context: context)
         
-        parameter.temp = values["temp"] as! Float
-        parameter.phValue = values["ph"] as! Float
-        parameter.ghValue = values["gh"] as! Float
-        parameter.khValue = values["kh"] as! Float
-        parameter.cl2Value = values["cl2"] as! Float
-        parameter.no2Value = values["no2"] as! Float
-        parameter.no3Value = values["no3"] as! Float
+        parameter.temp = values["temp"] as? Double ?? -1
+        parameter.phValue = values["ph"] as? Double ?? -1
+        parameter.ghValue = values["gh"] as? Double ?? -1
+        parameter.khValue = values["kh"] as? Double ?? -1
+        parameter.cl2Value = values["cl2"] as? Double ?? -1
+        parameter.no2Value = values["no2"] as? Double ?? -1
+        parameter.no3Value = values["no3"] as? Double ?? -1
         
         let measurement = Measurement(context: context)
         measurement.parameter = parameter

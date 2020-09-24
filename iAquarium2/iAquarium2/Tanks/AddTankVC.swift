@@ -28,9 +28,7 @@ class AddTankVC: FormViewController {
     }
     
     private func setupForm() {
-        let hideCondition = Condition.function(["calculation"], { form in
-            return !((form.rowBy(tag: "calculation") as? SegmentedRow<String>)?.value == "Manual")
-        })
+        let hideCondition = Condition.predicate(NSPredicate(format: "$calculation == \"Auto\""))
         
         // MARK: - Form
             // Basic Information
@@ -85,10 +83,7 @@ class AddTankVC: FormViewController {
                     $0.title = "Salt"
                     $0.placeholder = "g/L"
                     $0.tag = "salt"
-                    $0.hidden = Condition.function(["watertype"], {
-                        form in
-                        return !((form.rowBy(tag: "watertype") as? SegmentedRow)?.value == "Salty")
-                    })
+                    $0.hidden = "$watertype != \"Salty\""
                 }
 
             //PARAMETERS
@@ -293,26 +288,26 @@ class AddTankVC: FormViewController {
         }
         
         // EXPECTED WATER PARAMETERS
-        tankExpectedParameters.tempValueMax = values["max_temp"] as? Float ?? -1
-        tankExpectedParameters.tempValueMin = values["min_temp"] as? Float ?? -1
+        tankExpectedParameters.tempValueMax = values["max_temp"] as? Double ?? -1
+        tankExpectedParameters.tempValueMin = values["min_temp"] as? Double ?? -1
         
-        tankExpectedParameters.phValueMax = values["max_ph"] as? Float ?? -1
-        tankExpectedParameters.phValueMin = values["min_ph"] as? Float ?? -1
+        tankExpectedParameters.phValueMax = values["max_ph"] as? Double ?? -1
+        tankExpectedParameters.phValueMin = values["min_ph"] as? Double ?? -1
         
-        tankExpectedParameters.ghValueMax = values["max_gh"] as? Float ?? -1
-        tankExpectedParameters.ghValueMin = values["min_gh"] as? Float ?? -1
+        tankExpectedParameters.ghValueMax = values["max_gh"] as? Double ?? -1
+        tankExpectedParameters.ghValueMin = values["min_gh"] as? Double ?? -1
             
-        tankExpectedParameters.khValueMax = values["max_kh"] as? Float ?? -1
-        tankExpectedParameters.khValueMin = values["min_kh"] as? Float ?? -1
+        tankExpectedParameters.khValueMax = values["max_kh"] as? Double ?? -1
+        tankExpectedParameters.khValueMin = values["min_kh"] as? Double ?? -1
             
-        tankExpectedParameters.cl2ValueMax = values["max_cl2"] as? Float ?? -1
-        tankExpectedParameters.cl2ValueMin = values["min_cl2"] as? Float ?? -1
+        tankExpectedParameters.cl2ValueMax = values["max_cl2"] as? Double ?? -1
+        tankExpectedParameters.cl2ValueMin = values["min_cl2"] as? Double ?? -1
             
-        tankExpectedParameters.no2ValueMax = values["max_no2"] as? Float ?? -1
-        tankExpectedParameters.no2ValueMin = values["min_no2"] as? Float ?? -1
+        tankExpectedParameters.no2ValueMax = values["max_no2"] as? Double ?? -1
+        tankExpectedParameters.no2ValueMin = values["min_no2"] as? Double ?? -1
             
-        tankExpectedParameters.no3ValueMax = values["max_no3"] as? Float ?? -1
-        tankExpectedParameters.no3ValueMin = values["min_no3"] as? Float ?? -1
+        tankExpectedParameters.no3ValueMax = values["max_no3"] as? Double ?? -1
+        tankExpectedParameters.no3ValueMin = values["min_no3"] as? Double ?? -1
         
         tankObject.expectedParameters = tankExpectedParameters
         tankObject.measurements = Set<Measurement>.init()

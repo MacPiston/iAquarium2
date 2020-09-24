@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1009D6D9251D05A1000BA84D /* SummarySettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009D6D8251D05A1000BA84D /* SummarySettingsVC.swift */; };
+		1009D6DF251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009D6DD251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift */; };
+		1009D6E0251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009D6DE251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift */; };
 		100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */; };
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
 		1071E1992497E22D00BECD47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E1982497E22D00BECD47 /* Extensions.swift */; };
 		1071E19B2497E23600BECD47 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E19A2497E23600BECD47 /* Protocols.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
 		10BD6C2924A25C9F002DAAD1 /* EmptyTableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BD6C2824A25C9F002DAAD1 /* EmptyTableUIView.swift */; };
+		10F0E9B1251D0900004AE021 /* iAquarium2.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
 		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
 		10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8A24407BFC0069735D /* TankSelectVC.swift */; };
 		10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8C24407BFC0069735D /* SummaryVC.swift */; };
 		10F61C9024407BFC0069735D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C8E24407BFC0069735D /* Main.storyboard */; };
-		10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */; };
 		10F61C9524407C010069735D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9424407C010069735D /* Assets.xcassets */; };
 		10F61C9824407C010069735D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9624407C010069735D /* LaunchScreen.storyboard */; };
 		10F61CA324407C010069735D /* iAquarium2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61CA224407C010069735D /* iAquarium2Tests.swift */; };
@@ -57,6 +60,9 @@
 
 /* Begin PBXFileReference section */
 		0EF336570CC50BA36AF730EC /* Pods-iAquarium2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iAquarium2Tests.debug.xcconfig"; path = "Target Support Files/Pods-iAquarium2Tests/Pods-iAquarium2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1009D6D8251D05A1000BA84D /* SummarySettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarySettingsVC.swift; sourceTree = "<group>"; };
+		1009D6DD251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SummarySettingsEntity+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/SummarySettingsEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1009D6DE251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SummarySettingsEntity+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/SummarySettingsEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementVC.swift; sourceTree = "<group>"; };
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
 		1071E1982497E22D00BECD47 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				10F61C8C24407BFC0069735D /* SummaryVC.swift */,
+				1009D6D8251D05A1000BA84D /* SummarySettingsVC.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -147,6 +154,8 @@
 		10F61C7A24407BFB0069735D = {
 			isa = PBXGroup;
 			children = (
+				1009D6DD251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift */,
+				1009D6DE251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift */,
 				10FF6B7D24A520F100DC8CE2 /* Measurement+CoreDataClass.swift */,
 				10FF6B7E24A520F100DC8CE2 /* Measurement+CoreDataProperties.swift */,
 				10FF6B7F24A520F100DC8CE2 /* WaterParameter+CoreDataClass.swift */,
@@ -322,7 +331,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Maciej Zajecki";
 				TargetAttributes = {
 					10F61C8224407BFB0069735D = {
@@ -363,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F0E9B1251D0900004AE021 /* iAquarium2.xcdatamodeld in Resources */,
 				10F61C9824407C010069735D /* LaunchScreen.storyboard in Resources */,
 				10F61C9524407C010069735D /* Assets.xcassets in Resources */,
 				10F61C9024407BFC0069735D /* Main.storyboard in Resources */,
@@ -498,8 +508,9 @@
 				1071E19B2497E23600BECD47 /* Protocols.swift in Sources */,
 				10FF6B8924A520F100DC8CE2 /* ExpectedWaterParameters+CoreDataClass.swift in Sources */,
 				10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */,
-				10F61C9324407BFC0069735D /* iAquarium2.xcdatamodeld in Sources */,
+				1009D6DF251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift in Sources */,
 				10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */,
+				1009D6E0251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift in Sources */,
 				10FF6B8524A520F100DC8CE2 /* Measurement+CoreDataClass.swift in Sources */,
 				10FF6B8624A520F100DC8CE2 /* Measurement+CoreDataProperties.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
@@ -509,6 +520,7 @@
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,
 				10FF6B8A24A520F100DC8CE2 /* ExpectedWaterParameters+CoreDataProperties.swift in Sources */,
 				1071E1992497E22D00BECD47 /* Extensions.swift in Sources */,
+				1009D6D9251D05A1000BA84D /* SummarySettingsVC.swift in Sources */,
 				10FF6B8824A520F100DC8CE2 /* WaterParameter+CoreDataProperties.swift in Sources */,
 				10FF6B8B24A520F100DC8CE2 /* Tank+CoreDataClass.swift in Sources */,
 				1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */,
@@ -594,6 +606,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -654,6 +667,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

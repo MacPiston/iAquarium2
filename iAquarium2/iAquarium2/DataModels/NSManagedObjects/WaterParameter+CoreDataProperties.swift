@@ -17,13 +17,34 @@ extension WaterParameter {
         return NSFetchRequest<WaterParameter>(entityName: "WaterParameter")
     }
 
-    @NSManaged public var cl2Value: Float
-    @NSManaged public var ghValue: Float
-    @NSManaged public var khValue: Float
-    @NSManaged public var no2Value: Float
-    @NSManaged public var no3Value: Float
-    @NSManaged public var phValue: Float
-    @NSManaged public var temp: Float
+    @NSManaged public var cl2Value: Double
+    @NSManaged public var ghValue: Double
+    @NSManaged public var khValue: Double
+    @NSManaged public var no2Value: Double
+    @NSManaged public var no3Value: Double
+    @NSManaged public var phValue: Double
+    @NSManaged public var temp: Double
     @NSManaged public var ofMeasurement: Measurement?
+    
+    func getParameter(forKey: String) -> Double {
+        switch forKey {
+        case "cl2":
+            return cl2Value
+        case "gh":
+            return ghValue
+        case "kh":
+            return khValue
+        case "no2":
+            return no2Value
+        case "no3":
+            return no3Value
+        case "ph":
+            return phValue
+        case "temp":
+            return temp
+        default:
+            return -1
+        }
+    }
 
 }

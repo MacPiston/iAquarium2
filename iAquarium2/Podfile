@@ -10,6 +10,8 @@ target 'iAquarium2' do
   pod 'ImageRow', '~> 4.0'
   pod 'TableRow'
   pod 'SplitRow'
+  pod 'Charts'
+  pod 'ViewRow'
   target 'iAquarium2Tests' do
     inherit! :search_paths
     # Pods for testing

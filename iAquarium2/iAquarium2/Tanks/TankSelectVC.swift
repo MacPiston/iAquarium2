@@ -29,16 +29,6 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
         tankTableView.rowHeight = 100
-        
-        /*
-        if tanks.isEmpty {
-            tankTableView.backgroundView = EmptyTableUIView(frame: tankTableView.frame)
-            tankTableView.isScrollEnabled = false
-        } else {
-            tankTableView.backgroundView = nil
-            tankTableView.isScrollEnabled = true
-        }
-        */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +88,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         if let tankIndex = tankTableView.indexPathForSelectedRow?.row {
             selectedTank = tanks[tankIndex]
             
-            self.tankSummaryDelegate = tabBarController?.children[1] as? SummaryVC
+            self.tankSummaryDelegate = ((tabBarController?.children[1] as? UINavigationController)?.viewControllers[0]) as? SummaryVC
             self.tankSummaryDelegate?.finishPassing(selectedTank: selectedTank!)
             
             self.tankMeasurementDelegate = (tabBarController?.children[2] as? UINavigationController)?.viewControllers[0] as? MeasurementsVC

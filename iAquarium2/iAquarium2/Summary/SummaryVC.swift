@@ -8,6 +8,8 @@
 import UIKit
 import Eureka
 import SplitRow
+import ViewRow
+import Charts
 import CoreData
 // MARK: - TODO
 /*
@@ -16,6 +18,7 @@ import CoreData
  */
 class SummaryVC: FormViewController, passTank {
     
+    // MARK: - Class stuff
     var tank: Tank?
     var expectedParameters: ExpectedWaterParameters?
     var measurements: [Measurement]?
@@ -32,6 +35,7 @@ class SummaryVC: FormViewController, passTank {
         if tank != nil {
             fetchTankMeasurements()
             updateFormValues()
+            tableView.reloadData()
         } else {
             print("SummaryVC: Tank is nil!!")
         }
@@ -44,9 +48,8 @@ class SummaryVC: FormViewController, passTank {
     
     //MARK: -Form
     func setupForm() {
-
         form
-            +++ Section("Summary")
+            +++ Section()
             <<< LabelRow() {
                 $0.title = "Selected tank"
                 $0.tag = "selected_tank"
@@ -165,10 +168,10 @@ class SummaryVC: FormViewController, passTank {
             (form.rowBy(tag: "split_no2") as! SplitRow<LabelRow, LabelRow>).rowRight?.value = " ? "
             (form.rowBy(tag: "split_no3") as! SplitRow<LabelRow, LabelRow>).rowRight?.value  = " ? "
         }
-        tableView.reloadData()
     }
     
-    func fetchTankMeasurements() {
+    // MARK: - CoreData
+    private func fetchTankMeasurements() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Measurement>(entityName: "Measurement")
         
@@ -181,6 +184,48 @@ class SummaryVC: FormViewController, passTank {
         } catch let error as NSError {
             print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
         }
+    }
+    
+    // MARK: - Chart
+    private func createChartView(valueKey: String, label: String) -> LineChartView {
+        let chartCell = LineChartView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
+        var lineChartEntries = [ChartDataEntry]()
+        var referenceTimeInterval: TimeInterval = 0
+
+        if let minTimeInterval = (measurements?.map({ $0.date!.timeIntervalSince1970 }))?.min() {
+            referenceTimeInterval = minTimeInterval
+        }
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.dateFormat = "dd/MM\nhh:mm"
+        
+        let xValuesDateFormatter = ChartXAxisFormatter(referenceTimeInterval: referenceTimeInterval, dateFormatter: formatter)
+        chartCell.xAxis.valueFormatter = xValuesDateFormatter
+        
+        measurements?.enumerated().reversed().forEach({ measurementTuple in
+            let timeInterval = measurementTuple.element.date?.timeIntervalSince1970
+            let xValue = (timeInterval! - referenceTimeInterval) / (3600 * 24)
+            print(xValue)
+            let yValue = measurementTuple.element.parameter?.getParameter(forKey: valueKey)
+            let entry = ChartDataEntry(x: xValue, y: yValue!)
+            
+            lineChartEntries.append(entry)
+        })
+        
+        let lineDataSet = LineChartDataSet(entries: lineChartEntries)
+        lineDataSet.colors = [NSUIColor.orange]
+        
+        let chartData = LineChartData()
+        chartData.addDataSet(lineDataSet)
+        
+        chartCell.data = chartData
+        
+        chartCell.xAxis.labelPosition = .bottom
+        chartCell.doubleTapToZoomEnabled = false
+        chartCell.xAxis.avoidFirstLastClippingEnabled = true
+        chartCell.xAxis.wordWrapEnabled = true
+        return chartCell
     }
     
     //MARK: -Navigation

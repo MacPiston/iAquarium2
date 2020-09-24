@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ExpectedWaterParameters" representedClassName="ExpectedWaterParameters" syncable="YES">
-        <attribute name="cl2ValueMax" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="cl2ValueMin" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ghValueMax" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="ghValueMin" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="khValueMax" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="khValueMin" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="no2ValueMax" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="no2ValueMin" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="no3ValueMax" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="no3ValueMin" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="phValueMax" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="phValueMin" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="tempValueMax" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="tempValueMin" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cl2ValueMax" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cl2ValueMin" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ghValueMax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="ghValueMin" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="khValueMax" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="khValueMin" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="no2ValueMax" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="no2ValueMin" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="no3ValueMax" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="no3ValueMin" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phValueMax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="phValueMin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tempValueMax" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tempValueMin" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="ofTank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tank" inverseName="expectedParameters" inverseEntity="Tank"/>
     </entity>
     <entity name="Measurement" representedClassName="Measurement" syncable="YES">
@@ -22,6 +22,18 @@
         <attribute name="note" optional="YES" attributeType="String"/>
         <relationship name="ofTank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tank" inverseName="measurements" inverseEntity="Tank"/>
         <relationship name="parameter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WaterParameter" inverseName="ofMeasurement" inverseEntity="WaterParameter"/>
+    </entity>
+    <entity name="SummarySettingsEntity" representedClassName="SummarySettingsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="ghAlertEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ghChartEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="no2AlertEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="no2ChartEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="no3AlertEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="no3ChartEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="phAlertEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="phChartEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tempAlertEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tempChartEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="Tank" representedClassName="Tank" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String"/>
@@ -34,18 +46,19 @@
         <relationship name="measurements" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Measurement" inverseName="ofTank" inverseEntity="Measurement"/>
     </entity>
     <entity name="WaterParameter" representedClassName="WaterParameter" syncable="YES">
-        <attribute name="cl2Value" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ghValue" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="khValue" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="no2Value" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="no3Value" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="phValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cl2Value" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ghValue" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="khValue" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="no2Value" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="no3Value" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="ofMeasurement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Measurement" inverseName="parameter" inverseEntity="Measurement"/>
     </entity>
     <elements>
         <element name="ExpectedWaterParameters" positionX="182.7421875" positionY="-235.81640625" width="128" height="268"/>
         <element name="Measurement" positionX="75.2734375" positionY="141.2109375" width="128" height="103"/>
+        <element name="SummarySettingsEntity" positionX="18" positionY="-81" width="128" height="193"/>
         <element name="Tank" positionX="-74.91015625" positionY="-220.66015625" width="128" height="163"/>
         <element name="WaterParameter" positionX="-142.85546875" positionY="-4.859375" width="133.421875" height="163"/>
     </elements>

@@ -31,6 +31,7 @@ class MeasurementsVC: FormViewController, passTank {
     var measurements: [Measurement]?
     var selectedMeasurement: Measurement?
     let dateFormatter = DateFormatter()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class MeasurementsVC: FormViewController, passTank {
         dateFormatter.dateFormat = "dd.MM, HH:mm"
         fetchTankMeasurements()
         updateFormValues()
+        tableView.reloadData()
     }
     
     func finishPassing(selectedTank: Tank) {
@@ -49,18 +51,23 @@ class MeasurementsVC: FormViewController, passTank {
     
     func setupForm() {
         form
-        +++ Section("Select measurement")
+            +++ Section("Select measurement") {
+                section in
+                section.header?.height = {30}
+            }
             <<< PushRow<Measurement> {
-                $0.title = "Mesaurement"
+                $0.title = "Mesaurements..."
                 $0.tag = "measurement_picker"
                 $0.selectorTitle = "Pick a measurement"
                 $0.displayValueFor = {
                     guard let measurement = $0 else { return nil }
                     return self.dateFormatter.string(from: measurement.date!)
                 }
-            }.onCellSelection { cell, row in
-                self.selectedMeasurement = row.value
+            }.onChange { cell in
+                self.selectedMeasurement = cell.self.value
+                self.fetchTankMeasurements()
                 self.updateFormValues()
+                self.tableView.reloadData()
             }.onPresent { from, to in
                 to.dismissOnChange = true
                 to.dismissOnSelection = true
@@ -108,6 +115,29 @@ class MeasurementsVC: FormViewController, passTank {
                 $0.tag = "note"
                 $0.textAreaMode = .readOnly
         }
+        +++ Section()
+            <<< ButtonRow() {
+                $0.title = "Delete Measurement"
+                $0.tag = "delete_button"
+                }.onCellSelection(measurementDeletionHandler(cell:row:))
+                .cellUpdate({ cell, row in
+                    cell.textLabel?.textColor = .systemRed
+                })
+    }
+    
+    private func measurementDeletionHandler(cell: ButtonCellOf<String>, row: ButtonRow) {
+        guard let currentMeasurement = selectedMeasurement else { return }
+        tank?.removeFromMeasurements(currentMeasurement)
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Couldn't save context after measurement deletion: \(error), \(error.userInfo)")
+        }
+        selectedMeasurement = nil
+        
+        fetchTankMeasurements()
+        updateFormValues()
+        tableView.reloadData()
     }
     
     private func updateFormValues() {
@@ -119,19 +149,27 @@ class MeasurementsVC: FormViewController, passTank {
         (form.rowBy(tag: "no2") as! LabelRow).value = selectedMeasurement?.parameter?.no2Value.description
         (form.rowBy(tag: "no3") as! LabelRow).value = selectedMeasurement?.parameter?.no3Value.description
         (form.rowBy(tag: "note") as! TextAreaRow).value = selectedMeasurement?.note
-        tableView.reloadData()
+        (form.rowBy(tag: "measurement_picker") as! PushRow<Measurement>).value = selectedMeasurement
     }
     
     private func fetchTankMeasurements() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Measurement>(entityName: "Measurement")
+        let pushRow = form.rowBy(tag: "measurement_picker") as! PushRow<Measurement>
         
         fetchRequest.predicate = NSPredicate(format: "ofTank.name == %@", (tank?.name)!)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         do {
             let data = try context.fetch(fetchRequest)
+            
             measurements = data
-            (form.rowBy(tag: "measurement_picker") as! PushRow<Measurement>).options = measurements
+            pushRow.options = measurements
+            if measurements != nil {
+                selectedMeasurement = measurements?.first
+                pushRow.disabled = false
+            } else {
+                pushRow.disabled = true
+            }
         } catch let error as NSError {
             print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
         }
