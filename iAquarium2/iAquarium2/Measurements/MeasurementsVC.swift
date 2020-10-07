@@ -10,21 +10,6 @@ import UIKit
 import Eureka
 import TableRow
 import CoreData
-// MARK: - TODO
-/*
- -
- */
-/*
-Loggable parameters:
-   - temperature
-   - pH value
-   - GH value °d
-   - KH value °d
-   - Cl2 value mg/l
-   - NO2 value mg/l
-   - NO3 value mg/l
-   - Date of measurements
-*/
 
 class MeasurementsVC: FormViewController, passTank {
     var tank: Tank?
@@ -41,8 +26,7 @@ class MeasurementsVC: FormViewController, passTank {
     override func viewWillAppear(_ animated: Bool) {
         dateFormatter.dateFormat = "dd.MM, HH:mm"
         fetchTankMeasurements()
-        updateFormValues()
-        tableView.reloadData()
+        updateFormValues(reloadData: true)
     }
     
     func finishPassing(selectedTank: Tank) {
@@ -64,10 +48,8 @@ class MeasurementsVC: FormViewController, passTank {
                     return self.dateFormatter.string(from: measurement.date!)
                 }
             }.onChange { cell in
-                self.selectedMeasurement = cell.self.value
-                self.fetchTankMeasurements()
-                self.updateFormValues()
-                self.tableView.reloadData()
+                self.selectedMeasurement = cell.value
+                self.updateFormValues(reloadData: true)
             }.onPresent { from, to in
                 to.dismissOnChange = true
                 to.dismissOnSelection = true
@@ -136,11 +118,10 @@ class MeasurementsVC: FormViewController, passTank {
         selectedMeasurement = nil
         
         fetchTankMeasurements()
-        updateFormValues()
-        tableView.reloadData()
+        updateFormValues(reloadData: true)
     }
     
-    private func updateFormValues() {
+    private func updateFormValues(reloadData: Bool) {
         (form.rowBy(tag: "temp") as! LabelRow).value = selectedMeasurement?.parameter?.temp.description
         (form.rowBy(tag: "ph") as! LabelRow).value = selectedMeasurement?.parameter?.phValue.description
         (form.rowBy(tag: "gh") as! LabelRow).value = selectedMeasurement?.parameter?.ghValue.description
@@ -150,6 +131,10 @@ class MeasurementsVC: FormViewController, passTank {
         (form.rowBy(tag: "no3") as! LabelRow).value = selectedMeasurement?.parameter?.no3Value.description
         (form.rowBy(tag: "note") as! TextAreaRow).value = selectedMeasurement?.note
         (form.rowBy(tag: "measurement_picker") as! PushRow<Measurement>).value = selectedMeasurement
+                
+        if reloadData {
+            self.tableView.reloadData()
+        }
     }
     
     private func fetchTankMeasurements() {
@@ -164,12 +149,14 @@ class MeasurementsVC: FormViewController, passTank {
             
             measurements = data
             pushRow.options = measurements
+            
             if measurements != nil {
                 selectedMeasurement = measurements?.first
                 pushRow.disabled = false
             } else {
                 pushRow.disabled = true
             }
+            pushRow.evaluateDisabled()
         } catch let error as NSError {
             print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
         }
