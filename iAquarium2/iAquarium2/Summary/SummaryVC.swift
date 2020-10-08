@@ -11,11 +11,7 @@ import SplitRow
 import ViewRow
 import Charts
 import CoreData
-// MARK: - TODO
-/*
- - displaying all values
- - charts (loooooong way...)
- */
+
 class SummaryVC: FormViewController, passTank {
     // MARK: - Variables
     var tank: Tank?
@@ -198,53 +194,6 @@ class SummaryVC: FormViewController, passTank {
         }
     }
     
-    func updateChartViews(reloadData: Bool) {
-        let temp_chart = form.rowBy(tag: "temp_chart") as! ViewRow<LineChartView>
-        let ph_chart = form.rowBy(tag: "ph_chart") as! ViewRow<LineChartView>
-        let gh_chart = form.rowBy(tag: "gh_chart") as! ViewRow<LineChartView>
-        let no2_chart = form.rowBy(tag: "no2_chart") as! ViewRow<LineChartView>
-        
-        if settings?.tempChartEnabled == true && measurements?.isEmpty == false {
-            temp_chart.hidden = false
-            temp_chart.evaluateHidden()
-            temp_chart.cell.view = createChartView(valueKey: "temp", label: "")
-        } else {
-            temp_chart.hidden = true
-            temp_chart.evaluateHidden()
-        }
-        
-        if settings?.phChartEnabled == true && measurements?.isEmpty == false  {
-            ph_chart.hidden = false
-            ph_chart.evaluateHidden()
-            ph_chart.cell.view = createChartView(valueKey: "ph", label: "")
-        } else {
-            ph_chart.hidden = true
-            ph_chart.evaluateHidden()
-        }
-        
-        if settings?.ghChartEnabled == true && measurements?.isEmpty == false  {
-            gh_chart.hidden = false
-            gh_chart.evaluateHidden()
-            gh_chart.cell.view = createChartView(valueKey: "gh", label: "")
-        } else {
-            gh_chart.hidden = true
-            gh_chart.evaluateHidden()
-        }
-        
-        if settings?.no2ChartEnabled == true && measurements?.isEmpty == false {
-            no2_chart.hidden = false
-            no2_chart.evaluateHidden()
-            no2_chart.cell.view = createChartView(valueKey: "no2", label: "")
-        } else {
-            no2_chart.hidden = true
-            no2_chart.evaluateHidden()
-        }
-        
-        if reloadData {
-            tableView.reloadData()
-        }
-    }
-    
     // MARK: - CoreData
     private func fetchTankMeasurements() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -317,6 +266,53 @@ class SummaryVC: FormViewController, passTank {
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.wordWrapEnabled = true
         return chartView
+    }
+    
+    func updateChartViews(reloadData: Bool) {
+        let temp_chart = form.rowBy(tag: "temp_chart") as! ViewRow<LineChartView>
+        let ph_chart = form.rowBy(tag: "ph_chart") as! ViewRow<LineChartView>
+        let gh_chart = form.rowBy(tag: "gh_chart") as! ViewRow<LineChartView>
+        let no2_chart = form.rowBy(tag: "no2_chart") as! ViewRow<LineChartView>
+        
+        if settings?.tempChartEnabled == true && measurements?.isEmpty == false {
+            temp_chart.hidden = false
+            temp_chart.evaluateHidden()
+            temp_chart.cell.view = createChartView(valueKey: "temp", label: "")
+        } else {
+            temp_chart.hidden = true
+            temp_chart.evaluateHidden()
+        }
+        
+        if settings?.phChartEnabled == true && measurements?.isEmpty == false  {
+            ph_chart.hidden = false
+            ph_chart.evaluateHidden()
+            ph_chart.cell.view = createChartView(valueKey: "ph", label: "")
+        } else {
+            ph_chart.hidden = true
+            ph_chart.evaluateHidden()
+        }
+        
+        if settings?.ghChartEnabled == true && measurements?.isEmpty == false  {
+            gh_chart.hidden = false
+            gh_chart.evaluateHidden()
+            gh_chart.cell.view = createChartView(valueKey: "gh", label: "")
+        } else {
+            gh_chart.hidden = true
+            gh_chart.evaluateHidden()
+        }
+        
+        if settings?.no2ChartEnabled == true && measurements?.isEmpty == false {
+            no2_chart.hidden = false
+            no2_chart.evaluateHidden()
+            no2_chart.cell.view = createChartView(valueKey: "no2", label: "")
+        } else {
+            no2_chart.hidden = true
+            no2_chart.evaluateHidden()
+        }
+        
+        if reloadData {
+            tableView.reloadData()
+        }
     }
     
     //MARK: -Navigation

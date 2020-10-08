@@ -15,6 +15,7 @@
 		1071E1992497E22D00BECD47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E1982497E22D00BECD47 /* Extensions.swift */; };
 		1071E19B2497E23600BECD47 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E19A2497E23600BECD47 /* Protocols.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
+		10B84C42252F3D490032F540 /* SummaryTankSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */; };
 		10BD6C2924A25C9F002DAAD1 /* EmptyTableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BD6C2824A25C9F002DAAD1 /* EmptyTableUIView.swift */; };
 		10F0E9B1251D0900004AE021 /* iAquarium2.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 		1071E1982497E22D00BECD47 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1071E19A2497E23600BECD47 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
+		10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTankSettingsVC.swift; sourceTree = "<group>"; };
 		10BD6C2824A25C9F002DAAD1 /* EmptyTableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableUIView.swift; sourceTree = "<group>"; };
 		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				10F61C8C24407BFC0069735D /* SummaryVC.swift */,
 				1009D6D8251D05A1000BA84D /* SummarySettingsVC.swift */,
+				10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				10FF6B8624A520F100DC8CE2 /* Measurement+CoreDataProperties.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
 				10FF6B8724A520F100DC8CE2 /* WaterParameter+CoreDataClass.swift in Sources */,
+				10B84C42252F3D490032F540 /* SummaryTankSettingsVC.swift in Sources */,
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
 				10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */,
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,

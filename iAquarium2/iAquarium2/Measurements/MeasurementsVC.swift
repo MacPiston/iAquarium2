@@ -12,12 +12,14 @@ import TableRow
 import CoreData
 
 class MeasurementsVC: FormViewController, passTank {
+    // MARK: - Variables
     var tank: Tank?
     var measurements: [Measurement]?
     var selectedMeasurement: Measurement?
     let dateFormatter = DateFormatter()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    // MARK: - Class stuff
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
@@ -33,6 +35,7 @@ class MeasurementsVC: FormViewController, passTank {
         self.tank = selectedTank
     }
     
+    //MARK: - Form
     func setupForm() {
         form
             +++ Section("Select measurement") {
@@ -107,20 +110,6 @@ class MeasurementsVC: FormViewController, passTank {
                 })
     }
     
-    private func measurementDeletionHandler(cell: ButtonCellOf<String>, row: ButtonRow) {
-        guard let currentMeasurement = selectedMeasurement else { return }
-        tank?.removeFromMeasurements(currentMeasurement)
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print("Couldn't save context after measurement deletion: \(error), \(error.userInfo)")
-        }
-        selectedMeasurement = nil
-        
-        fetchTankMeasurements()
-        updateFormValues(reloadData: true)
-    }
-    
     private func updateFormValues(reloadData: Bool) {
         (form.rowBy(tag: "temp") as! LabelRow).value = selectedMeasurement?.parameter?.temp.description
         (form.rowBy(tag: "ph") as! LabelRow).value = selectedMeasurement?.parameter?.phValue.description
@@ -160,6 +149,20 @@ class MeasurementsVC: FormViewController, passTank {
         } catch let error as NSError {
             print("Couldn't fetch tank's measurements: \(error), \(error.userInfo)")
         }
+    }
+    
+    private func measurementDeletionHandler(cell: ButtonCellOf<String>, row: ButtonRow) {
+        guard let currentMeasurement = selectedMeasurement else { return }
+        tank?.removeFromMeasurements(currentMeasurement)
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Couldn't save context after measurement deletion: \(error), \(error.userInfo)")
+        }
+        selectedMeasurement = nil
+        
+        fetchTankMeasurements()
+        updateFormValues(reloadData: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -28,8 +28,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="pvs-8z-xgm" userLabel="Horizontal Stack View">
-                                                    <rect key="frame" x="16" y="-2.5" width="319" height="135"/>
+                                                <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="pvs-8z-xgm" userLabel="Horizontal Stack View">
+                                                    <rect key="frame" x="16" y="-2.5" width="329" height="135"/>
                                                     <subviews>
                                                         <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="py6-Ah-YqC">
                                                             <rect key="frame" x="0.0" y="25.5" width="84" height="84"/>
@@ -41,7 +41,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZBX-p4-CPg">
-                                                            <rect key="frame" x="124" y="35.5" width="72" height="64"/>
+                                                            <rect key="frame" x="129" y="35.5" width="72" height="64"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Se-Ea-oxa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="72" height="24"/>
@@ -58,7 +58,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7mV-Bd-69C" userLabel="Variables Stack View">
-                                                            <rect key="frame" x="237.5" y="35.5" width="81.5" height="64"/>
+                                                            <rect key="frame" x="247.5" y="35.5" width="81.5" height="64"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tank_info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy1-WC-d0R">
                                                                     <rect key="frame" x="0.0" y="0.0" width="81.5" height="24"/>
@@ -75,7 +75,6 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                     <constraints>
                                                         <constraint firstItem="py6-Ah-YqC" firstAttribute="top" secondItem="pvs-8z-xgm" secondAttribute="top" constant="25.5" id="5dY-3X-Tc3"/>
                                                         <constraint firstAttribute="bottom" secondItem="py6-Ah-YqC" secondAttribute="bottom" constant="25.5" id="Tzm-oj-Hce"/>
@@ -120,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="1686" y="-321"/>
         </scene>
         <!--Add New Tank-->
         <scene sceneID="r1e-E0-52D">
@@ -186,10 +185,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="TwX-gl-95F"/>
+                    <connections>
+                        <segue destination="8L5-58-Cko" kind="show" identifier="moveToTankSettings" id="4tn-EK-9rg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6x-QR-eXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2577" y="359"/>
+        </scene>
+        <!--Summary Tank SettingsVC-->
+        <scene sceneID="M9r-pZ-iwM">
+            <objects>
+                <viewController id="8L5-58-Cko" customClass="SummaryTankSettingsVC" customModule="iAquarium2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eDl-JK-uEj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8TC-hd-usb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QI1-CZ-PBX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNN-7t-djD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3516" y="359"/>
         </scene>
         <!--Saved Measurements-->
         <scene sceneID="5f4-6t-NaG">
@@ -243,7 +261,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5T3-Kp-B7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gvd-iP-29H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3542" y="1061"/>
+            <point key="canvasLocation" x="3516" y="1060"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -339,7 +357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ec6-UA-wPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2604" y="1061"/>
+            <point key="canvasLocation" x="2577" y="1059"/>
         </scene>
         <!--Summary-->
         <scene sceneID="M6j-Ao-YuZ">
@@ -368,9 +386,6 @@
         <image name="thermometer" catalog="system" width="93" height="128"/>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

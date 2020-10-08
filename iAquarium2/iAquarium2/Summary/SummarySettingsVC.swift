@@ -84,6 +84,16 @@ class SummarySettingsVC: FormViewController {
             }).onChange({ row in
                 self.settings?.no3ChartEnabled = row.value!
             })
+        
+            +++ Section("Tank")
+            <<< ButtonRow() {
+                $0.tag = "edit_params_button"
+                $0.title = "Edit tank parameters"
+            }.cellUpdate({ cell, row in
+                cell.textLabel?.textColor = .systemBlue
+            }).onCellSelection({ cell, row in
+                self.performSegue(withIdentifier: "moveToTankSettings", sender: self)
+            })
     }
     
     // MARK: - CoreData

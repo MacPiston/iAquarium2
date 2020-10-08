@@ -20,6 +20,7 @@ class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let hideCondition = Condition.predicate(NSPredicate(format: "$calculation == \"Auto\""))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,66 +28,66 @@ class AddTankVC: FormViewController {
         setupForm()
     }
     
-    private func setupForm() {
-        let hideCondition = Condition.predicate(NSPredicate(format: "$calculation == \"Auto\""))
-        
-        // MARK: - Form
-            // Basic Information
-            form +++ Section("Tank information")
-                <<< TextRow() {
-                    $0.title = "Tank Name"
-                    $0.placeholder = "Name..."
-                    $0.tag = "name"
-                    $0.add(rule: RuleRequired())
-                    $0.validationOptions = .validatesOnBlur
-                }.cellUpdate(textValidationCallback(textCell:textRow:)).onRowValidationChanged { cell, row in
-                    self.checkFormValidity()
-                }
-                
-                <<< TextRow() {
-                    $0.title = "Tank Brand"
-                    $0.placeholder = "Brand..."
-                    $0.tag = "brand"
-                    $0.add(rule: RuleRequired())
-                    $0.validationOptions = .validatesOnBlur
-                }.cellUpdate(textValidationCallback(textCell:textRow:)).onRowValidationChanged { cell, row in
-                    self.checkFormValidity()
-                }
+    
+    // MARK: - Form
+    
+    private func setupInfoSection() {
+        form +++ Section("Tank information")
+            <<< TextRow() {
+                $0.title = "Tank Name"
+                $0.placeholder = "Name..."
+                $0.tag = "name"
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnBlur
+            }.cellUpdate(textValidationCallback(textCell:textRow:)).onRowValidationChanged { cell, row in
+                self.checkFormValidity()
+            }
             
-                <<< ImageRow() {
-                    $0.title = "Tank Image"
-                    $0.tag = "image"
-                    $0.sourceTypes = [.Camera, .PhotoLibrary, .All]
-                    $0.allowEditor = true
-                    $0.placeholderImage = UIImage(systemName: "camera.on.rectangle")
-                    $0.clearAction = .yes(style: .destructive)
-                }
-                
-                <<< IntRow() {
-                        $0.title = "Tank Capacity"
-                        $0.placeholder = "Capacity..."
-                        $0.add(rule: RuleGreaterThan(min: 0))
-                        $0.add(rule: RuleRequired())
-                        $0.tag = "capacity"
-                }.cellUpdate(integerValidationCallback(integerCell:integerRow:)).onRowValidationChanged { cell, row in
-                    self.checkFormValidity()
-                }
-
-                <<< SegmentedRow<String>() {
-                    $0.title = "Water Type"
-                    $0.options = ["Normal", "Salty"]
-                    $0.value = "Normal"
-                    $0.tag = "watertype"
+            <<< TextRow() {
+                $0.title = "Tank Brand"
+                $0.placeholder = "Brand..."
+                $0.tag = "brand"
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnBlur
+            }.cellUpdate(textValidationCallback(textCell:textRow:)).onRowValidationChanged { cell, row in
+                self.checkFormValidity()
+            }
+        
+            <<< ImageRow() {
+                $0.title = "Tank Image"
+                $0.tag = "image"
+                $0.sourceTypes = [.Camera, .PhotoLibrary, .All]
+                $0.allowEditor = true
+                $0.placeholderImage = UIImage(systemName: "camera.on.rectangle")
+                $0.clearAction = .yes(style: .destructive)
+            }
+            
+            <<< IntRow() {
+                    $0.title = "Tank Capacity"
+                    $0.placeholder = "Capacity..."
+                    $0.add(rule: RuleGreaterThan(min: 0))
                     $0.add(rule: RuleRequired())
-                }
-                <<< IntRow() {
-                    $0.title = "Salt"
-                    $0.placeholder = "g/L"
-                    $0.tag = "salt"
-                    $0.hidden = "$watertype != \"Salty\""
-                }
+                    $0.tag = "capacity"
+            }.cellUpdate(integerValidationCallback(integerCell:integerRow:)).onRowValidationChanged { cell, row in
+                self.checkFormValidity()
+            }
 
-            //PARAMETERS
+            <<< SegmentedRow<String>() {
+                $0.title = "Water Type"
+                $0.options = ["Normal", "Salty"]
+                $0.value = "Normal"
+                $0.tag = "watertype"
+                $0.add(rule: RuleRequired())
+            }
+            <<< IntRow() {
+                $0.title = "Salt"
+                $0.placeholder = "g/L"
+                $0.tag = "salt"
+                $0.hidden = "$watertype != \"Salty\""
+            }
+    }
+    private func setupParametersSection() {
+        form
                 +++ Section(header: "Parameters", footer: "You can manually enter just the parameters you need; the rest can be calculated later.")
                 <<< SegmentedRow<String>() {
                         $0.title = "Parameters calculation"
@@ -261,6 +262,11 @@ class AddTankVC: FormViewController {
         } else {
             saveBarButton.isEnabled = true
         }
+    }
+    
+    private func setupForm() {
+        setupInfoSection()
+        setupParametersSection()
     }
     
     // MARK: - Navigation
