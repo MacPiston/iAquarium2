@@ -12,10 +12,7 @@ import ImageRow
 import os.log
 import CoreData
 import SplitRow
-// MARK: - TODO
-/*
- - values validation
- */
+
 class AddTankVC: FormViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
@@ -269,14 +266,9 @@ class AddTankVC: FormViewController {
         setupParametersSection()
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard let button = sender as? UIBarButtonItem, button === saveBarButton else {
-            os_log("Not the Done button; cancelling...", log: OSLog.default, type: .debug)
-            return
-        }
-        
+    // MARK: - Data management
+    
+    private func saveToCoreData() {
         let values = form.values()
         let tankObject = Tank(context: context)
         let tankExpectedParameters = ExpectedWaterParameters(context: context)
@@ -324,6 +316,22 @@ class AddTankVC: FormViewController {
         } catch let error as NSError {
             print("Couldn't save new tank: \(error), \(error.userInfo)")
         }
+    }
+    
+    private func saveToFirestore() {
+        
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let button = sender as? UIBarButtonItem, button === saveBarButton else {
+            os_log("Not the Done button; cancelling...", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        saveToCoreData()
+        saveToFirestore()
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
