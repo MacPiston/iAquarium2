@@ -1,6 +1,0 @@
-framework module Pods_iAquarium2Tests {
-  umbrella header "Pods-iAquarium2Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
