@@ -94,4 +94,3 @@ Podfile.lock
 *.lock
 GoogleService-Info.plist
 iAquarium2/Pods/
-iAquarium2/Pods/*
