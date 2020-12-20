@@ -89,3 +89,9 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+Podfile
+Podfile.lock
+*.lock
+GoogleService-Info.plist
+iAquarium2/Pods/
+iAquarium2/iAquarium2/Base.lproj/

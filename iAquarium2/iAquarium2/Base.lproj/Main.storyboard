@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -115,11 +115,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tankTableView" destination="k4j-pF-7Ue" id="jXt-cH-SEB"/>
+                        <segue destination="RK3-PL-cxX" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="8u2-7P-vPl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="-321"/>
+            <point key="canvasLocation" x="1686" y="-503"/>
         </scene>
         <!--Add New Tank-->
         <scene sceneID="r1e-E0-52D">
@@ -150,7 +151,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWk-tb-ZqW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="OK9-Pc-C7X" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3516" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="3516" y="-504"/>
         </scene>
         <!--Summary-->
         <scene sceneID="wg7-f3-ORb">
@@ -169,6 +170,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="RK3-PL-cxX" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="IOK-Vh-24P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hD-tL-U0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="1062"/>
+            <point key="canvasLocation" x="1687" y="1319"/>
         </scene>
         <!--Add New Measurement-->
         <scene sceneID="lyM-T4-wet">
@@ -261,7 +265,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5T3-Kp-B7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gvd-iP-29H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3516" y="1060"/>
+            <point key="canvasLocation" x="3518" y="1316"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="Iz5-jy-ZHv">
+            <objects>
+                <viewController id="RK3-PL-cxX" customClass="LoginVC" customModule="iAquarium2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yuw-Ia-jd6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCA-Qd-RNF">
+                                <rect key="frame" x="166" y="61" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FXR-98-Nn0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SbF-21-qyu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1377" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -281,7 +309,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-254" y="0.0"/>
         </scene>
         <!--Tanks-->
         <scene sceneID="ckR-Rq-NfV">
@@ -300,7 +328,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UlD-eJ-ISa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="748" y="-502"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9ad-If-Tcz">
@@ -318,7 +346,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnd-ag-CDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576.8000000000002" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="2577" y="-504"/>
         </scene>
         <!--Measurements-->
         <scene sceneID="MNT-N9-PaV">
@@ -338,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctc-k2-y2x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="1062"/>
+            <point key="canvasLocation" x="750" y="1319"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qTx-gd-vpa">
@@ -357,7 +385,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ec6-UA-wPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2577" y="1059"/>
+            <point key="canvasLocation" x="2578" y="1316"/>
         </scene>
         <!--Summary-->
         <scene sceneID="M6j-Ao-YuZ">
@@ -379,6 +407,9 @@
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IOK-Vh-24P"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
