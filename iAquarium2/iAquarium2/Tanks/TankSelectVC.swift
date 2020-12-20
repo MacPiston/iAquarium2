@@ -8,10 +8,8 @@
 
 import UIKit
 import CoreData
-// MARK: - TODO
-/*
- - values validation
- */
+import Firebase
+
 class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tankTableView: UITableView!
@@ -29,6 +27,14 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
         tankTableView.rowHeight = 100
+        
+        let user = Auth.auth().currentUser
+        if (user == nil) {
+            UIView.setAnimationsEnabled(false)
+            performSegue(withIdentifier: "LoginSegue", sender: self)
+            UIView.setAnimationsEnabled(false)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

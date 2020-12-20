@@ -11,6 +11,7 @@ import SplitRow
 import ViewRow
 import Charts
 import CoreData
+import Firebase
 
 class SummaryVC: FormViewController, passTank {
     // MARK: - Variables
@@ -43,6 +44,14 @@ class SummaryVC: FormViewController, passTank {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let user = Auth.auth().currentUser
+        if (user == nil) {
+            UIView.setAnimationsEnabled(false)
+            performSegue(withIdentifier: "LoginSegue", sender: self)
+            UIView.setAnimationsEnabled(false)
+        }
+        
         setupForm()
     }
     
