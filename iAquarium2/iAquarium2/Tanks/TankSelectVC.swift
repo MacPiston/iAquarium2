@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 // MARK: - TODO
 /*
  - values validation
@@ -29,6 +30,14 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         tankTableView.dataSource = self
         switchTabsEnabled(state: false)
         tankTableView.rowHeight = 100
+        
+        let user = Auth.auth().currentUser
+        if (user == nil) {
+            print("user not logged, performing login segue")
+            UIView.setAnimationsEnabled(false)
+            self.performSegue(withIdentifier: "LoginSegue", sender: self)
+            UIView.setAnimationsEnabled(true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
