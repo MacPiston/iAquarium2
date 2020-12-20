@@ -93,3 +93,4 @@ Podfile
 Podfile.lock
 *.lock
 GoogleService-Info.plist
+iAquarium2/Pods/
