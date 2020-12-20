@@ -32,7 +32,7 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         if (user == nil) {
             UIView.setAnimationsEnabled(false)
             performSegue(withIdentifier: "LoginSegue", sender: self)
-            UIView.setAnimationsEnabled(false)
+            UIView.setAnimationsEnabled(true)
         }
         
     }
