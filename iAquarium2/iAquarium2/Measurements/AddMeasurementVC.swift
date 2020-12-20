@@ -112,9 +112,9 @@ class AddMeasurementVC: FormViewController {
         
     }
     
-    //MARK: - Data management
-    
-    private func saveToCoreData() {
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let values = form.values()
         let parameter = WaterParameter(context: context)
@@ -139,17 +139,6 @@ class AddMeasurementVC: FormViewController {
         } catch let error as NSError {
             print("Couldn't save added measurement: \(error), \(error.userInfo)")
         }
-    }
-    
-    private func saveToFirestore() {
-        
-    }
-    
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        saveToCoreData()
-        saveToFirestore()
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
