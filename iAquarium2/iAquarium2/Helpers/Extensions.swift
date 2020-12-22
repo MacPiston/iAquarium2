@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Eureka
 import Charts
+import Firebase
 
 extension FormViewController {
     func textValidationCallback(textCell: TextCell, textRow: TextRow) {
@@ -29,6 +30,34 @@ extension FormViewController {
             integerCell.textLabel?.textColor = .systemRed
         }
     }
+}
+
+extension UIViewController {
+    func presentAuthErrorAlert(err: Error) {
+        let errorAlert = UIAlertController(title: "Error!", message: "An error occured", preferredStyle: .alert)
+        if let errCode = AuthErrorCode(rawValue: err._code) {
+            switch errCode {
+            case .invalidEmail:
+                errorAlert.message = "No account found with associated email"
+                break
+            case .wrongPassword:
+                errorAlert.message = "Wrong password"
+                break
+            default:
+                errorAlert.message = "An error occured"
+            }
+        }
+        errorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(errorAlert, animated: true)
+    }
+}
+
+extension String {
+  var isValidEmail: Bool {
+     let regularExpressionForEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+     let testEmail = NSPredicate(format:"SELF MATCHES %@", regularExpressionForEmail)
+     return testEmail.evaluate(with: self)
+  }
 }
 
 class ChartXAxisFormatter: NSObject {
@@ -56,4 +85,21 @@ extension ChartXAxisFormatter: IAxisValueFormatter {
         return dateFormatter.string(from: date)
     }
 
+}
+
+extension CALayer {
+    func applySketchShadow(color: UIColor = .black,alpha: Float = 0.5,x: CGFloat = 0,y: CGFloat = 2,blur: CGFloat = 4,spread: CGFloat = 0) {
+        masksToBounds = false
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
+        if spread == 0 {
+          shadowPath = nil
+        } else {
+          let dx = -spread
+          let rect = bounds.insetBy(dx: dx, dy: dx)
+          shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+      }
 }
