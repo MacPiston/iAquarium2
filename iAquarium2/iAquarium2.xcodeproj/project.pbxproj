@@ -11,6 +11,7 @@
 		1009D6DF251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009D6DD251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift */; };
 		1009D6E0251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009D6DE251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift */; };
 		100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */; };
+		1023262E259226F0004F95D0 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1023262D259226F0004F95D0 /* Gradients.swift */; };
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
 		1071E1992497E22D00BECD47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E1982497E22D00BECD47 /* Extensions.swift */; };
 		1071E19B2497E23600BECD47 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E19A2497E23600BECD47 /* Protocols.swift */; };
@@ -67,6 +68,7 @@
 		1009D6DD251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SummarySettingsEntity+CoreDataClass.swift"; path = "iAquarium2/DataModels/NSManagedObjects/SummarySettingsEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1009D6DE251D061D000BA84D /* SummarySettingsEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SummarySettingsEntity+CoreDataProperties.swift"; path = "iAquarium2/DataModels/NSManagedObjects/SummarySettingsEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		100E042D2450B0A50063E4FE /* AddMeasurementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementVC.swift; sourceTree = "<group>"; };
+		1023262D259226F0004F95D0 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
 		1071E1982497E22D00BECD47 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1071E19A2497E23600BECD47 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -158,6 +160,24 @@
 			path = Measurements;
 			sourceTree = "<group>";
 		};
+		10E9A25A259227C0005CB51D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1071E1982497E22D00BECD47 /* Extensions.swift */,
+				1071E19A2497E23600BECD47 /* Protocols.swift */,
+				1023262D259226F0004F95D0 /* Gradients.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		10E9A267259227CE005CB51D /* UserAccess */ = {
+			isa = PBXGroup;
+			children = (
+				10BA30C0258FD56B00ADFB8E /* LoginVC.swift */,
+			);
+			path = UserAccess;
+			sourceTree = "<group>";
+		};
 		10F61C7A24407BFB0069735D = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +225,8 @@
 				10F61C9624407C010069735D /* LaunchScreen.storyboard */,
 				10F61C9924407C010069735D /* Info.plist */,
 				10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */,
-				1071E1982497E22D00BECD47 /* Extensions.swift */,
-				1071E19A2497E23600BECD47 /* Protocols.swift */,
-				10BA30C0258FD56B00ADFB8E /* LoginVC.swift */,
+				10E9A25A259227C0005CB51D /* Helpers */,
+				10E9A267259227CE005CB51D /* UserAccess */,
 			);
 			path = iAquarium2;
 			sourceTree = "<group>";
@@ -526,6 +545,7 @@
 				10FF6B8624A520F100DC8CE2 /* Measurement+CoreDataProperties.swift in Sources */,
 				10F61C8B24407BFC0069735D /* TankSelectVC.swift in Sources */,
 				10FF6B8724A520F100DC8CE2 /* WaterParameter+CoreDataClass.swift in Sources */,
+				1023262E259226F0004F95D0 /* Gradients.swift in Sources */,
 				10B84C42252F3D490032F540 /* SummaryTankSettingsVC.swift in Sources */,
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
 				10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */,
