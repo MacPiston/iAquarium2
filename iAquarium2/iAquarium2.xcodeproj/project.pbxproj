@@ -20,6 +20,7 @@
 		10BA30C1258FD56B00ADFB8E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA30C0258FD56B00ADFB8E /* LoginVC.swift */; };
 		10BA30C6258FD64C00ADFB8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10BA30C5258FD64C00ADFB8E /* GoogleService-Info.plist */; };
 		10BD6C2924A25C9F002DAAD1 /* EmptyTableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BD6C2824A25C9F002DAAD1 /* EmptyTableUIView.swift */; };
+		10EDE7B825924D5F000E56C7 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EDE7B725924D5F000E56C7 /* RegisterVC.swift */; };
 		10F0E9B1251D0900004AE021 /* iAquarium2.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 10F61C9124407BFC0069735D /* iAquarium2.xcdatamodeld */; };
 		10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8624407BFC0069735D /* AppDelegate.swift */; };
 		10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F61C8824407BFC0069735D /* SceneDelegate.swift */; };
@@ -77,6 +78,7 @@
 		10BA30C0258FD56B00ADFB8E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		10BA30C5258FD64C00ADFB8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10BD6C2824A25C9F002DAAD1 /* EmptyTableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableUIView.swift; sourceTree = "<group>"; };
+		10EDE7B725924D5F000E56C7 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		10F61C8324407BFC0069735D /* iAquarium2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAquarium2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F61C8624407BFC0069735D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F61C8824407BFC0069735D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				10BA30C0258FD56B00ADFB8E /* LoginVC.swift */,
+				10EDE7B725924D5F000E56C7 /* RegisterVC.swift */,
 			);
 			path = UserAccess;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				10FF6B8724A520F100DC8CE2 /* WaterParameter+CoreDataClass.swift in Sources */,
 				1023262E259226F0004F95D0 /* Gradients.swift in Sources */,
 				10B84C42252F3D490032F540 /* SummaryTankSettingsVC.swift in Sources */,
+				10EDE7B825924D5F000E56C7 /* RegisterVC.swift in Sources */,
 				10F61C8724407BFC0069735D /* AppDelegate.swift in Sources */,
 				10F923232465E9DD00D57191 /* VariableFormats.swift in Sources */,
 				10F61C8924407BFC0069735D /* SceneDelegate.swift in Sources */,

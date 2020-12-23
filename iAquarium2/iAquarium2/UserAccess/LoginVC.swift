@@ -30,7 +30,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         addBackgroundGradient(color1: #colorLiteral(red: 0.2060806416, green: 0.5065105974, blue: 0.9686274529, alpha: 1), color2: #colorLiteral(red: 0.9439892326, green: 0.9439892326, blue: 0.9439892326, alpha: 1))
         setupImagesScrollView(introImages)
         setupShadows()
-        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -42,7 +41,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBAction func restorePasswordPressed(_ sender: UIButton) {
         if emailTextField.text != nil && !emailTextField.text!.isEmpty && emailTextField.text!.isValidEmail {
             // Send password reset request
-            let requestSent = UIAlertController(title: "Request sent", message: "Password reset request has been sent to \(emailTextField.text)", preferredStyle: .alert)
+            let requestSent = UIAlertController(title: "Request sent", message: "Password reset request has been sent to \(String(describing: emailTextField.text))", preferredStyle: .alert)
             requestSent.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             self.present(requestSent, animated: true, completion: nil)
         } else {
