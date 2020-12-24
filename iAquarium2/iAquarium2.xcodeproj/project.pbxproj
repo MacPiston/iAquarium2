@@ -16,6 +16,8 @@
 		1071E1992497E22D00BECD47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E1982497E22D00BECD47 /* Extensions.swift */; };
 		1071E19B2497E23600BECD47 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E19A2497E23600BECD47 /* Protocols.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
+		109F0DE8259493F5004B0F0B /* UserDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F0DE7259493F5004B0F0B /* UserDocument.swift */; };
+		109F0DED25949435004B0F0B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F0DEC25949435004B0F0B /* Document.swift */; };
 		10B84C42252F3D490032F540 /* SummaryTankSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */; };
 		10BA30C1258FD56B00ADFB8E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA30C0258FD56B00ADFB8E /* LoginVC.swift */; };
 		10BA30C6258FD64C00ADFB8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10BA30C5258FD64C00ADFB8E /* GoogleService-Info.plist */; };
@@ -74,6 +76,8 @@
 		1071E1982497E22D00BECD47 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1071E19A2497E23600BECD47 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
+		109F0DE7259493F5004B0F0B /* UserDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDocument.swift; sourceTree = "<group>"; };
+		109F0DEC25949435004B0F0B /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTankSettingsVC.swift; sourceTree = "<group>"; };
 		10BA30C0258FD56B00ADFB8E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		10BA30C5258FD64C00ADFB8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				1071E1982497E22D00BECD47 /* Extensions.swift */,
 				1071E19A2497E23600BECD47 /* Protocols.swift */,
 				1023262D259226F0004F95D0 /* Gradients.swift */,
+				109F0DEC25949435004B0F0B /* Document.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			children = (
 				10BA30C0258FD56B00ADFB8E /* LoginVC.swift */,
 				10EDE7B725924D5F000E56C7 /* RegisterVC.swift */,
+				109F0DE7259493F5004B0F0B /* UserDocument.swift */,
 			);
 			path = UserAccess;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				10F61CBD24407FF70069735D /* AddTankVC.swift in Sources */,
 				1071E19B2497E23600BECD47 /* Protocols.swift in Sources */,
 				10FF6B8924A520F100DC8CE2 /* ExpectedWaterParameters+CoreDataClass.swift in Sources */,
+				109F0DED25949435004B0F0B /* Document.swift in Sources */,
 				10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */,
 				1009D6DF251D061D000BA84D /* SummarySettingsEntity+CoreDataClass.swift in Sources */,
 				10F61C8D24407BFC0069735D /* SummaryVC.swift in Sources */,
@@ -558,6 +565,7 @@
 				1071E1992497E22D00BECD47 /* Extensions.swift in Sources */,
 				1009D6D9251D05A1000BA84D /* SummarySettingsVC.swift in Sources */,
 				10FF6B8824A520F100DC8CE2 /* WaterParameter+CoreDataProperties.swift in Sources */,
+				109F0DE8259493F5004B0F0B /* UserDocument.swift in Sources */,
 				10FF6B8B24A520F100DC8CE2 /* Tank+CoreDataClass.swift in Sources */,
 				1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */,
 				100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */,

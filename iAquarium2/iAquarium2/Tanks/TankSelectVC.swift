@@ -23,10 +23,6 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tankTableView.delegate = self
-        tankTableView.dataSource = self
-        switchTabsEnabled(state: false)
-        tankTableView.rowHeight = 100
         
         let user = Auth.auth().currentUser
         if (user == nil) {
@@ -35,6 +31,10 @@ class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             UIView.setAnimationsEnabled(true)
         }
         
+        tankTableView.delegate = self
+        tankTableView.dataSource = self
+        switchTabsEnabled(state: false)
+        tankTableView.rowHeight = 100
     }
     
     override func viewWillAppear(_ animated: Bool) {

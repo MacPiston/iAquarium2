@@ -23,6 +23,9 @@ class RegisterVC: FormViewController {
         formSetup()
 
         setupShadows()
+        
+        self.view.bringSubviewToFront(submitButton)
+        self.view.bringSubviewToFront(headLabel)
     }
     
     private func formSetup() {
@@ -33,8 +36,14 @@ class RegisterVC: FormViewController {
             
         }
         <<< LabelRow() {
+            $0.title = "Display name"
+        }
+        <<< TextRow() {
+            $0.tag = "displayName"
+            $0.placeholder = "Enter your nickname"
+        }
+        <<< LabelRow() {
             $0.title = "Email address"
-            $0.cell.textLabel?.textColor = .white
         }
         <<< EmailRow() {
             $0.tag = "email"
@@ -61,7 +70,8 @@ class RegisterVC: FormViewController {
             $0.add(rule: RuleRequired())
             $0.validationOptions = .validatesOnChangeAfterBlurred
         }.onChange({ [self] row in
-            if (form.validate().isEmpty) {
+            let pwd2row = form.rowBy(tag: "pwd2") as! PasswordRow
+            if (form.validate().isEmpty && pwd2row.value == row.value) {
                 submitButton.isEnabled = true
             } else {
                 submitButton.isEnabled = false
@@ -73,7 +83,8 @@ class RegisterVC: FormViewController {
             $0.add(rule: RuleRequired())
             $0.validationOptions = .validatesOnChangeAfterBlurred
         }.onChange({ [self] row in
-            if (form.validate().isEmpty) {
+            let pwd1row = form.rowBy(tag: "pwd1") as! PasswordRow
+            if (form.validate().isEmpty && pwd1row.value == row.value) {
                 submitButton.isEnabled = true
             } else {
                 submitButton.isEnabled = false
@@ -89,6 +100,27 @@ class RegisterVC: FormViewController {
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        
+        if (form.validate().isEmpty) {
+            let email = form.values()["email"] as! String
+            let pwd = form.values()["pwd2"] as! String
+            let displayName = form.values()["displayName"] as? String ?? email
+            
+            Auth.auth().createUser(withEmail: email, password: pwd, completion: { authResult, error in
+                Auth.auth().signIn(withEmail: email, password: pwd, completion: { [weak self] authResult, error in
+                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    changeRequest?.displayName = displayName
+                    changeRequest?.commitChanges(completion: { error in
+                        let user = Auth.auth().currentUser
+                        if let user = user {
+                            // Create and update User Document
+                            let userDoc = UserDocument(uid: user.uid)
+                            userDoc.setUserDocument(displayName: displayName, email: email)
+                        }
+                        self!.performSegue(withIdentifier: "RegistrationCompleteSegue", sender: self!.submitButton)
+                    })
+                })
+            })
+            
+        }
     }
 }
