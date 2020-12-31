@@ -42,7 +42,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBAction func restorePasswordPressed(_ sender: UIButton) {
         if emailTextField.text != nil && !emailTextField.text!.isEmpty && emailTextField.text!.isValidEmail {
             // Send password reset request
-            let requestSent = UIAlertController(title: "Request sent", message: "Password reset request has been sent to \(emailTextField.text)", preferredStyle: .alert)
+            let requestSent = UIAlertController(title: "Request sent", message: "Password reset request has been sent to \(String(describing: emailTextField.text))", preferredStyle: .alert)
             requestSent.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             self.present(requestSent, animated: true, completion: nil)
         } else {

@@ -15,6 +15,7 @@
 		10255DC324422A5F00AE59E7 /* TankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */; };
 		1071E1992497E22D00BECD47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E1982497E22D00BECD47 /* Extensions.swift */; };
 		1071E19B2497E23600BECD47 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1071E19A2497E23600BECD47 /* Protocols.swift */; };
+		1072AC22259E4A0D0058F107 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1072AC21259E4A0D0058F107 /* EditProfileVC.swift */; };
 		1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */; };
 		10B84C42252F3D490032F540 /* SummaryTankSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */; };
 		10BA30C1258FD56B00ADFB8E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA30C0258FD56B00ADFB8E /* LoginVC.swift */; };
@@ -72,6 +73,7 @@
 		10255DC224422A5F00AE59E7 /* TankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankTableViewCell.swift; sourceTree = "<group>"; };
 		1071E1982497E22D00BECD47 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1071E19A2497E23600BECD47 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		1072AC21259E4A0D0058F107 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		1077ED63244B714400DCAEF9 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
 		10B84C41252F3D490032F540 /* SummaryTankSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTankSettingsVC.swift; sourceTree = "<group>"; };
 		10BA30C0258FD56B00ADFB8E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				10BA30C0258FD56B00ADFB8E /* LoginVC.swift */,
+				1072AC21259E4A0D0058F107 /* EditProfileVC.swift */,
 			);
 			path = UserAccess;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				1071E1992497E22D00BECD47 /* Extensions.swift in Sources */,
 				1009D6D9251D05A1000BA84D /* SummarySettingsVC.swift in Sources */,
 				10FF6B8824A520F100DC8CE2 /* WaterParameter+CoreDataProperties.swift in Sources */,
+				1072AC22259E4A0D0058F107 /* EditProfileVC.swift in Sources */,
 				10FF6B8B24A520F100DC8CE2 /* Tank+CoreDataClass.swift in Sources */,
 				1077ED64244B714400DCAEF9 /* MeasurementsVC.swift in Sources */,
 				100E042E2450B0A50063E4FE /* AddMeasurementVC.swift in Sources */,

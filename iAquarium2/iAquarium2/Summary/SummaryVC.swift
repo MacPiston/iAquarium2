@@ -20,6 +20,7 @@ class SummaryVC: FormViewController, passTank {
     var measurements: [Measurement]?
     var latestMeasurement: Measurement?
     var settings: SummarySettingsEntity?
+    @IBOutlet weak var editProfileButton: UIBarButtonItem!
     
     let dateFormatter = DateFormatter()
     

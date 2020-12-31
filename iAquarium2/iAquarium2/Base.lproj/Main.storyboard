@@ -107,6 +107,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Tank" id="FwG-x5-Q5l">
+                        <barButtonItem key="leftBarButtonItem" title="Profile..." image="person.circle" catalog="system" id="QCM-eP-KkA">
+                            <connections>
+                                <segue destination="5FS-OR-e48" kind="presentation" identifier="EditProfileSegue" id="1eJ-Km-r8T"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yoi-kh-p2H">
                             <connections>
                                 <segue destination="8mw-ab-51l" kind="presentation" id="he4-up-LIj"/>
@@ -114,6 +119,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editProfileButton" destination="QCM-eP-KkA" id="axW-oj-JCF"/>
                         <outlet property="tankTableView" destination="k4j-pF-7Ue" id="jXt-cH-SEB"/>
                         <segue destination="RK3-PL-cxX" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="8u2-7P-vPl"/>
                     </connections>
@@ -164,6 +170,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tank Summary" id="W3l-XP-uBh">
+                        <barButtonItem key="leftBarButtonItem" title="Profile..." image="person.circle" catalog="system" id="yaY-HM-UEv">
+                            <connections>
+                                <segue destination="5FS-OR-e48" kind="presentation" identifier="EditProfileSegue" id="tdv-ga-KoN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="Qaf-9y-Tjy">
                             <connections>
                                 <segue destination="1lA-sH-wJQ" kind="show" id="VVY-Hl-Ffg"/>
@@ -171,6 +182,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editProfileButton" destination="yaY-HM-UEv" id="Vex-7Q-B3T"/>
                         <segue destination="RK3-PL-cxX" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="IOK-Vh-24P"/>
                     </connections>
                 </viewController>
@@ -224,6 +236,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Saved Measurements" id="s8k-RG-F5B">
+                        <barButtonItem key="leftBarButtonItem" title="Profile..." image="person.circle" catalog="system" id="0oo-zL-DiV">
+                            <connections>
+                                <segue destination="5FS-OR-e48" kind="presentation" identifier="EditProfileSegue" id="cvY-aG-CPf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EGZ-bF-41E">
                             <connections>
                                 <segue destination="BoK-w0-q2t" kind="presentation" identifier="showAddMeasurement" id="VSR-wI-UqP"/>
@@ -231,6 +248,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="editUserButton" destination="0oo-zL-DiV" id="32b-DV-R67"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hD-tL-U0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,6 +394,21 @@
             </objects>
             <point key="canvasLocation" x="-1378" y="788"/>
         </scene>
+        <!--Edit ProfileVC-->
+        <scene sceneID="klF-dC-ZPe">
+            <objects>
+                <viewController id="5FS-OR-e48" customClass="EditProfileVC" customModule="iAquarium2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZMl-D7-sjk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vVg-xU-hUd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ik5-fF-CGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255" y="788"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -491,11 +526,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="cvY-aG-CPf"/>
         <segue reference="IOK-Vh-24P"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
         <image name="thermometer" catalog="system" width="93" height="128"/>
         <systemColor name="lightTextColor">

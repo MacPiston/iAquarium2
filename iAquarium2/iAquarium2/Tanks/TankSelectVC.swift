@@ -13,6 +13,7 @@ import Firebase
 class TankSelectVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tankTableView: UITableView!
+    @IBOutlet weak var editProfileButton: UIBarButtonItem!
     
     var tanks: [Tank] = []
     var selectedTank: Tank?

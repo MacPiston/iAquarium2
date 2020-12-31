@@ -18,6 +18,7 @@ class MeasurementsVC: FormViewController, passTank {
     var selectedMeasurement: Measurement?
     let dateFormatter = DateFormatter()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    @IBOutlet weak var editUserButton: UIBarButtonItem!
     
     // MARK: - Class stuff
     override func viewDidLoad() {
