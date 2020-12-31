@@ -404,6 +404,9 @@
                         <viewLayoutGuide key="safeArea" id="vVg-xU-hUd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="RK3-PL-cxX" kind="presentation" identifier="userLoggedOutSegue" modalPresentationStyle="fullScreen" id="AUD-7D-rZw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ik5-fF-CGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -527,7 +530,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cvY-aG-CPf"/>
-        <segue reference="IOK-Vh-24P"/>
+        <segue reference="AUD-7D-rZw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>

@@ -54,20 +54,40 @@ class EditProfileVC: FormViewController {
             +++ Section()
             <<< PasswordRow() {
                 $0.tag = "pwd1"
-                $0.title = "Password"
-            }
+                $0.title = "New password"
+            }.onChange({ [self] row in
+                let pwd2row = form.rowBy(tag: "pwd2") as! PasswordRow
+                let buttonRow = form.rowBy(tag: "saveButton")
+                if (pwd2row.value != row.value) {
+                    buttonRow?.disabled = true
+                } else {
+                    buttonRow?.disabled = false
+                }
+                buttonRow?.evaluateDisabled()
+            })
             <<< PasswordRow() {
                 $0.tag = "pwd2"
                 $0.title = "Repeat password"
-            }
+            }.onChange({ [self] row in
+                let pwd1row = form.rowBy(tag: "pwd1") as! PasswordRow
+                let buttonRow = form.rowBy(tag: "saveButton")
+                if (pwd1row.value != row.value) {
+                    buttonRow?.disabled = true
+                } else {
+                    buttonRow?.disabled = false
+                }
+                buttonRow?.evaluateDisabled()
+            })
         
             +++ Section()
             <<< ButtonRow() {
+                $0.tag = "saveButton"
                 $0.title = "Save changes"
+                $0.disabled = true
             }.onCellSelection({ cell, row in
                 let user = Auth.auth().currentUser
                 let errorAC = UIAlertController(title: "Error", message: "There was an error while updating values.", preferredStyle: .alert)
-                errorAC.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                errorAC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 
                 if let user = user {
                     let changeRq = Auth.auth().currentUser?.createProfileChangeRequest()
@@ -75,20 +95,54 @@ class EditProfileVC: FormViewController {
                     changeRq?.commitChanges(completion: { error in
                         if let error = error {
                             self.present(errorAC, animated: true)
+                            print(error.localizedDescription)
                         }
                     })
                     Auth.auth().currentUser?.updateEmail(to: self.form.values()["email"] as! String, completion: { error in
                         if let error = error {
                             self.present(errorAC, animated: true)
+                            print(error.localizedDescription)
                         }
                     })
-                    Auth.auth().currentUser?.updatePassword(to: self.form.values()["pwd2"] as! String, completion: { error in
-                        if let error = error {
-                            self.present(errorAC, animated: true)
-                        }
+                    
+                    let relogAlert = UIAlertController(title: "Password required", message: "Re-type password in order to change password and/or email address", preferredStyle: .alert)
+                    relogAlert.addTextField(configurationHandler: { field in
+                        field.placeholder = "Current password"
+                        field.isSecureTextEntry = true
                     })
+                    relogAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { alertAction in
+                        let credential: AuthCredential = EmailAuthProvider.credential(withEmail: user.email!, password: (relogAlert.textFields![0] as UITextField).text ?? "")
+                        
+                        user.reauthenticate(with: credential, completion: { result, error in
+                            if let error = error {
+                                print("Error: \(error.localizedDescription)")
+                            } else {
+                                Auth.auth().currentUser?.updatePassword(to: self.form.values()["pwd2"] as! String, completion: { error in
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                })
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        })
+                    }))
+                    self.present(relogAlert, animated: true)
                 }
-                self.navigationController?.popViewController(animated: true)
+            })
+        
+            <<< ButtonRow() {
+                $0.tag = "logoutButton"
+                $0.title = "Logout"
+            }.onCellSelection({ cell, row in
+                do {
+                try Auth.auth().signOut()
+                } catch {
+                    
+                }
+                self.performSegue(withIdentifier: "userLoggedOutSegue", sender: self)
+            })
+            .cellUpdate({ cell, row in
+                cell.textLabel?.textColor = .systemRed
             })
     }
 }
